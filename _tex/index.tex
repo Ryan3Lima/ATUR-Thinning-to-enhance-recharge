@@ -177,9 +177,10 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={La Palma Earthquakes},
-  pdfauthor={Steve Purves; Rowan Cockett},
-  pdfkeywords={La Palma, Earthquakes},
+  pdftitle={Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona},
+  pdfauthor={Ryan E Lima; Neha Gupta; Travis Zalesky; Temuulen Tsagaan Sankey; Abraham E Springer; Katherine Jacobs},
+  pdfkeywords={suitability mapping, Forest thinning, Water
+yield, groundwater recharge, GIS-MCDM, AHP},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -188,148 +189,509 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\journalname{Earth and Space Science}
+\journalname{Journal of Environmental Management}
 
 \draftfalse
 
 \begin{document}
-\title{La Palma Earthquakes}
+\title{Mapping landscape suitability for forest thinning to reduce
+evapotranspiration and enhance groundwater recharge in Arizona}
 
-\authors{Steve Purves\affil{1}, Rowan Cockett\affil{1}}
-\affiliation{1}{Curvenote, }
-\correspondingauthor{Steve Purves}{steve@curvenote.com}
+\authors{Ryan E Lima\affil{1}, Neha Gupta\affil{2}, Travis
+Zalesky\affil{2}, Temuulen Tsagaan Sankey\affil{1}, Abraham E
+Springer\affil{1}, Katherine Jacobs\affil{2}}
+\affiliation{1}{Northern Arizona University, }\affiliation{2}{University
+of Arizona, }
+\correspondingauthor{Ryan E Lima}{ryan.lima@nau.edu}
 
 
 \begin{abstract}
-In September 2021, a significant jump in seismic activity on the island
-of La Palma (Canary Islands, Spain) signaled the start of a volcanic
-crisis that still continues at the time of writing. Earthquake data is
-continually collected and published by the Instituto Geográphico
-Nacional (IGN). \ldots{}
+Literature on the relationship between forest thinning and water yield
+was used to develop suitability criteria to map where forest treatment
+is most likely to enhance groundwater recharge across the Coconino
+National Forest in Arizona. Rechage in the region is ephemeral and
+focused in periods of snowmelt and locations of enhanced permeability
+when soil moisture exceeds threshold levels. Our approach combines
+thematic maps of criteria such as average precipitation, snow dominance,
+slope, aspect,landscape morphology, forest basal area, canopy cover,
+lithology and hydrologic soil type into a GIS-Multi-Criteria Decision
+Making model. Pairwise comparisons were made between criteria, and
+Analytic Hierachy Process was used as a weighting method.
 \end{abstract}
 
-\section*{Plain Language Summary}
-Earthquake data for the island of La Palma from the September 2021
-eruption is found \ldots{}
 
 
 
 
 \section{Introduction}\label{introduction}
 
-\textsubscript{Source:
-\href{https://Ryan3Lima.github.io/ATUR-Thinning-to-enhance-recharge/index.qmd.html}{Article
-Notebook}}
+Warming associated with anthropogenic climate change has led to a
+doubling in the frequency of extreme hydroclimate events in the Colorado
+River Basin since 2010, including droughts, heatwaves, and floods
+(Bennett et al., 2021). Since 2000, the Colorado River Basin has been in
+the midst of a historic drought (Meko et al., 2022; Williams et al.,
+2022). During that time, streamflow in the Colorado River has declined
+by 19\% relative to the 1906-1999 average (Hogan \& Lundquist, 2024;
+Udall \& Overpeck, 2017). Rapid population growth in the Southwest and
+Arizona, in particular, is increasing the demands on already strained
+water supplies in the State. Reductions in streamflow have increased
+reliance on groundwater pumping, resulting in groundwater declines
+across much of the State (Tadych et al., 2024). Analyses of regional
+gravity data has suggested that the rate of groundwater loss may far
+exceed the rate of depletion of Lake Powell and Lake Mead and that
+groundwater may account for a larger portion of water use than
+previously thought (Castle et al., 2014).
 
-\phantomsection\label{cell-fig-timeline}
-\begin{figure}[H]
+Concurrently, the risk of catastrophic wildfires is increasing in
+Western forests--an emerging driver of runoff change that will increase
+the impact on the water supply (Williams et al., 2022). Forest structure
+in Northern Arizona and New Mexico has changed significantly
+post-Euro-American settlement. Many forests are overstocked relative to
+pre-settlement conditions due to grazing, logging, and wildfire
+exclusion (Covington \& Moore, 1994; Friederici, 2013). These changes
+have increased the risk of catastrophic wildfires (Allen et al., 2002).
+Rising temperatures and related droughts have contributed to extensive
+tree mortality from wildfire, disease, and insect infestation (Berner et
+al., 2017). Warming temperatures have tripled the frequency and
+quadrupled the size of wildfires since 2000 {[}(Iglesias et al.,
+2022){]}.
 
-\centering{
+Landscape-scale forest restoration efforts have been planned or
+implemented across much of Arizona. For example, the Four Forest
+Restoration Initiative (4FRI) includes plans for restoration across over
+1 million hectares of Arizona's forests (Schultz et al., 2012). The
+primary goal of restoration efforts is to reduce wildfire risk (Allen et
+al., 2002; Friederici, 2013). However, numerous studies have linked
+forest treatments to increased water yields in semi-arid forests and
+have emphasized the role of forest restoration in improving hydrologic
+services and increasing water availability (Baker, 1986; Bosch \&
+Hewlett, 1982a; Gottfried, 1991; Hibbert, 1979a; Moreno et al., 2015;
+O'Donnell et al., 2018; Schenk et al., 2020; Simonit et al., 2015;
+Smerdon et al., 2009; C. Wyatt et al., 2015; C. J. W. Wyatt, 2013; Zou
+et al., 2010). Forest treatments such as thinning and burning can
+significantly impact the hydrologic cycle of forests (Del Campo et al.,
+2022). For example, forest thinning in Arizona has been associated with
+increased snow cover days (Belmonte et al., 2021; Donager et al., 2021;
+Sankey et al., 2015), greater soil moisture (Belmonte et al., 2022;
+Sankey \& Tatum, 2022), and greater forest canopy moisture (Sankey et
+al., 2021).
 
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/fig-timeline-1.pdf}}
+While the connection between forest treatment and water yield is well
+documented, the response of forests to treatments is complex and
+non-linear and differs across forest types, with treatment level, and
+along aspect and elevational gradients (Biederman et al., 2022a; Del
+Campo et al., 2022; Hibbert, 1979a; Moore \& Wondzell, 2005; Zou et al.,
+2010). Regardless of the potential for increased water yield, the
+enhancement of groundwater recharge rarely, if ever, ranks among the
+primary motivations for forest treatment, even among projects with the
+stated goal of improving watershed health (Allen et al., 2002; Filoso et
+al., 2017; Friederici, 2013; O'Donnell, 2016; Stanturf et al., 2014).
 
-}
+Forest health and water security are intimately linked. About 66\% of
+the water supply in 11 western states comes from Forested Lands (Brown
+et al., 2005). Despite this, the management of lands and waters is still
+largely compartmentalized. The Western Water Network (WWN) identified
+the need to promote better and faster collaboration between researchers,
+managers, educators, industry, and stakeholders across the West (Hansen
+et al., 2024). This study examines forest restoration through the lens
+of groundwater recharge enhancement and aims to identify potential
+recharge zones. We map suitability for forest thinning with the goal of
+enhancing recharge. Suitability maps like these may complement (or
+supplement) existing frameworks for prioritizing landscape-scale forest
+management and managing lands and water jointly.
 
-\caption{\label{fig-timeline}Timeline of recent earthquakes on La Palma}
+Suitability mapping, and particularly GIS-based Multi-criteria decision
+making (GIS-MCDM), is widely used to map potential recharge zones and
+areas suitable for Managed Aquifer Recharge (MAR), but to our knowledge,
+it has not yet been implemented to map incidental recharge or recharge
+enhancement potential, from forest thinning (Fathi et al., 2021; Rahman
+et al., 2012; Raja Shekar \& Mathew, 2023). Pairwise comparisons were
+made between criteria including forest basal area, canopy cover, average
+precipitation, snow dominance, slope, aspect, landscape morphology,
+forest density, lithology, and hydrologic soil type.
 
-\end{figure}%
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\textsubscript{Source:
-\href{https://Ryan3Lima.github.io/ATUR-Thinning-to-enhance-recharge/index.qmd.html}{Article
-Notebook}}
+\subsection{Literature Reviewed}\label{literature-reviewed}
 
-\textsubscript{Source:
-\href{https://Ryan3Lima.github.io/ATUR-Thinning-to-enhance-recharge/index.qmd.html}{Article
-Notebook}}
+\begin{itemize}
+\item
+  How forest thinning may enhance recharge
 
-Based on data up to and including 1971, eruptions on La Palma happen
-every 79.8 years on average.
+  \begin{itemize}
+  \item
+    Reduced canopy interception, increased snow retention
+  \item
+    decreases ET - TEKI Fort Valley research
+  \item
+    Increases Soil Moisture
+  \item
+    Precipitation thresholds in thinning literature
+  \end{itemize}
+\item
+  Caveats
 
-Studies of the magma systems feeding the volcano, such as Marrero et al.
-(2019), have proposed that there are two main magma reservoirs feeding
-the Cumbre Vieja volcano; one in the mantle (30-40km depth) which
-charges and in turn feeds a shallower crustal reservoir (10-20km depth).
+  \begin{itemize}
+  \item
+    Low Elevations - less water yield in low-elevation forests in the
+    Salt-Verde System (Biederman et al., 2022a)
+  \item
+    Sunny Aspects - increased sublimation with decreased canopy cover
+    (Biederman et al., 2015)
+  \end{itemize}
+\end{itemize}
 
-Eight eruptions have been recorded since the late 1400s
-(Figure~\ref{fig-timeline}).
+\section{Methods}\label{methods}
 
-Data and methods are discussed in Section~\ref{sec-data-methods}.
+We used the Suitability Modeler within the Spatial Analysis toolbox in
+ArcGIS Pro 3.4.0 to create a weighted suitability model. The first step
+involved screening out unsuitable areas, including non-forested land
+covers, wilderness areas, and areas with maximum annual precipitation
+below 500 mm. After this initial screening process, thematic maps were
+created using criteria known to affect water yield in thinned forests.
 
-Let \(x\) denote the number of eruptions in a year. Then, \(x\) can be
-modeled by a Poisson distribution
+\subsection{Study Area}\label{study-area}
 
-\begin{equation}\phantomsection\label{eq-poisson}{
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-}\end{equation}
+The Coconino National Forest is located in northern Arizona near the
+cities of Flagstaff and Sedona. Its elevation ranges from 790 m near the
+Verde River to 3,851 m at the summit of Humphreys Peak. The Coconino
+National Forest spans the Mogollon Rim, a topographic feature forming
+the southern edge of the Colorado Plateau. The Mogollon Rim has been
+identified as an important groundwater recharge area for regional
+aquifers (J. T. C. Parker et al., 2005) of the estimated 2.1 billion
+\(m^3\) (174,000 acre-feet of precipitation that falls on the Mogollon
+Rim, about 8\% is estimated to recharge the regional groundwater
+aquifers(J. T. C. Parker et al., 2005). Precipitation along the Mogollon
+Rim is bi-modal, with wet winters and a late-summer monsoon season.
+Isotopic groundwater analysis has revealed that Northern Arizona's
+recharge is dominated by winter precipitation (C. J. Eastoe, 2007; C. J.
+Eastoe, 2023).
 
-where \(\lambda\) is the rate of eruptions per year. Using
-Equation~\ref{eq-poisson}, the probability of an eruption in the next
-\(t\) years can be calculated.
+The Coconino National Forest is located within North America's largest
+contiguous ponderosa pine (Pinus ponderosa) forest. Ponderosa pine
+covers roughly 40\% of the national forest's area of about 340,000
+\(ha\), primarily between 2000 and 2400 \(m\) in elevation. While the
+Ponderosa Pine forest is the largest vegetation type, the Coconino
+National Forest hosts various shrub and sagebrush communities and pinyon
+Juniper forests at lower elevations. Mixed conifer forests dominated by
+spruce, pine, and fir at higher elevations can be found along with
+sporadic aspen stands. Isotopic studies of plant water use have found
+that larger ponderosa pine trees primarily utilize deeper soil moisture
+from winter precipitation, while understory vegetation and smaller trees
+utilize shallow soil water from monsoonal storms (Kerhoulas et al.,
+2013; Kerhoulas et al., 2023).
 
-\begin{longtable}[]{@{}ll@{}}
-\caption{Recent historic eruptions on La
-Palma}\label{tbl-history}\tabularnewline
+\subsection{Define goals}\label{define-goals}
+
+\subsection{Initial Suitability
+Screening}\label{initial-suitability-screening}
+
+There are obviously many other considerations for where thinning should
+be done other than whether they are ecologically or geologically
+suitable areas; one example would be areas managed as wilderness, where
+thinning may be incompatible with land use management goals. We masked
+out all wilderness areas within the Coconino National Forest from
+consideration. This same technique could be used to mask other areas
+that are managed for specific values incongruent with forest treatment
+or requiring specialized treatment.
+
+Next, we masked out areas with maximum annual precipitation below
+500\(mm\). Several studies have suggested that below 500\(mm\) of yearly
+precipitation, thinning does not seem to affect water yield, likely
+because below that threshold, most precipitation is evaporated
+regardless of forest condition, resulting in little or no recharge
+(Adams et al., 2012; Biederman et al., 2022b; Bosch \& Hewlett, 1982b;
+Hibbert, 1979b)
+
+We then screened out incompatible land uses, using the National Land
+Cover data set and retaining only land cover classes: 41-Deciduous
+forests, 42- Evergreen forest, and 43- Mixed forest. Then we used the
+Landfire Effective vegetation type maps and filtered out all forested
+areas with classes containing the keywords ``Urban,'' ``Developed,''
+``Agriculture,'' ``Madrean,'' or ``Savannah.''
+
+\subsection{Suitability Criteria}\label{suitability-criteria}
+
+\subsubsection{Topographic Relative Moisture
+Index}\label{topographic-relative-moisture-index}
+
+Topographic Relative Moisture Index (TRMI) incorporates several
+topographic parameters that influence moisture dynamics, including slope
+gradient, aspect, relative elevation (or topographic position), and
+landscape convexity or concavity (A. J. Parker, 1982). TRMI data comes
+from the Southwest Regional Gap Analysis
+\href{https://swregap.org/data/}{(SWReGAP)} where terrain features are
+separated into 10 categories ranked in terms of soil moisture. Del Campo
+and others (Del Campo et al., 2019) examined below-ground hydrological
+processes in thinned semi-arid watersheds. They found that sites with
+high antecedent soil moisture had the highest response, with drainage to
+deeper soil layers increasing by \(50\frac{mm}{year}\) relative to
+control sites.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.6389}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1806}}@{}}
 \toprule\noalign{}
-Name & Year \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Name & Year \\
+\begin{minipage}[b]{\linewidth}\raggedright
+Class Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Suitability Value
+\end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Current & 2021 \\
-Teneguía & 1971 \\
-Nambroque & 1949 \\
-El Charco & 1712 \\
-Volcán San Antonio & 1677 \\
-Volcán San Martin & 1646 \\
-Tajuya near El Paso & 1585 \\
-Montaña Quemada & 1492 \\
+Valley Flats & These areas are typically the lowest points in a
+landscape where water naturally accumulates, making them the moistest. &
+10 \\
+Very Moist Steep Slopes & Despite the slope, these areas (often with
+north-facing or shaded aspects in the Northern Hemisphere) retain
+moisture due to cool temperatures and reduced evaporation. & 9 \\
+Toe Slopes & These are the lower parts of slopes where water tends to
+collect after flowing downhill, making them moist but slightly less so
+than valley flats. & 8 \\
+Cool Aspect Scarps, Cliffs, Canyons & North-facing scarps and shaded
+canyons are cooler and retain moisture better than exposed slopes,
+particularly in arid regions. & 7 \\
+Nearly Level Plateaus or Terraces & These flat areas may retain moderate
+amounts of moisture but are generally more exposed to sunlight and wind
+than valleys or steep moist slopes. & 6 \\
+Gently Sloping Ridges & These ridges are not as steep, so water may
+infiltrate rather than run off completely, but they are still relatively
+dry due to elevation. & 5 \\
+Moderately Moist Steep Slopes & These are typically slopes with
+intermediate aspects or conditions, retaining some moisture but less
+than moist slopes. & 4 \\
+Moderately Dry Slopes & These areas have greater runoff and less water
+retention, often due to steeper gradients and/or sun exposure. & 3 \\
+Very Dry Steep Slopes & Steep slopes with sun exposure (e.g.,
+south-facing in the Northern Hemisphere) promote high runoff and
+evaporation, leaving them very dry. & 2 \\
+Hot Aspect Scarps, Cliffs, and Canyons & South-facing cliffs and canyons
+with maximum sun exposure (in the Northern Hemisphere) are the driest
+due to high evaporation and limited water retention. & 1 \\
 \end{longtable}
-
-Table~\ref{tbl-history} summarises the eruptions recorded since the
-colonization of the islands by Europeans in the late 1400s.
-
-\begin{figure}
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{images/la-palma-map.png}}
-
-}
-
-\caption{\label{fig-map}Map of La Palma}
-
-\end{figure}%
-
-La Palma is one of the west most islands in the Volcanic Archipelago of
-the Canary Islands (Figure~\ref{fig-map}).
 
 \begin{figure}[H]
 
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png}}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/TRMI.jpg}}
 
 }
 
-\caption{\label{fig-spatial-plot}Locations of earthquakes on La Palma
-since 2017}
+\caption{Topographic Relative Moisture Index from the Southwest Regional
+Gap Analysis (SWReGAP)}
 
 \end{figure}%
 
-\textsubscript{Source:
-\href{https://Ryan3Lima.github.io/ATUR-Thinning-to-enhance-recharge/notebooks/explore-earthquakes-preview.html\#cell-fig-spatial-plot}{Explore
-Earthquakes}}
+\subsubsection{Basal Area}\label{basal-area}
 
-Figure~\ref{fig-spatial-plot} shows the location of recent Earthquakes
-on La Palma.
+We extracted basal area estimates from the TreeMap 2016 (Riley et al.,
+2022) CONUS dataset.
 
-\section{Data \& Methods}\label{sec-data-methods}
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Basal_Area.jpg}}
+
+}
+
+\caption{Basal Area in cubic meters per hectare derived from the 2016
+TreeMap dataset.}
+
+\end{figure}%
+
+\subsubsection{Snowfall Dominance}\label{snowfall-dominance}
+
+Ask Patrick Broxton how it was calculated.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Snowfall Fraction.jpg}}
+
+}
+
+\caption{Percentage of Annual Precipitation that Falls as Snow}
+
+\end{figure}%
+
+\subsubsection{Mean Annual
+Precipitation}\label{mean-annual-precipitation}
+
+Utilized AORC Retrospective forcing data for average water year (WY)
+precipitation 1991 - 2020
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Mean_Annual_Precipitation.jpg}}
+
+}
+
+\caption{Mean Annual Precipitation for years 1991 - 2020}
+
+\end{figure}%
+
+\subsubsection{Subsurface Infiltration
+Capacity}\label{subsurface-infiltration-capacity}
+
+We utilized the Global Hydrological Maps of Permeability and Porosity
+(GLHYMPS) to estimate subsurface infiltration capacity (Gleeson et al.,
+2014)
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/GLHYMPS.jpg}}
+
+}
+
+\caption{Subsurface Infiltration Capacity, a combination of Permeability
+and Porosity values from the GLHYMPS dataset (Gleeson et al., 2014).
+Higher values (cooler colors) indicate higher infiltration capacity,
+while browner colors and lower values indicate lower infiltration
+capacity. Keep in mind this does not consider secondary or tertiary
+permeability or porosity due to faults, fractures, caves, and conduits.}
+
+\end{figure}%
+
+\subsubsection{Soil Hydrologic Type}\label{soil-hydrologic-type}
+
+Data from gNATSGO was used to estimate the soil's ability to infiltrate
+water, we used the Hydrologic Soil Type.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Hydrologic_soil_type.jpg}}
+
+}
+
+\caption{Hydrologic Soil Type from gNATSGO.}
+
+\end{figure}%
+
+\subsubsection{Canopy Cover}\label{canopy-cover}
+
+Canopy Cover was obtained from the 2021 National Land Cover Dataset ,
+which provides an estimate of Total Canopy Cover.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Canopy_Cover.jpg}}
+
+}
+
+\caption{Canopy Cover derived from the NLCD 2021}
+
+\end{figure}%
+
+\subsection{Weighting}\label{weighting}
+
+Pairwise comparisons between each variable were made using the
+\href{https://www.inowas.com/tools/t05-gis-mcda/}{INOWAS GIS MCDA tool}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Criteria & Weight (\%) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Subsurface Infiltration & 10.12 \\
+Canopy Cover & 9.82 \\
+Basal Area & 15.06 \\
+Topographic Moisture Index & 29.48 \\
+Mean annual Precipitation & 10.73 \\
+Snowfall Fraction & 14.77 \\
+\end{longtable}
+
+\section{Results}\label{results}
+
+We identified 30 forest patches of between 50 and 60 Hectares that we
+consider suitable for thinning for the purposes of enhancing groundwater
+recharge. The patches have mean suitability values ranging from 5.8 to
+6.25. Over 43,000 ha of the study area has a suitability \(\geq\) 5 and
+about 3,400 ha with suitability \(\geq\) 6
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Thinning_Suitability_Map.jpg}}
+
+}
+
+\caption{Suitability Map for Thinning to Enhance Groundwater Recharge}
+
+\end{figure}%
 
 \section{Conclusion}\label{conclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  There are significant portions of the Coconino forest that if thinned,
+  are likely to enhance groundwater recharge, however these are not the
+  only benefits. While this study was aimed at maximizing recharge,
+  these same areas are also likely to reduce wildfire risk and improve
+  watershed function enhancing other hydrologic services.
+\end{itemize}
+
+\section{Discussion}\label{discussion}
+
+\begin{itemize}
+\item
+  novel application of MCDA for mapping areas where forest thinning may
+  enhance groundwater recharge.
+\item
+  Could be adapted to other semi-arid forested
+\item
+  The forest service has a mandate to manage for multiple uses, however
+  groundwater recharge is not currently a use that is explicitly managed
+  for. However, analyses like these can help identify areas that could
+  be managed with aquifer recharge in mind.
+\end{itemize}
+
+\subsection{Future Work}\label{future-work}
+
+\begin{itemize}
+\item
+  Adjusting the suitability map to capture secondary and tertiary
+  permeability and porosity in areas underlain by karst
+\item
+  improved hydrologeolic mapping could improve this process, using
+  higher-resolution data for subsurface infiltration rate.
+\item
+  the soil criteria could be refined by mapping soil Hydraulic
+  conductivity and field capacity rather than just using soil types A -
+  D providing more detail.
+\item
+  could be validated with modeling
+\item
+  Paired watershed studies such as those planned in the Lake Mary
+  Watershed with groundwater monitoring can be used to validate and fine
+  tune model weighting and decision rules between criteria.
+\item
+  this methodology could be used across the 2.6 million acres of
+  Ponderosa Pine forest in Arizona and New mexico
+\item
+  State-wide and regional geologic mapping in Arizona is currently only
+  at the 1:500,000 scale, more detailed data could improve this type of
+  suitability mapping.
+\end{itemize}
+
+\section{Acknowledgments}\label{acknowledgments}
+
+Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
+fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
+Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
+Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
+fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
+
+\section{Open research}\label{open-research}
+
+Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
+fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
+Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
+Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
+fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -338,12 +700,355 @@ on La Palma.
 \begin{CSLReferences}{1}{0}
 \vspace{1em}
 
-\bibitem[\citeproctext]{ref-marrero2019}
-Marrero, J., García, A., Berrocoso, M., Llinares, Á., Rodríguez-Losada,
-A., \& Ortiz, R. (2019). Strategies for the development of volcanic
-hazard maps in monogenetic volcanic fields: The example of {La} {Palma}
-({Canary} {Islands}). \emph{Journal of Applied Volcanology}, \emph{8}.
-\url{https://doi.org/10.1186/s13617-019-0085-5}
+\bibitem[\citeproctext]{ref-adams2012a}
+Adams, H. D., Luce, C. H., Breshears, D. D., Allen, C. D., Weiler, M.,
+Hale, V. C., et al. (2012). Ecohydrological consequences of drought{-}
+and infestation{-} triggered tree die{-}off: insights and hypotheses.
+\emph{Ecohydrology}, \emph{5}(2), 145--159.
+\url{https://doi.org/10.1002/eco.233}
+
+\bibitem[\citeproctext]{ref-allen_ecological_2002}
+Allen, C. D., Savage, M., Falk, D. A., Suckling, K. F., Swetnam, T. W.,
+Schulke, T., et al. (2002). Ecological restoration of southwestern
+ponderosa pine ecosystems: A broad perspective. \emph{Ecological
+Applications}, \emph{12}(5), 1418--1433.
+\url{https://doi.org/10.1890/1051-0761(2002)012\%5B1418:EROSPP\%5D2.0.CO;2}
+
+\bibitem[\citeproctext]{ref-baker_effects_1986}
+Baker, M. B. (1986). Effects of {Ponderosa} {Pine} {Treatments} on
+{Water} {Yield} in {Arizona}. \emph{Water Resources Research},
+\emph{22}(1), 67--73. \url{https://doi.org/10.1029/WR022i001p00067}
+
+\bibitem[\citeproctext]{ref-belmonte_uav-based_2021}
+Belmonte, A., Sankey, T., Biederman, J., Bradford, J., Goetz, S., \&
+Kolb, T. (2021). {UAV}-{Based} {Estimate} of {Snow} {Cover} {Dynamics}:
+{Optimizing} {Semi}-{Arid} {Forest} {Structure} for {Snow}
+{Persistence}. \emph{Remote Sensing}, \emph{13}(5), 1036.
+\url{https://doi.org/10.3390/rs13051036}
+
+\bibitem[\citeproctext]{ref-belmonte_soil_2022}
+Belmonte, A., Ts. Sankey, T., Biederman, J., Bradford, J. B., \& Kolb,
+T. (2022). Soil moisture response to seasonal drought conditions and
+post‐thinning forest structure. \emph{Ecohydrology}, \emph{15}(5),
+e2406. \url{https://doi.org/10.1002/eco.2406}
+
+\bibitem[\citeproctext]{ref-bennett_concurrent_2021}
+Bennett, K. E., Talsma, C., \& Boero, R. (2021). Concurrent {Changes} in
+{Extreme} {Hydroclimate} {Events} in the {Colorado} {River} {Basin}.
+\emph{Water}, \emph{13}(7), 978. \url{https://doi.org/10.3390/w13070978}
+
+\bibitem[\citeproctext]{ref-berner_tree_2017}
+Berner, L. T., Law, B. E., Meddens, A. J. H., \& Hicke, J. A. (2017).
+Tree mortality from fires, bark beetles, and timber harvest during a hot
+and dry decade in the western {United} {States} (2003--2012).
+\emph{Environmental Research Letters}, \emph{12}(6), 065005.
+\url{https://doi.org/10.1088/1748-9326/aa6f94}
+
+\bibitem[\citeproctext]{ref-biederman_recent_2015}
+Biederman, J. A., Somor, A. J., Harpold, A. A., Gutmann, E. D.,
+Breshears, D. D., Troch, P. A., et al. (2015). Recent tree die‐off has
+little effect on streamflow in contrast to expected increases from
+historical studies. \emph{Water Resources Research}, \emph{51}(12),
+9775--9789. \url{https://doi.org/10.1002/2015WR017401}
+
+\bibitem[\citeproctext]{ref-biederman_streamflow_2022}
+Biederman, J. A., Robles, M. D., Scott, R. L., \& Knowles, J. F.
+(2022a). Streamflow {Response} to {Wildfire} {Differs} {With} {Season}
+and {Elevation} in {Adjacent} {Headwaters} of the {Lower} {Colorado}
+{River} {Basin}. \emph{Water Resources Research}, \emph{58}(3),
+e2021WR030687. \url{https://doi.org/10.1029/2021WR030687}
+
+\bibitem[\citeproctext]{ref-biederman2022a}
+Biederman, J. A., Robles, M. D., Scott, R. L., \& Knowles, J. F.
+(2022b). Streamflow Response to Wildfire Differs With Season and
+Elevation in Adjacent Headwaters of the Lower Colorado River Basin.
+\emph{Water Resources Research}, \emph{58}(3), e2021WR030687.
+\url{https://doi.org/10.1029/2021WR030687}
+
+\bibitem[\citeproctext]{ref-bosch_review_1982}
+Bosch, J. M., \& Hewlett, J. D. (1982a). A review of catchment
+experiments to determine the effect of vegetation changes on water yield
+and evapotranspiration. \emph{Journal of Hydrology}, \emph{55}(1-4),
+3--23. \url{https://doi.org/10.1016/0022-1694(82)90117-2}
+
+\bibitem[\citeproctext]{ref-bosch1982}
+Bosch, J. M., \& Hewlett, J. D. (1982b). A review of catchment
+experiments to determine the effect of vegetation changes on water yield
+and evapotranspiration. \emph{Journal of Hydrology}, \emph{55}(1-4),
+3--23. \url{https://doi.org/10.1016/0022-1694(82)90117-2}
+
+\bibitem[\citeproctext]{ref-brown_source_2005}
+Brown, T. C., Hobbins, M. T., \& Ramirez, J. A. (2005). \emph{The
+{Source} of {Water} {Supply} in the {United} {States}} (Discussion
+\{Paper\} No. RMRS-RWU-4851) (p. 57). Fort Collins, CO: U.S. Department
+of Agriculture, Forest Service, Rocky Mountain Research Station.
+Retrieved from
+\url{https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf}
+
+\bibitem[\citeproctext]{ref-castle2014}
+Castle, S. L., Thomas, B. F., Reager, J. T., Rodell, M., Swenson, S. C.,
+\& Famiglietti, J. S. (2014). Groundwater depletion during drought
+threatens future water security of the Colorado River Basin.
+\emph{Geophysical Research Letters}, \emph{41}(16), 5904--5911.
+\url{https://doi.org/10.1002/2014GL061055}
+
+\bibitem[\citeproctext]{ref-covington_southwestern_1994}
+Covington, W. W., \& Moore, M. M. (1994). Southwestern ponderosa pine
+forest structure: Changes since {Euro}-{American} settlement.
+\emph{Journal of Forestry.}, \emph{92}, 39--47.
+
+\bibitem[\citeproctext]{ref-del_campo_effectiveness_2019}
+Del Campo, A. D., González-Sanchis, M., Molina, A. J., García-Prats, A.,
+Ceacero, C. J., \& Bautista, I. (2019). Effectiveness of water-oriented
+thinning in two semiarid forests: {The} redistribution of increased net
+rainfall into soil water, drainage and runoff. \emph{Forest Ecology and
+Management}, \emph{438}, 163--175.
+\url{https://doi.org/10.1016/j.foreco.2019.02.020}
+
+\bibitem[\citeproctext]{ref-del_campo_global_2022}
+Del Campo, A. D., Otsuki, K., Serengil, Y., Blanco, J. A., Yousefpour,
+R., \& Wei, X. (2022). A global synthesis on the effects of thinning on
+hydrological processes: {Implications} for forest management.
+\emph{Forest Ecology and Management}, \emph{519}, 120324.
+\url{https://doi.org/10.1016/j.foreco.2022.120324}
+
+\bibitem[\citeproctext]{ref-donager_integrating_2021}
+Donager, J., Sankey, T. Ts., Sánchez Meador, A. J., Sankey, J. B., \&
+Springer, A. (2021). Integrating airborne and mobile lidar data with
+{UAV} photogrammetry for rapid assessment of changing forest snow depth
+and cover. \emph{Science of Remote Sensing}, \emph{4}, 100029.
+\url{https://doi.org/10.1016/j.srs.2021.100029}
+
+\bibitem[\citeproctext]{ref-eastoe2007}
+Eastoe, C. J. (2007). \emph{Report on an Isotope Study of Groundwater
+from the Mogollon Highlands Area and Adjacent Mogollon Rim, Gila County,
+Arizona}. University of Arizona. Retrieved from
+\url{chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/Eastoe_2007_MRWRMS.pdf}
+
+\bibitem[\citeproctext]{ref-eastoe2023}
+Eastoe, C. J. (2023). Isotope record of groundwater recharge mechanisms
+and climate change in southwestern North America. \emph{Applied
+Geochemistry}, \emph{151}, 105604.
+\url{https://doi.org/10.1016/j.apgeochem.2023.105604}
+
+\bibitem[\citeproctext]{ref-fathi2021}
+Fathi, S., Hagen, J. S., Matanó, A., \& Nogueira, G. E. H. (2021).
+Review of GIS Multi-Criteria Decision Analysis for Managed Aquifer
+Recharge in Semi-Arid Regions. In C. B. Pande \& K. N. Moharir (Eds.)
+(pp. 19--52). Cham: Springer International Publishing.
+\url{https://doi.org/10.1007/978-3-030-68124-1_2}
+
+\bibitem[\citeproctext]{ref-filoso2017}
+Filoso, S., Bezerra, M. O., Weiss, K. C. B., \& Palmer, M. A. (2017).
+Impacts of forest restoration on water yield: A systematic review.
+\emph{PLOS ONE}, \emph{12}(8), e0183210.
+\url{https://doi.org/10.1371/journal.pone.0183210}
+
+\bibitem[\citeproctext]{ref-friederici2013}
+Friederici, P. (2013). \emph{Ecological Restoration of Southwestern
+Ponderosa Pine Forests}. Chicago: Island Press.
+
+\bibitem[\citeproctext]{ref-gleeson2014}
+Gleeson, T., Moosdorf, N., Hartmann, J., \& Van Beek, L. P. H. (2014). A
+glimpse beneath earth's surface: GLobal HYdrogeology MaPS (GLHYMPS) of
+permeability and porosity. \emph{Geophysical Research Letters},
+\emph{41}(11), 3891--3898. \url{https://doi.org/10.1002/2014GL059856}
+
+\bibitem[\citeproctext]{ref-gottfried_moderate_1991}
+Gottfried, G. J. (1991). Moderate timber harvesting increases water
+yields from an {Arizona} {Mixed} {Conifer} {Watershed}. \emph{JAWRA
+Journal of the American Water Resources Association}, \emph{27}(3),
+537--546. Retrieved from
+\url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x}
+
+\bibitem[\citeproctext]{ref-hansen2024}
+Hansen, K., Gaolach, B., Buck, S., Heinse, R., Godwin, D., Paige, G., et
+al. (2024). \emph{The western water network: A vision for the future of
+water management in the west} (p. 17).
+
+\bibitem[\citeproctext]{ref-hibbert1979}
+Hibbert, A. R. (1979a). \emph{Managing vegetation to increase flow in
+the colorado river basin}.
+
+\bibitem[\citeproctext]{ref-hibbert1979b}
+Hibbert, A. R. (1979b). \emph{Managing vegetation to increase flow in
+the colorado river basin}.
+
+\bibitem[\citeproctext]{ref-hogan_recent_2024}
+Hogan, D., \& Lundquist, J. D. (2024). Recent {Upper} {Colorado} {River}
+{Streamflow} {Declines} {Driven} by {Loss} of {Spring} {Precipitation}.
+\emph{Geophysical Research Letters}, \emph{51}(16), e2024GL109826.
+\url{https://doi.org/10.1029/2024GL109826}
+
+\bibitem[\citeproctext]{ref-iglesias2022}
+Iglesias, V., Balch, J. K., \& Travis, W. R. (2022). U.S. fires became
+larger, more frequent, and more widespread in the 2000s. \emph{Science
+Advances}, \emph{8}(11). \url{https://doi.org/10.1126/sciadv.abc0020}
+
+\bibitem[\citeproctext]{ref-kerhoulas2013}
+Kerhoulas, L. P., Kolb, T. E., \& Koch, G. W. (2013). Tree size, stand
+density, and the source of water used across seasons by ponderosa pine
+in northern Arizona. \emph{Forest Ecology and Management}, \emph{289},
+425--433. \url{https://doi.org/10.1016/j.foreco.2012.10.036}
+
+\bibitem[\citeproctext]{ref-kerhoulas2023}
+Kerhoulas, L. P., Umstattd, N., \& Koch, G. W. (2023). Seasonal water
+source patterns in a northern arizona pine forest. \emph{Frontiers in
+Forests and Global Change}, \emph{6}, 1150413.
+\url{https://doi.org/10.3389/ffgc.2023.1150413}
+
+\bibitem[\citeproctext]{ref-meko_treering_2022}
+Meko, D. M., Woodhouse, C. A., \& Winitsky, A. G. (2022). Tree‐{Ring}
+{Perspectives} on the {Colorado} {River}: {Looking} {Back} and {Moving}
+{Forward}. \emph{JAWRA Journal of the American Water Resources
+Association}, \emph{58}(5), 604--621.
+\url{https://doi.org/10.1111/1752-1688.12989}
+
+\bibitem[\citeproctext]{ref-moore_physical_2005}
+Moore, R., \& Wondzell, S. M. (2005). Physical hydrology and the effects
+of forest harvesting in the pacific northwest: {A} review. \emph{Journal
+of the American Water Resources Association}, \emph{41}(4), 763--784.
+\url{https://doi.org/10.1111/j.1752-1688.2005.tb04463.x}
+
+\bibitem[\citeproctext]{ref-moreno_modeling_2015}
+Moreno, H. A., Gupta, H. V., White, D. D., \& Sampson, D. A. (2015,
+October). Modeling the distributed effects of forest thinning on the
+long-term water balance and stream flow extremes for a semi-arid basin
+in the southwestern {US}.
+\url{https://doi.org/10.5194/hessd-12-10827-2015}
+
+\bibitem[\citeproctext]{ref-odonnell2016}
+O'Donnell, F. C. (2016). \emph{The influence of restoration treatments
+on hydrologic output in fire-adapted forests of the southwest}.
+Flagstaff, AZ. Retrieved from
+\url{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/662/rec/1}
+
+\bibitem[\citeproctext]{ref-odonnell_forest_2018}
+O'Donnell, F. C., Flatley, W. T., Springer, A. E., \& Fulé, P. Z.
+(2018). Forest restoration as a strategy to mitigate climate impacts on
+wildfire, vegetation, and water in semiarid forests. \emph{Ecological
+Applications}, \emph{28}(6), 1459--1472.
+\url{https://doi.org/10.1002/eap.1746}
+
+\bibitem[\citeproctext]{ref-parker1982}
+Parker, A. J. (1982). THE TOPOGRAPHIC RELATIVE MOISTURE INDEX: AN
+APPROACH TO SOIL-MOISTURE ASSESSMENT IN MOUNTAIN TERRAIN. \emph{Physical
+Geography}, \emph{3}(2), 160--168.
+\url{https://doi.org/10.1080/02723646.1982.10642224}
+
+\bibitem[\citeproctext]{ref-parker2005}
+Parker, J. T. C., Steinkampf, W. C., \& Flynn, M. E. (2005).
+\emph{Hydrogeology of the Mogollon Highlands, Central Arizona} (p. 99).
+Reston, VA. Retrieved from
+\url{https://pubs.usgs.gov/sir/2004/5294/pdf/Parker\%20SIR\%202004-5294\%20WEB.pdf}
+
+\bibitem[\citeproctext]{ref-rahman2012}
+Rahman, M. A., Rusteberg, B., Gogu, R. C., Lobo Ferreira, J. P., \&
+Sauter, M. (2012). A new spatial multi-criteria decision support tool
+for site selection for implementation of managed aquifer recharge.
+\emph{Journal of Environmental Management}, \emph{99}, 61--75.
+\url{https://doi.org/10.1016/j.jenvman.2012.01.003}
+
+\bibitem[\citeproctext]{ref-rajashekar2023}
+Raja Shekar, P., \& Mathew, A. (2023). Assessing groundwater potential
+zones and artificial recharge sites in the monsoon-fed Murredu river
+basin, India: An integrated approach using GIS, AHP, and Fuzzy-AHP.
+\emph{Groundwater for Sustainable Development}, \emph{23}, 100994.
+\url{https://doi.org/10.1016/j.gsd.2023.100994}
+
+\bibitem[\citeproctext]{ref-riley2022}
+Riley, K. L., Grenfell, I. C., Shaw, J. D., \& Finney, M. A. (2022).
+TreeMap 2016 Dataset Generates CONUS-Wide Maps of Forest Characteristics
+Including Live Basal Area, Aboveground Carbon, and Number of Trees per
+Acre. \emph{Journal of Forestry}, \emph{120}(6), 607--632.
+\url{https://doi.org/10.1093/jofore/fvac022}
+
+\bibitem[\citeproctext]{ref-sankey_thinning_2022}
+Sankey, T., \& Tatum, J. (2022). Thinning increases forest resiliency
+during unprecedented drought. \emph{Scientific Reports}, \emph{12}(1),
+9041. \url{https://doi.org/10.1038/s41598-022-12982-z}
+
+\bibitem[\citeproctext]{ref-sankey_multi-scale_2015}
+Sankey, T., Donald, J., McVay, J., Ashley, M., O'Donnell, F., Lopez, S.
+M., \& Springer, A. (2015). Multi-scale analysis of snow dynamics at the
+southern margin of the {North} {American} continental snow distribution.
+\emph{Remote Sensing of Environment}, \emph{169}, 307--319.
+\url{https://doi.org/10.1016/j.rse.2015.08.028}
+
+\bibitem[\citeproctext]{ref-sankey_regionalscale_2021}
+Sankey, T., Belmonte, A., Massey, R., \& Leonard, J. (2021).
+Regional‐scale forest restoration effects on ecosystem resiliency to
+drought: A synthesis of vegetation and moisture trends on {Google}
+{Earth} {Engine}. \emph{Remote Sensing in Ecology and Conservation},
+\emph{7}(2), 259--274. \url{https://doi.org/10.1002/rse2.186}
+
+\bibitem[\citeproctext]{ref-schenk_impacts_2020}
+Schenk, E. R., O'Donnell, F., Springer, A. E., \& Stevens, L. E. (2020).
+The impacts of tree stand thinning on groundwater recharge in aridland
+forests. \emph{Ecological Engineering}, \emph{145}, 105701.
+\url{https://doi.org/10.1016/j.ecoleng.2019.105701}
+
+\bibitem[\citeproctext]{ref-schultz_collaborative_2012}
+Schultz, C. A., Jedd, T., \& Beam, R. D. (2012). The {Collaborative}
+{Forest} {Landscape} {Restoration} {Program}: {A} {History} and
+{Overview} of the {First} {Projects}. \emph{Journal of Forestry},
+\emph{110}(7), 381--391. \url{https://doi.org/10.5849/jof.11-082}
+
+\bibitem[\citeproctext]{ref-simonit_impact_2015}
+Simonit, S., Connors, J. P., Yoo, J., Kinzig, A., \& Perrings, C.
+(2015). The {Impact} of {Forest} {Thinning} on the {Reliability} of
+{Water} {Supply} in {Central} {Arizona}. \emph{PLOS ONE}, \emph{10}(4),
+e0121596. \url{https://doi.org/10.1371/journal.pone.0121596}
+
+\bibitem[\citeproctext]{ref-smerdon_overview_2009}
+Smerdon, B. D., Redding, T., \& Beckers, J. (2009). An overview of the
+effects of forest management on groundwater hydrology. \emph{Journal of
+Ecosystems and Management}.
+\url{https://doi.org/10.22230/jem.2009v10n1a409}
+
+\bibitem[\citeproctext]{ref-stanturf2014}
+Stanturf, J. A., Palik, B. J., \& Dumroese, R. K. (2014). Contemporary
+forest restoration: A review emphasizing function. \emph{Forest Ecology
+and Management}, \emph{331}, 292--323.
+\url{https://doi.org/10.1016/j.foreco.2014.07.029}
+
+\bibitem[\citeproctext]{ref-tadych_historical_2024}
+Tadych, D. E., Ford, M., Colby, B. G., \& Condon, L. E. (2024).
+Historical patterns of well drilling and groundwater depth in {Arizona}
+considering groundwater regulation and surface water access. \emph{JAWRA
+Journal of the American Water Resources Association}, 1752--1688.13234.
+\url{https://doi.org/10.1111/1752-1688.13234}
+
+\bibitem[\citeproctext]{ref-udall_twentyfirst_2017}
+Udall, B., \& Overpeck, J. (2017). The twenty‐first century {Colorado}
+{River} hot drought and implications for the future. \emph{Water
+Resources Research}, \emph{53}(3), 2404--2418.
+\url{https://doi.org/10.1002/2016WR019638}
+
+\bibitem[\citeproctext]{ref-williams_rapid_2022}
+Williams, A. P., Cook, B. I., \& Smerdon, J. E. (2022). Rapid
+intensification of the emerging southwestern {North} {American}
+megadrought in 2020--2021. \emph{Nature Climate Change}, \emph{12}(3),
+232--234. \url{https://doi.org/10.1038/s41558-022-01290-z}
+
+\bibitem[\citeproctext]{ref-wyatt_semiarid_2015}
+Wyatt, C., O'Donnell, F. C., \& Abraham E. Springer. (2015). Semi‐{Arid}
+{Aquifer} {Responses} to {Forest} {Restoration} {Treatments} and
+{Climate} {Change}. \emph{Ground Water}.
+\url{https://doi.org/10.1111/gwat.12184}
+
+\bibitem[\citeproctext]{ref-wyatt_estimating_2013}
+Wyatt, C. J. W. (2013). \emph{Estimating groundwater yield following
+forest restoration along the {Mogollon} {Rim}} (Master's thesis).
+Northern Arizona University, Flagstaff, AZ. Retrieved from
+\url{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3}
+
+\bibitem[\citeproctext]{ref-zou_streamflow_2010}
+Zou, C. B., Ffolliott, P. F., \& Wine, M. (2010). Streamflow responses
+to vegetation manipulations along a gradient of precipitation in the
+{Colorado} {River} {Basin}. \emph{Forest Ecology and Management},
+\emph{259}(7), 1268--1276.
+\url{https://doi.org/10.1016/j.foreco.2009.08.005}
 
 \end{CSLReferences}
 
