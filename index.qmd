@@ -1,15 +1,27 @@
 ---
-title: Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona
+title: "Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona"
+
+format:
+   elsevier-pdf:
+     journal:
+      name: Journal of Environmental Management
+      formatting: preprint
+      model: 3p
+      layout: onecolumn
+      cite-style: number
+   elsevier-html:
+    toc: true 
+   docx: default
 author:
   - name: Ryan E Lima 
     orcid: 0000-0002-5352-7215
     corresponding: true
     email: ryan.lima@nau.edu
     roles:
-      - conceptualization
+      - conceptualization 
       - Investigation
       - Formal analysis
-      - Writing – original draft
+      - Writing – original draft 
     affiliations: 
       - Northern Arizona University
   - name: Neha Gupta
@@ -63,7 +75,7 @@ keywords:
   - AHP
 
 abstract: 
-    Literature on the relationship between forest thinning and water yield was used to develop suitability criteria to map where forest treatment is most likely to enhance groundwater recharge across the Coconino National Forest in Arizona. Rechage in the region is ephemeral and focused in periods of snowmelt and locations of enhanced permeability when soil moisture exceeds threshold levels. Our approach combines thematic maps of criteria such as average precipitation, snow dominance, slope, aspect,landscape morphology, forest basal area, canopy cover, lithology and hydrologic soil type into a GIS-Multi-Criteria Decision Making model. Pairwise comparisons were made between criteria, and Analytic Hierachy Process was used as a weighting method. 
+    Literature on the relationship between forest thinning and water yield was used to develop suitability criteria to map where forest treatment is most likely to enhance groundwater recharge across the Coconino National Forest in Arizona. Rechage in the region is ephemeral and focused in periods of snowmelt and locations of enhanced permeability when soil moisture exceeds threshold levels. Our approach combines thematic maps of criteria such as average precipitation, snow dominance, slope, aspect,landscape morphology, forest basal area, canopy cover, lithology and hydrologic soil type into a GIS-Multi-Criteria Decision Making model. Pairwise comparisons were made between criteria, and Analytic Hierachy Process was used as a weighting method. test
     
 key-points:
   - Produced suitability map of where forest thinning may reduce evaporative demand increasing water available for streamflow and recharge throughout the State of Arizona
@@ -77,7 +89,7 @@ funding: Arizona Board of Regents
 number-sections: true
 ---
 
-# Introduction
+# Introduction {#sec-intro}
 
 Warming associated with anthropogenic climate change has led to a doubling in the frequency of extreme hydroclimate events in the Colorado River Basin since 2010, including droughts, heatwaves, and floods [@bennett_concurrent_2021]. Since 2000, the Colorado River Basin has been in the midst of a historic drought [@meko_treering_2022; @williams_rapid_2022]. During that time, streamflow in the Colorado River has declined by 19% relative to the 1906-1999 average [@hogan_recent_2024; @udall_twentyfirst_2017]. Rapid population growth in the Southwest and Arizona, in particular, is increasing the demands on already strained water supplies in the State. Reductions in streamflow have increased reliance on groundwater pumping, resulting in groundwater declines across much of the State [@tadych_historical_2024]. Analyses of regional gravity data has suggested that the rate of groundwater loss may far exceed the rate of depletion of Lake Powell and Lake Mead and that groundwater may account for a larger portion of water use than previously thought [@castle2014].
 
@@ -138,7 +150,7 @@ We then screened out incompatible land uses, using the National Land Cover data 
 Topographic Relative Moisture Index (TRMI) incorporates several topographic parameters that influence moisture dynamics, including slope gradient, aspect, relative elevation (or topographic position), and landscape convexity or concavity [@parker1982]. TRMI data comes from the Southwest Regional Gap Analysis [(SWReGAP)](https://swregap.org/data/) where terrain features are separated into 10 categories ranked in terms of soil moisture. Del Campo and others [@del_campo_effectiveness_2019] examined below-ground hydrological processes in thinned semi-arid watersheds. They found that sites with high antecedent soil moisture had the highest response, with drainage to deeper soil layers increasing by $50\frac{mm}{year}$ relative to control sites.
 
 | Class Name                             | Description                                                                                                                                                             | Suitability Value |
-|-------------|----------------------------------------------|-------------|
+|-----------------|---------------------------------------|-----------------|
 | Valley Flats                           | These areas are typically the lowest points in a landscape where water naturally accumulates, making them the moistest.                                                 | 10                |
 | Very Moist Steep Slopes                | Despite the slope, these areas (often with north-facing or shaded aspects in the Northern Hemisphere) retain moisture due to cool temperatures and reduced evaporation. | 9                 |
 | Toe Slopes                             | These are the lower parts of slopes where water tends to collect after flowing downhill, making them moist but slightly less so than valley flats.                      | 8                 |
@@ -201,11 +213,15 @@ Pairwise comparisons between each variable were made using the [INOWAS GIS MCDA 
 | Mean annual Precipitation  | 10.73      |
 | Snowfall Fraction          | 14.77      |
 
+## Model
+
+![This is a diagram of the Suitability model (maybe we can make a prettier version)](images/ArcGIS_Model_builder.png)
+
 # Results
 
-We identified 30 forest patches of between 50 and 60 Hectares that we consider suitable for thinning for the purposes of enhancing groundwater recharge. The patches have mean suitability values ranging from 5.8 to 6.25. Over 43,000 ha of the study area has a suitability $\geq$ 5 and about 3,400 ha with suitability $\geq$ 6
+After excluding wilderness areas, areas receiving less than 500 $mm$ maximum annual precipitaiton and non-compatible land uses, there is about 480,000 hectares that were evaluated for suitability for thinning to enhance recharge. About 95,000 ha have suitability values of 5 or greater, about 12,000 ha have suitability values of 6 or greater, and 65 ha with suitability values greater than 7. Leaving about 384,000 ha with suitability scores less than 5. This does not mean recharge will not be enhanced by thinning in these areas but treatments are less likely to enhance recharge in those areas.
 
-![Suitability Map for Thinning to Enhance Groundwater Recharge](images/Thinning_Suitability_Map.jpg)
+![Suitability Map for Thinning to Enhance Groundwater Recharge](images/Suitability_map_travis.jpg)
 
 # Conclusion
 

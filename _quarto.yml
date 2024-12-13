@@ -1,17 +1,17 @@
 project:
   type: manuscript
-
 execute:
   freeze: auto
-
 format:
-  html:
+  elsevier-pdf:
+    keep-tex: true
+  elsevier-html:
     toc: true
     comments:
       hypothesis: true
   docx: default
   jats: default
-  agu-pdf: default
+
 
 
 
