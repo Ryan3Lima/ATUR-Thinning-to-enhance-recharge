@@ -210,8 +210,9 @@ when soil moisture exceeds threshold levels. Our approach combines
 thematic maps of criteria such as average precipitation, snow dominance,
 slope, aspect,landscape morphology, forest basal area, canopy cover,
 lithology and hydrologic soil type into a GIS-Multi-Criteria Decision
-Making model. Pairwise comparisons were made between criteria, and
-Analytic Hierachy Process was used as a weighting method. test
+Analysis (GIS-MCDA) model. Pairwise comparisons were made between
+criteria, and Analytic Hierachy Process was used as a weighting method.
+test
 \end{abstract}
 
 
@@ -258,7 +259,7 @@ changes have increased the risk of catastrophic wildfires
 have contributed to extensive tree mortality from wildfire, disease, and
 insect infestation \citep{berner_tree_2017}. Warming temperatures have
 tripled the frequency and quadrupled the size of wildfires since 2000
-{[}\citep{iglesias2022}{]}.
+\citep{iglesias2022}.
 
 Landscape-scale forest restoration efforts have been planned or
 implemented across much of Arizona. For example, the Four Forest
@@ -298,11 +299,11 @@ waters is still largely compartmentalized. The Western Water Network
 between researchers, managers, educators, industry, and stakeholders
 across the West \citep{hansen2024}. This study examines forest
 restoration through the lens of groundwater recharge enhancement and
-aims to identify potential recharge zones. We map suitability for forest
-thinning with the goal of enhancing recharge. Suitability maps like
-these may complement (or supplement) existing frameworks for
-prioritizing landscape-scale forest management and managing lands and
-water jointly.
+aims to identify potential recharge zones. We mapped suitability for
+forest thinning with the goal of enhancing recharge. Suitability maps
+like these may complement (or supplement) existing frameworks for
+jointly prioritizing landscape-scale forest management and managing
+lands and water.
 
 Suitability mapping, and particularly GIS-based Multi-criteria decision
 making (GIS-MCDM), is widely used to map potential recharge zones and
@@ -314,51 +315,11 @@ made between criteria including forest basal area, canopy cover, average
 precipitation, snow dominance, slope, aspect, landscape morphology,
 forest density, lithology, and hydrologic soil type.
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\subsection{Literature Reviewed}\label{literature-reviewed}
-
-\begin{itemize}
-\item
-  How forest thinning may enhance recharge
-
-  \begin{itemize}
-  \item
-    Reduced canopy interception, increased snow retention
-  \item
-    decreases ET - TEKI Fort Valley research
-  \item
-    Increases Soil Moisture
-  \item
-    Precipitation thresholds in thinning literature
-  \end{itemize}
-\item
-  Caveats
-
-  \begin{itemize}
-  \item
-    Low Elevations - less water yield in low-elevation forests in the
-    Salt-Verde System \citep{biederman_streamflow_2022}
-  \item
-    Sunny Aspects - increased sublimation with decreased canopy cover
-    \citep{biederman_recent_2015}
-  \end{itemize}
-\end{itemize}
-
-\section{Methods}\label{methods}
-
-We used the Suitability Modeler within the Spatial Analysis toolbox in
-ArcGIS Pro 3.4.0 to create a weighted suitability model. The first step
-involved screening out unsuitable areas, including non-forested land
-covers, wilderness areas, and areas with maximum annual precipitation
-below 500 mm. After this initial screening process, thematic maps were
-created using criteria known to affect water yield in thinned forests.
-
 \subsection{Study Area}\label{study-area}
 
-The Coconino National Forest is located in northern Arizona near the
-cities of Flagstaff and Sedona. Its elevation ranges from 790 m near the
-Verde River to 3,851 m at the summit of Humphreys Peak. The Coconino
+The Coconino National Forest (CNF) is located in northern Arizona near
+the cities of Flagstaff and Sedona. Its elevation ranges from 790 m near
+the Verde River to 3,851 m at the summit of Humphreys Peak. The Coconino
 National Forest spans the Mogollon Rim, a topographic feature forming
 the southern edge of the Colorado Plateau. The Mogollon Rim has been
 identified as an important groundwater recharge area for regional
@@ -366,115 +327,200 @@ aquifers \citep{parker2005} of the estimated 2.1 billion \(m^3\)
 (174,000 acre-feet of precipitation that falls on the Mogollon Rim,
 about 8\% is estimated to recharge the regional groundwater
 aquifers\citep{parker2005}. Precipitation along the Mogollon Rim is
-bi-modal, with wet winters and a late-summer monsoon season. Isotopic
-groundwater analysis has revealed that Northern Arizona's recharge is
-dominated by winter precipitation \citep{eastoe2007, eastoe2023}.
+bi-modal, with wet winters and a late-summer monsoon season.
 
-The Coconino National Forest is located within North America's largest
-contiguous ponderosa pine (Pinus ponderosa) forest. Ponderosa pine
-covers roughly 40\% of the national forest's area of about 340,000
-\(ha\), primarily between 2000 and 2400 \(m\) in elevation. While the
-Ponderosa Pine forest is the largest vegetation type, the Coconino
-National Forest hosts various shrub and sagebrush communities and pinyon
-Juniper forests at lower elevations. Mixed conifer forests dominated by
-spruce, pine, and fir at higher elevations can be found along with
-sporadic aspen stands. Isotopic studies of plant water use have found
-that larger ponderosa pine trees primarily utilize deeper soil moisture
-from winter precipitation, while understory vegetation and smaller trees
-utilize shallow soil water from monsoonal storms
-\citep{kerhoulas2013, kerhoulas2023}.
+CNF is located within North America's largest contiguous ponderosa pine
+(Pinus ponderosa) forest. Ponderosa pine covers roughly 40\% of the
+national forest's area of about 340,000 ha, primarily between 2000 and
+2400 m in elevation. While the Ponderosa Pine forest is the largest
+vegetation type, CNF hosts various shrub and sagebrush communities and
+pinyon Juniper forests at lower elevations. Mixed conifer forests
+dominated by spruce, pine, and fir at higher elevations can be found
+along with sporadic aspen stands.
 
-\subsection{Define goals}\label{define-goals}
+\subsection{Background}\label{background}
+
+This research aims to identify areas where mechanical thinning is most
+likely to enhance groundwater recharge. We based our suitability
+criteria on literature that comes primarily from regional studies, as
+they are likely the best predictor of hydrologic response to thinning in
+Arizona's forests \citep{wyatt_estimating_2013}. Thinning may enhance
+groundwater recharge by 1) reducing evaporative
+losses--evapotranspiration and sublimation of snow and 2) increasing
+sub-canopy snow depth.
+
+Isotopic groundwater analyses have revealed that Northern Arizona's
+recharge is dominated by winter precipitation
+\citep{eastoe2007, eastoe2023, earman2006}. Furthermore, studies of
+plant water use have found that larger ponderosa pine trees primarily
+utilize deeper soil moisture from winter precipitation, while understory
+vegetation and smaller trees utilize shallow soil water from monsoonal
+storms \citep{kerhoulas2013, kerhoulas2023}. Reiterating the importance
+of snowfall and snow retention in maximizing groundwater recharge.
+
+A synthesis of 4FRI treatments found that thinned and burned forests
+have significantly greater total ecosystem moisture and are thus more
+resilient to drought and wildfire, which can buffer forests against the
+effects of drought impacts
+\citep{sankey_thinning_2022, sankey_regionalscale_2021}.
+
+\section{Methods}\label{methods}
+
+We used ArcGIS Pro 3.4.0 to create a weighted suitability model
+consisting of 7 thematic data layers: Topographic Relative Moisture
+Index, basal area, canopy cover, snow dominance, mean annual
+precipitation, and surface and subsurface infiltration capacity. Next,
+we applied a binary layer for masking out unsuitable areas, including
+non-forested land covers, wilderness areas, and areas with maximum
+annual precipitation below 500 mm. After this initial screening process,
+thematic maps were created using criteria known to affect water yield in
+thinned forests.
+
+\textbf{Travis and I have been discussing whether the mask should be
+before or after suitability is mapped. Travis suggests doing the binary
+masking of unsuitable areas after, which I think makes a lot of sense,
+but when scaled up, removing unsuitable areas will make processing
+faster}.
+
+\textbf{Travis Commented: \emph{Wilderness areas are more of a policy
+determinate than the physical limit. It may be better to remove policy
+considerations from this analysis or separate them as an independent
+processing step. In context with the larger state-wide analysis, it
+would be best to keep all policy considerations grouped together for
+simplicity. Having redundant policy masks inherent in sub-analysis could
+increase the models complexity and result in errors.} I agree to some
+extent, but I also noticed that most of the suitable area was in the
+Kachina Peaks Wilderness Area, where it is unlikely that thinning will
+be undertaken, but I am open to removing wilderness from the screen-out
+process.}
 
 \subsection{Initial Suitability
 Screening}\label{initial-suitability-screening}
 
-There are obviously many other considerations for where thinning should
-be done other than whether they are ecologically or geologically
-suitable areas; one example would be areas managed as wilderness, where
-thinning may be incompatible with land use management goals. We masked
-out all wilderness areas within the Coconino National Forest from
-consideration. This same technique could be used to mask other areas
-that are managed for specific values incongruent with forest treatment
-or requiring specialized treatment.
+There are many considerations for where thinning should be considered
+ecologically or geologically suitable for where thinning should be done.
+One example may be designated wilderness areas, where thinning may be
+incompatible with land use. management goals. We masked out all
+\href{https://gis1.usgs.gov/arcgis/rest/services/padus3/Fee_Managers/MapServer}{wilderness
+areas} within the CNF from consideration. This same technique could be
+used to mask other areas that are managed for specific values
+incongruent with forest treatment or requiring specialized treatment.
 
-Next, we masked out areas with maximum annual precipitation below
-500\(mm\). Several studies have suggested that below 500\(mm\) of yearly
-precipitation, thinning does not seem to affect water yield, likely
-because below that threshold, most precipitation is evaporated
-regardless of forest condition, resulting in little or no recharge
-\citep{bosch1982, hibbert1979b, adams2012a, biederman2022a}
+Next, we masked out areas with maximum annual precipitation below 500 mm
+consistent with the literature
+\citep{bosch1982, hibbert1979b, adams2012a, biederman2022a}. This
+suggests that below about 500 mm of yearly precipitation, thinning does
+not seem to affect water yield. This is likely because below that
+threshold, most precipitation is evaporated regardless of forest
+condition resulting in little or no change to recharge.
 
-We then screened out incompatible land uses, using the National Land
-Cover data set and retaining only land cover classes: 41-Deciduous
-forests, 42- Evergreen forest, and 43- Mixed forest. Then we used the
-Landfire Effective vegetation type maps and filtered out all forested
-areas with classes containing the keywords ``Urban,'' ``Developed,''
-``Agriculture,'' ``Madrean,'' or ``Savannah.''
+\textbf{insert discussion on snow dominance}
+
+We then screened out incompatible land uses/covers, using the National
+Land Cover Database (NLCD) and retaining only land cover classes:
+\emph{41-deciduous forest}, \emph{42-evergreen forest}, and
+\emph{43-mixed forest.} Then we used the Landfire effective vegetation
+type (LF\_EVT) maps and filtered out all forested areas with classes
+containing the keywords \emph{urban, developed, agriculture, madrean},
+or \emph{savannah}.
 
 \subsection{Suitability Criteria}\label{suitability-criteria}
 
-\subsubsection{Topographic Relative Moisture
-Index}\label{topographic-relative-moisture-index}
-
-Topographic Relative Moisture Index (TRMI) incorporates several
-topographic parameters that influence moisture dynamics, including slope
-gradient, aspect, relative elevation (or topographic position), and
-landscape convexity or concavity \citep{parker1982}. TRMI data comes
-from the Southwest Regional Gap Analysis
-\href{https://swregap.org/data/}{(SWReGAP)} where terrain features are
-separated into 10 categories ranked in terms of soil moisture. Del Campo
-and others \citep{del_campo_effectiveness_2019} examined below-ground
-hydrological processes in thinned semi-arid watersheds. They found that
-sites with high antecedent soil moisture had the highest response, with
-drainage to deeper soil layers increasing by \(50\frac{mm}{year}\)
-relative to control sites.
+Seven ecohydrological factors were considered for this analysis. These
+factors are broadly supported by the relevant literature and were
+subsequently classified and weighted for our analysis. Layer weights and
+relevant citations are given in Table x. Layer-specific classification
+schemas are discussed below.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2329}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5342}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2329}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3212}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4745}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0584}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1460}}@{}}
+\caption{Suitability criteria considered in this analysis, with layer
+weights and relevant citations.}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Class Name
+Layer Name
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Description
+Data Source(s)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Suitability Value
+Weight
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relevant Citations
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Layer Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Data Source(s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Weight
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relevant Citations
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Valley Flats & These areas are typically the lowest points in a
-landscape where water naturally accumulates, making them the moistest. &
-10 \\
-Very Moist Steep Slopes & Despite the slope, these areas (often with
-north-facing or shaded aspects in the Northern Hemisphere) retain
-moisture due to cool temperatures and reduced evaporation. & 9 \\
-Toe Slopes & These are the lower parts of slopes where water tends to
-collect after flowing downhill, making them moist but slightly less so
-than valley flats. & 8 \\
-Cool Aspect Scarps, Cliffs, Canyons & North-facing scarps and shaded
-canyons are cooler and retain moisture better than exposed slopes,
-particularly in arid regions. & 7 \\
-Nearly Level Plateaus or Terraces & These flat areas may retain moderate
-amounts of moisture but are generally more exposed to sunlight and wind
-than valleys or steep moist slopes. & 6 \\
-Gently Sloping Ridges & These ridges are not as steep, so water may
-infiltrate rather than run off completely, but they are still relatively
-dry due to elevation. & 5 \\
-Moderately Moist Steep Slopes & These are typically slopes with
-intermediate aspects or conditions, retaining some moisture but less
-than moist slopes. & 4 \\
-Moderately Dry Slopes & These areas have greater runoff and less water
-retention, often due to steeper gradients and/or sun exposure. & 3 \\
-Very Dry Steep Slopes & Steep slopes with sun exposure (e.g.,
-south-facing in the Northern Hemisphere) promote high runoff and
-evaporation, leaving them very dry. & 2 \\
-Hot Aspect Scarps, Cliffs, and Canyons & South-facing cliffs and canyons
-with maximum sun exposure (in the Northern Hemisphere) are the driest
-due to high evaporation and limited water retention. & 1 \\
+Topographic Relative Moisture Index (TRMI) & STRM 30m DEM & 0.2948 &
+\citep{parker1982} \\
+Basal Area & TreeMap 2016 & 0.1506 & \citep{riley2022} \\
+Snowfall Dominance & & 0.1477 & \\
+Mean Annual Precipitation & NWM Mean Water Year Precipitation (1991 -
+2020) & 0.1073 & \\
+Subsurface infiltration Capacity & Global Hydrological Maps of
+Permeability and Porosity (GLHYMPS) & 0.1012 & \citep{gleeson2014} \\
+Soil Hydrologic Type & gNATSGO & 0.1002 & \\
+Canopy Cover & NLCD (2021) & 0.0982 & \\
+\end{longtable}
+
+\subsubsection{Topographic Relative Moisture
+Index}\label{topographic-relative-moisture-index}
+
+Research on water yield in burned forests in the Salt-Verde watersheds
+(within and adjacent to the CNF) found that warmer low-elevation
+forests, an forests with southern aspects which saw reductions in canopy
+cover due to wildfire had lower water yields relative to higher
+elevation and cooler aspects \citep{biederman2015, biederman2022b}.
+Research on the effect of thinning to below-ground hydrological
+processes in semi-arid Mediterranean forests found that sites with high
+antecedent soil moisture had the highest response, with drainage to
+deeper soil layers increasing by 50 mm/year relative to control
+sites\citep{del_campo_effectiveness_2019}.
+
+Topographic Relative Moisture Index (TRMI) incorporates several
+topographic parameters that influence moisture dynamics, including slope
+gradient, aspect, relative elevation (or topographic position), and
+landscape convexity or concavity \citep{parker1982}.TRMI was calculated
+by ranking Slope (degrees) (1-10), Slope Configuration (Topographic
+Position Index) (1-10), Geomorphon (ArcGIS Pro 3.4.0 Spatial Analyst
+Toolbox--Geomorphon Landform Tool) (1-20), and aspect (degrees azimuth)
+(1-2). Values were summed to calculate a TRMI score between 4 and 60,
+classified into 10-classes with equal intervals.
+
+\textbf{New TRMI layer up on arcgis group, need to add it in and
+re-calculate}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+TRMI Values & TRMI Suitability Scores \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+54.401 - 60 & 10 \\
+48.801 - 54.4 & 9 \\
+43.201 - 48.8 & 8 \\
+37.601 - 43.2 & 7 \\
+32.01 - 37.6 & 6 \\
+26.401 - 32 & 5 \\
+20.801-26.4 & 4 \\
+15.201 - 20.8 & 3 \\
+9.601 - 15.2 & 2 \\
+4 - 9.6 & 1 \\
 \end{longtable}
 
 \begin{figure}[H]
@@ -487,6 +533,8 @@ due to high evaporation and limited water retention. & 1 \\
 Gap Analysis (SWReGAP)}
 
 \end{figure}%
+
+\textbf{TO DO Replace image above with new manual TRMI}
 
 \subsubsection{Basal Area}\label{basal-area}
 
@@ -558,8 +606,48 @@ permeability or porosity due to faults, fractures, caves, and conduits.}
 
 \subsubsection{Soil Hydrologic Type}\label{soil-hydrologic-type}
 
-Data from gNATSGO was used to estimate the soil's ability to infiltrate
-water, we used the Hydrologic Soil Type.
+\textbf{TO DO} \textbf{\emph{eventually we should replace Hydrologic
+Soil Type with a Soil Infiltration Index composed of Soil Saturated Ksat
+(weight = 0.5), Depth to bedrock (weight = 0.3) and Drainage Class
+(0.2), after normalizing each variable we can combine them into a matrix
+which will provide a better weighting scheme than just applying values
+0-10 to hydrologic class.}}
+
+Hydrologic Soil Type data from gNATSGO was used to estimate the soil's
+ability to infiltrate water. Four soil types were identified within the
+study area (fig soil) which were subsequently reclassified from 4 - 10
+according to the tablex below.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0613}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.8858}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.0529}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Hydrologic Soil Type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Suitability Class
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A & Group A soils consist of deep, well drained sands or gravelly sands
+with high infiltration and low runoff rates. & 10 \\
+B & Group B soils consist of deep well drained soils with a moderately
+fine to moderately coarse texture and a moderate rate of infiltration
+and runoff. & 8 \\
+C & Group C consists of soils with a layer that impedes the downward
+movement of water or fine textured soils and a slow rate of
+infiltration. & 6 \\
+D & Group D consists of soils with a very slow infiltration rate and
+high runoff potential. This group is composed of clays that have a high
+shrink-swell potential, soils with a high water table, soils that have a
+clay pan or clay layer at or near the surface, and soils that are
+shallow over nearly impervious material. & 4 \\
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -573,8 +661,35 @@ water, we used the Hydrologic Soil Type.
 
 \subsubsection{Canopy Cover}\label{canopy-cover}
 
-Canopy Cover was obtained from the 2021 National Land Cover Dataset ,
-which provides an estimate of Total Canopy Cover.
+Reconstructions of pre-settlement ponderosa pine forests have found a
+range of canopy covers between 10\% and 22\%, with a median of 16.7\%
+canopy cover\citep{huffman2012}. However, UAV-analyses of snow pack in
+thinned and un-thinned ponderosa pine forests within the study area
+found that canopy cover is highly predictive of snow persistence and
+that 24 - 35\% canopy cover was optimal for maintaining snowpack.
+\citep{donager2021, sankey_multi-scale_2015, belmonte_uav-based_2021}.
+However a reduction of 20\% canopy cover is necessary to reduce ET and
+enhance water yield \citep{adams_ecohydrological_2012} . However
+thinning treatments are costly and several studies have shown that
+thinning treatments can lead to soil compaction and reduced infiltration
+\citep{moreno2016}. Maximum suitability, then would be the areas with
+29-42\% canopy cover where the a 20\% reduction would result in forests
+with canopy covers of between 24\% and 35\%. Higher forest covers could
+also be suitable but would require more thinning and likely more soil
+compaction. We set the minimum suitability at 12\% canopy cover, since a
+minimum 20\% reduction would result in canopy cover of about 10\% the
+low end of the canopy cover found in pre-settlement forests
+\citep{huffman2012}.
+
+Canopy Cover was obtained from the 2021 National Land Cover Database ,
+which provides an estimate of Total Canopy Cover (figure x). Canopy
+cover values ranged from 0\% - 86\%, the canopy cover data was
+reclassified using a Gaussian (parabolic) function centering on 35\%.
+The maximum threshold was left at 86\%, while the minimum threshold was
+set to 20\%, with a spread of 0.0085. In this way, regions with canopy
+cover approaching 35\% were classified as 10, and suitability
+classification decreased continuously as canopy cover diverged from th
+35\% target value.
 
 \begin{figure}[H]
 
@@ -589,47 +704,40 @@ which provides an estimate of Total Canopy Cover.
 \subsection{Weighting}\label{weighting}
 
 Pairwise comparisons between each variable were made using the
-\href{https://www.inowas.com/tools/t05-gis-mcda/}{INOWAS GIS MCDA tool}
-
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-Criteria & Weight (\%) \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Subsurface Infiltration & 10.12 \\
-Canopy Cover & 9.82 \\
-Basal Area & 15.06 \\
-Topographic Moisture Index & 29.48 \\
-Mean annual Precipitation & 10.73 \\
-Snowfall Fraction & 14.77 \\
-\end{longtable}
+\href{https://www.inowas.com/tools/t05-gis-mcda/}{INOWAS GIS MCDA tool}.
+The pairwise comparisons were The resulting weight schema is presented
+in Table 1. The weighting had a consistency ratio (CR) of 0.031, values
+less than 0.1 are considered consistent.
 
 \subsection{Model}\label{model}
 
 \begin{figure}[H]
 
-{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/ArcGIS_Model_builder.png}}
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/Model_Builder_new.png}}
 
 }
 
-\caption{This is a diagram of the Suitability model (maybe we can make a
-prettier version)}
+\caption{Diagram of the suitability model workflow. Input data layers,
+such as TRMI are shown in blue ovals, processing steps in yellow
+rectangles, and computed data layers in green ovals..}
 
 \end{figure}%
 
 \section{Results}\label{results}
 
-After excluding wilderness areas, areas receiving less than 500 \(mm\)
-maximum annual precipitaiton and non-compatible land uses, there is
-about 480,000 hectares that were evaluated for suitability for thinning
-to enhance recharge. About 95,000 ha have suitability values of 5 or
-greater, about 12,000 ha have suitability values of 6 or greater, and 65
-ha with suitability values greater than 7. Leaving about 384,000 ha with
-suitability scores less than 5. This does not mean recharge will not be
-enhanced by thinning in these areas but treatments are less likely to
-enhance recharge in those areas.
+The total study area was XXXXXX ha. The evaluated study area after masks
+were applied excluding protected areas, incompatible land use/cover
+types, and areas receving less than 500mm of maximum precipitation
+(1991-2020) was 480,000 ha. About 95,000 ha (19.8\%) of the areas has
+suitability values of 5 or greater, about 12,000 ha (2.5\%) have
+suitability values of 6 or greater, and 65 ha with suitability values
+greater than 7. Leaving about 384,000 ha (77\%) with suitability scores
+less than 5. Importantly, while forest thinning in regions where the
+suitability score is \textless5 is less likely to enhance aquifer
+recharge, this does not mean that thinning will not enhance aquifer
+recharge. Conversely areas may be deemed suitable by this analysis but
+may be unsuitable with other policy or feasibility concerns are
+considered.
 
 \begin{figure}[H]
 
