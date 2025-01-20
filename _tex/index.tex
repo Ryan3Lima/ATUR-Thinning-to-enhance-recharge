@@ -145,7 +145,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Introduction},
+  pdftitle={Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona},
   pdfauthor={Ryan E Lima; Neha Gupta; Travis Zalesky; Patrick Broxton; Temuulen Tsagaan Sankey; Abraham E Springer; Katherine Jacobs},
   pdfkeywords={suitability mapping, Forest thinning, Water
 yield, groundwater recharge, GIS-MCDM, AHP},
@@ -161,7 +161,8 @@ yield, groundwater recharge, GIS-MCDM, AHP},
 \begin{document}
 
 \begin{frontmatter}
-\title{Introduction}
+\title{Mapping landscape suitability for forest thinning to reduce
+evapotranspiration and enhance groundwater recharge in Arizona}
 \author[1]{Ryan E Lima%
 \corref{cor1}%
 }
@@ -229,6 +230,8 @@ yield \sep groundwater recharge \sep GIS-MCDM \sep
 \end{keyword}
 \end{frontmatter}
     
+
+\section{Introduction}\label{sec-intro}
 
 Warming associated with anthropogenic climate change has led to a
 doubling in the frequency of extreme hydroclimate events in the Colorado
@@ -322,7 +325,7 @@ made between criteria including forest basal area, canopy cover, average
 precipitation, snow dominance, slope, aspect, landscape morphology,
 forest density, lithology, and hydrologic soil type.
 
-\section{Study Area}\label{study-area}
+\subsection{Study Area}\label{study-area}
 
 The Coconino National Forest (CNF) is located in northern Arizona near
 Flagstaff and Sedona. Its elevation ranges from 790 m near the Verde
@@ -345,7 +348,7 @@ communities and pinyon Juniper forests at lower elevations. Mixed
 conifer forests dominated by spruce, pine, and fir at higher elevations
 can be found along with sporadic aspen stands.
 
-\section{Background}\label{background}
+\subsection{Background}\label{background}
 
 This research aims to identify areas where mechanical thinning is most
 likely to enhance groundwater recharge. We based our suitability
@@ -379,14 +382,14 @@ vegetation and 2) reducing canopy interception of snow and subsequent
 sublimation, increasing below-canopy snow depth and snow persistence.
 Thinning in semi-arid forested watersheds can significantly alter
 snowmelt timing \citep{dwivedi2024}. Reduced forest cover can delay
-snowmelt at more extraordinary sites at higher elevations or northern
-aspects or through increasing sub-canopy solar radiation and wind,
-resulting in earlier snowmelt, particularly at lower elevation or
-southern aspect warmer sites \citep{biederman_recent_2015, dwivedi2024}.
-Research on the effect of thinning to below-ground hydrological
-processes in semi-arid Mediterranean forests found that sites with high
-antecedent soil moisture had the highest response, with drainage to
-deeper soil layers increasing by 50 mm/year relative to control
+snowmelt at colder sites at higher elevations or northern aspects or
+through increasing sub-canopy solar radiation and wind, resulting in
+earlier snowmelt, particularly at lower elevation or southern aspect
+warmer sites \citep{biederman_recent_2015, dwivedi2024}. Research on the
+effect of thinning to below-ground hydrological processes in semi-arid
+Mediterranean forests found that sites with high antecedent soil
+moisture had the highest response, with drainage to deeper soil layers
+increasing by 50 mm/year relative to control
 sites\citep{del_campo_effectiveness_2019}.
 
 Canopy cover between 25\% and 40\% appears optimal for net snow
@@ -398,10 +401,23 @@ However, water yield enhancement from thinning likely requires at least
 a 20\% reduction in canopy cover\citep{adams_ecohydrological_2012}.
 Hydrologic models in northern Arizona watersheds suggest that reductions
 in basal area of at least 30\% can increase groundwater recharge by up
-to 15\% \citep{wyatt2015}. Therefore, suitability for thinning that
-enhances recharge would be highest in sites with significant snowfall,
-higher antecedent soil moisture, NE aspects, and higher elevations in
-valleys or flat areas when a 20\% reduction in canopy cover and a 30\%
+to 15\% \citep{wyatt2015}.
+
+Total annual precipitation also appears to influence weather thinning,
+which will reduce or enhance water yield at particular sites. In the
+Colorado River Basin, there appears to be a precipitation threshold at
+work. Below \textasciitilde500mm of annual precipitation, precipitation
+and runoff may become decoupled \citep{biederman_streamflow_2022},
+likely because below \textasciitilde500mm, most precipitation is
+evaporated regardless of forest condition \citep{hibbert1979}. Semi-arid
+forests with high inter-annual precipitation variability may show
+effects in wet years when precipitation is greater than
+\textasciitilde500mm \citep{adams2012}.
+
+Suitability for sites where thinning enhances recharge would most likely
+occur in sites with significant snowfall, maximum annual precipitaiton
+\textgreater= 500mm, higher antecedent soil moisture, NE aspects, in
+valleys or flat areas where a 20\% reduction in canopy cover and a 30\%
 reduction in basal area would result in a thinned canopy cover of
 between 25 and 35\%. Suitability would be lowest in sites with minimal
 snowfall, SW aspects, lower elevations, ridge tops, or steep slopes,
@@ -409,7 +425,7 @@ where thinning might reduce canopy cover to below 24\%. In addition to
 soil and geologic hydraulic conductivity, these criteria are used for
 this suitability analysis.
 
-Methods
+\section{Methods}\label{methods}
 
 We used ArcGIS Pro 3.4.0 to create a weighted suitability model
 consisting of seven thematic data layers: Topographic Relative Moisture
@@ -438,7 +454,7 @@ Kachina Peaks Wilderness Area, where it is unlikely that thinning will
 be undertaken. Still, I am open to removing wilderness from the
 screen-out process.}
 
-\section{Initial Suitability
+\subsection{Initial Suitability
 Screening}\label{initial-suitability-screening}
 
 There are many considerations for where thinning should be considered
@@ -468,7 +484,7 @@ type (LF\_EVT) maps and filtered out all forested areas with classes
 containing the keywords \emph{urban, developed, agriculture, madrean},
 or \emph{savannah.}
 
-\section{Suitability Criteria}\label{suitability-criteria}
+\subsection{Suitability Criteria}\label{suitability-criteria}
 
 Seven ecohydrological factors were considered for this analysis. These
 factors are broadly supported by the relevant literature and were
@@ -521,7 +537,7 @@ Soil Hydrologic Type & gNATSGO & 0.1002 & \\
 Canopy Cover & NLCD (2021) & 0.0982 & \\
 \end{longtable}
 
-\subsection{Topographic Relative Moisture
+\subsubsection{Topographic Relative Moisture
 Index}\label{topographic-relative-moisture-index}
 
 Research on water yield in burned forests in the Salt-Verde watersheds
@@ -575,10 +591,15 @@ Gap Analysis (SWReGAP)}
 
 \textbf{TO DO Replace image above with new manual TRMI}
 
-\subsection{Basal Area}\label{basal-area}
+\subsubsection{Basal Area}\label{basal-area}
 
 We extracted basal area estimates from the TreeMap 2016
-\citep{riley2022} CONUS dataset.
+\citep{riley2022} CONUS dataset with a resolution of 30 meters.
+Estimates of pre-settlement ponderosa pine forest basal area were 11.5
+\(m^3\)/ha or 50 \(ft^3\)/acre. Since basal area reductions of at least
+30\% are required to see increases in water yield. In order to remove
+30\% canopy cover and have forests with over 11.5 \(m^3\)/ha the
+starting basal area must be greater than 71.48 \(ft^3\)/acre.
 
 \begin{figure}[H]
 
@@ -591,7 +612,7 @@ TreeMap dataset.}
 
 \end{figure}%
 
-\subsection{Snowfall Dominance}\label{snowfall-dominance}
+\subsubsection{Snowfall Dominance}\label{snowfall-dominance}
 
 Ask Patrick Broxton how it was calculated.
 
@@ -605,7 +626,8 @@ Ask Patrick Broxton how it was calculated.
 
 \end{figure}%
 
-\subsection{Mean Annual Precipitation}\label{mean-annual-precipitation}
+\subsubsection{Mean Annual
+Precipitation}\label{mean-annual-precipitation}
 
 Utilized AORC Retrospective forcing data for average water year (WY)
 precipitation 1991 - 2020
@@ -620,7 +642,7 @@ precipitation 1991 - 2020
 
 \end{figure}%
 
-\subsection{Subsurface Infiltration
+\subsubsection{Subsurface Infiltration
 Capacity}\label{subsurface-infiltration-capacity}
 
 We utilized the Global Hydrological Maps of Permeability and Porosity
@@ -642,7 +664,7 @@ permeability or porosity due to faults, fractures, caves, and conduits.}
 
 \end{figure}%
 
-\subsection{Soil Hydrologic Type}\label{soil-hydrologic-type}
+\subsubsection{Soil Hydrologic Type}\label{soil-hydrologic-type}
 
 \textbf{TO DO} \textbf{\emph{eventually we should replace Hydrologic
 Soil Type with a Soil Infiltration Index composed of Soil Saturated Ksat
@@ -697,7 +719,7 @@ shallow over nearly impervious material. & 4 \\
 
 \end{figure}%
 
-\subsection{Canopy Cover}\label{canopy-cover}
+\subsubsection{Canopy Cover}\label{canopy-cover}
 
 Reconstructions of pre-settlement ponderosa pine forests have found a
 range of canopy covers between 10\% and 22\%, with a median of 16.7\%
@@ -739,7 +761,7 @@ classification decreased continuously as canopy cover diverged from th
 
 \end{figure}%
 
-\section{Weighting}\label{weighting}
+\subsection{Weighting}\label{weighting}
 
 Pairwise comparisons between each variable were made using the
 \href{https://www.inowas.com/tools/t05-gis-mcda/}{INOWAS GIS MCDA tool}.
@@ -747,7 +769,7 @@ The pairwise comparisons were The resulting weight schema is presented
 in Table 1. The weighting had a consistency ratio (CR) of 0.031, values
 less than 0.1 are considered consistent.
 
-\section{Model}\label{model}
+\subsection{Model}\label{model}
 
 \begin{figure}[H]
 
@@ -761,7 +783,7 @@ rectangles, and computed data layers in green ovals..}
 
 \end{figure}%
 
-Results
+\section{Results}\label{results}
 
 The total study area was XXXXXX ha. The evaluated study area after masks
 were applied excluding protected areas, incompatible land use/cover
@@ -787,7 +809,7 @@ considered.
 
 \end{figure}%
 
-Conclusion
+\section{Conclusion}\label{conclusion}
 
 \begin{itemize}
 \tightlist
@@ -799,7 +821,7 @@ Conclusion
   watershed function enhancing other hydrologic services.
 \end{itemize}
 
-Discussion
+\section{Discussion}\label{discussion}
 
 \begin{itemize}
 \item
@@ -814,7 +836,7 @@ Discussion
   aquifer recharge in mind.
 \end{itemize}
 
-\section{Future Work}\label{future-work}
+\subsection{Future Work}\label{future-work}
 
 \begin{itemize}
 \item
@@ -842,7 +864,7 @@ Discussion
   suitability mapping.
 \end{itemize}
 
-Acknowledgments
+\section{Acknowledgments}\label{acknowledgments}
 
 Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
 fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
@@ -850,7 +872,7 @@ Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
 Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
 fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 
-Open research
+\section{Open research}\label{open-research}
 
 Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut
 fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt.
@@ -858,7 +880,8 @@ Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem.
 Donec molestie ex sit amet viverra egestas. Nullam justo nulla,
 fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.
 
-References
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 \renewcommand{\bibsection}{}
 \bibliography{bibliography.bib}
