@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.12.12)  13 FEB 2025 17:00
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.12.12)  13 FEB 2025 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,7 +568,7 @@ File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 157.
-(index.aux)
+No file index.aux.
 \openout1 = `index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
@@ -908,6 +908,9 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring ON on input line 161.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 7.0pt on input line 233.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -1170,6 +1173,10 @@ Package natbib Warning: Citation `shaban2006' on page 2 undefined on input line
  320.
 
 
+LaTeX Warning: Reference `fig-studyarea' on page 2 undefined on input line 339.
+
+
+
 Package natbib Warning: Citation `parker2005' on page 2 undefined on input line
  344.
 
@@ -1303,8 +1310,4 @@ Package natbib Warning: Citation `adams_ecohydrological_2012' on page 3 undefin
 ed on input line 451.
 
 
-Package natbib Warning: Citation `wyatt2015' on page 3 undefined on input line 
-454.
-
-
-Package natbib Warning: Citation `del_campo_effectiveness_2019' on page 3 un
+Package natbi

@@ -233,7 +233,7 @@ groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC
 \end{frontmatter}
     
 
-\section{Introduction}\label{sec-intro}
+\section{Introduction}\label{introduction}
 
 Warming associated with anthropogenic climate change has led to a
 doubling in the frequency of extreme hydroclimate events in the Colorado
@@ -513,10 +513,10 @@ provide insight into where rapid subsurface infiltration is possible.
 
 We used ArcGIS Pro 3.4.0 to create a weighted suitability model
 consisting of the 12 thematic data layers shown in
-Table~\ref{tbl-Thematic}. These were re-scaled, weighted, and combined
+\textbf{?@tbl-Thematic}. These were re-scaled, weighted, and combined
 into four final thematic layers: 1) Snow Dominance, 2) Vegetation
 Density Index, 3) Soil Moisture and Infiltration Index and surface and
-4) Subsurface Infiltration Index (see Table~\ref{tbl-Thematic} ).
+4) Subsurface Infiltration Index (see \textbf{?@tbl-Thematic} ).
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
@@ -524,7 +524,7 @@ Density Index, 3) Soil Moisture and Infiltration Index and surface and
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}@{}}
 \caption{Thematic Layers and Indices used for suitability
-mapping}\label{tbl-Thematic}\tabularnewline
+mapping\{\#tbl-Thematic\}}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 High-Level Index
@@ -721,7 +721,7 @@ study area contained 11,057 polygons with values for saturated
 log-permeability ranging from -16 to -10, and porosity values ranging
 from 0.01 - 0.28 (Figure~\ref{fig-perm} ). The attribute values were
 extracted and the polygons were rasterized at a 30m resolution, then
-re-scaled to values (1-10) as shown in Table~\ref{tbl-glhymps} .
+re-scaled to values (1-10) as shown in \textbf{?@tbl-glhymps} .
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}
@@ -729,7 +729,7 @@ re-scaled to values (1-10) as shown in Table~\ref{tbl-glhymps} .
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}@{}}
 \caption{Classification and rescaling of GLHYMPS v2 data for suitability
-mapping}\label{tbl-glhymps}\tabularnewline
+mapping\{\#tbl-glhymps\}}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Log\emph{k} x 100 (Permeability)
@@ -854,18 +854,18 @@ The four final thematic layers: SF, VDI, SMII, SBII were ranked in order
 of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2
 respectively resulting in the final suitability values for thinning to
 enhance recharge shown in \textbf{?@eq-suit.Paramter} weights and index
-weights are shown in \textbf{?@tbl-w1} and Table~\ref{tbl-w2}.
+weights are shown in \textbf{?@tbl-w1} and \textbf{?@tbl-w2}.
 
 \begin{equation}\phantomsection\label{eq-suit}{
-Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII)) }\end{equation}
+Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII))}\end{equation}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
-\caption{Table of Parameter Weights.\{\#tbl-w1\}}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2329}}@{}}
+\caption{Table of Parameter Weights\{\#tbl-w1\}}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Total Weight
@@ -905,9 +905,9 @@ Parameter
 4.44\% & 0.40 & 0.67 & 0.17 & Slope \\
 13.33\% & 0.40 & 0.33 & 1.00 & Soil Saturated Hydraulic Conductivity \\
 5.00\% & 0.20 & - & 0.25 & GLHYMPS V2 Porosity \\
-8.00\% & 0.20 & & 0.40 & GLYMPS V2 Permeability \\
-3.00\% & 0.20 & & 0.15 & Lineament Density \\
-4.00\% & 0.20 & & 0.20 & Potential Karst or Pseudo Karst \\
+8.00\% & 0.20 & - & 0.40 & GLYMPS V2 Permeability \\
+3.00\% & 0.20 & - & 0.15 & Lineament Density \\
+4.00\% & 0.20 & - & 0.20 & Potential Karst or Pseudo Karst \\
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -915,7 +915,7 @@ Parameter
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1111}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1111}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5000}}@{}}
-\caption{Table of Index Weights}\label{tbl-w2}\tabularnewline
+\caption{Table of Index Weights\{\#tbl-w2\}}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Suitability Weight

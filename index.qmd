@@ -92,7 +92,7 @@ funding: Arizona Board of Regents
 number-sections: true
 ---
 
-# Introduction {#sec-intro}
+# Introduction
 
 Warming associated with anthropogenic climate change has led to a doubling in the frequency of extreme hydroclimate events in the Colorado River Basin since 2010, including droughts, heatwaves, and floods [@bennett_concurrent_2021]. Since 2000, the Colorado River Basin has been in the midst of a historic drought [@meko_treering_2022; @williams_rapid_2022]. Over this time period, streamflow in the Colorado River has declined by 19% (3.6E9 $m^3$) relative to the 1906-1999 average (18.7E10 $m^3$); [@hogan_recent_2024; @udall_twentyfirst_2017]. Rapid population growth in the Southwest and Arizona, in particular, is increasing the demands on already strained water supplies in the State. Reductions in streamflow have increased reliance on groundwater pumping, resulting in groundwater declines across Arizona [@tadych_historical_2024]. Analyses of regional gravity data have suggested that groundwater loss rate in the Colorado River Basin may far exceed the depletion rate of Lake Powell and Lake Mead and that groundwater may account for a more significant portion of water use than previously thought [@castle2014].
 
@@ -157,7 +157,7 @@ We used ArcGIS Pro 3.4.0 to create a weighted suitability model consisting of th
 | Subsurface Infiltration Index (SbII)        | \-                                         | Lineament Density (LD)                | Derived from 1-Arcsecond DEM      |
 | Subsurface Infiltration Index (SbII)        | \-                                         | Potential Karst or Pseudo Karst (pK)  | Karst in the United States (USGS) |
 
-: Thematic Layers and Indices used for suitability mapping {#tbl-Thematic}
+: Thematic Layers and Indices used for suitability mapping{#tbl-Thematic}
 
 #### Snowfall Fraction (SF)
 
@@ -272,7 +272,7 @@ Permeability and Porosity values were extracted from the GLobal Hydrogeology MaP
 | -1210 to -1155              | 9                         | 24 - 26            | 9                     |
 | -1155 to -1052              | 10                        | 26 - 28            | 10                    |
 
-: Classification and rescaling of GLHYMPS v2 data for suitability mapping {#tbl-glhymps}
+: Classification and rescaling of GLHYMPS v2 data for suitability mapping{#tbl-glhymps}
 
 ![Matrix permeability and porosity values from GLHYMPS v2 rasterized and clipped to the AZH8 Study Area](images/Geology_2_perm_porosity.jpg){#fig-perm}
 
@@ -299,10 +299,10 @@ $$ {#eq-Sbii}
 The four final thematic layers: SF, VDI, SMII, SBII were ranked in order of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2 respectively resulting in the final suitability values for thinning to enhance recharge shown in @eq-suit.Paramter weights and index weights are shown in @tbl-w1 and @tbl-w2.
 
 $$
-Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII)) $$ {#eq-suit}
+Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII))$$ {#eq-suit}
 
 | Total Weight | Index Weight | Sub Index Weight | Sub Sub index Weight | Parameter                             |
-|---------------|---------------|---------------|---------------|---------------|
+|--------------|--------------|--------------|--------------|-----------------|
 | 20.00%       | 0.20         | \-               | 1.00                 | Snowfall Fraction                     |
 | 13.33%       | 0.20         | \-               | 0.67                 | Basal Area Parameter                  |
 | 6.67%        | 0.20         |                  | 0.33                 | Canopy Cover Parameter                |
@@ -312,11 +312,11 @@ Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII)) $$ 
 | 4.44%        | 0.40         | 0.67             | 0.17                 | Slope                                 |
 | 13.33%       | 0.40         | 0.33             | 1.00                 | Soil Saturated Hydraulic Conductivity |
 | 5.00%        | 0.20         | \-               | 0.25                 | GLHYMPS V2 Porosity                   |
-| 8.00%        | 0.20         |                  | 0.40                 | GLYMPS V2 Permeability                |
-| 3.00%        | 0.20         |                  | 0.15                 | Lineament Density                     |
-| 4.00%        | 0.20         |                  | 0.20                 | Potential Karst or Pseudo Karst       |
+| 8.00%        | 0.20         | \-               | 0.40                 | GLYMPS V2 Permeability                |
+| 3.00%        | 0.20         | \-               | 0.15                 | Lineament Density                     |
+| 4.00%        | 0.20         | \-               | 0.20                 | Potential Karst or Pseudo Karst       |
 
-: Table of Parameter Weights.{#tbl-w1}
+: Table of Parameter Weights{#tbl-w1}
 
 | Suitability Weight | Weight | Weight | Index                              |
 |--------------------|--------|--------|------------------------------------|
@@ -325,7 +325,7 @@ Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII)) $$ 
 | 20.00%             | 0.20   | \-     | Subsurface Infiltration Index      |
 | 40.00%             | 0.40   | \-     | Soil Moisture Infiltration Index   |
 
-: Table of Index Weights {#tbl-w2}
+: Table of Index Weights{#tbl-w2}
 
 ## Sensitivity Analysis
 
