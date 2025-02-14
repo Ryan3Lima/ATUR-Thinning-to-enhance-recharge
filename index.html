@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.6.39" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Ryan E Lima" />
+<meta name="author" content="Neha Gupta" />
+<meta name="author" content="Travis Zalesky" />
+<meta name="author" content="Temuulen Tsagaan Sankey" />
+<meta name="author" content="Abraham E Springer" />
+<meta name="author" content="Katherine Jacobs" />
+<meta name="keywords" content="Suitability mapping - Forest thinning - Water Resources - groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC" />
+
+<title>Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<!-- htmldependencies:E3FAD763 -->
+<script async src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <div id="quarto-toc-target"></div>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default toc-left">
+  <div class="quarto-title-banner">
+    <div class="quarto-title column-body">
+      <h1 class="title">Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona</h1>
+          </div>
+
+    
+    <div class="quarto-title-meta-container">
+      <div class="quarto-title-meta-column-start">
+            <div class="quarto-title-meta-author">
+          <div class="quarto-title-meta-heading">Authors</div>
+          <div class="quarto-title-meta-heading">Affiliations</div>
+          
+                <div class="quarto-title-meta-contents">
+            <p class="author">Ryan E Lima <a href="mailto:ryan.lima@nau.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-5352-7215" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Northern Arizona University
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Neha Gupta <a href="https://orcid.org/0000-0002-2247-3509" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        University of Arizona
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Travis Zalesky <a href="https://orcid.org/0009-0006-0181-3099" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        University of Arizona
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Temuulen Tsagaan Sankey <a href="https://orcid.org/0000-0002-7859-8394" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Northern Arizona University
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Abraham E Springer <a href="https://orcid.org/????" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Northern Arizona University
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Katherine Jacobs <a href="https://orcid.org/????" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        University of Arizona
+                      </p>
+                  </div>
+                    </div>
+        
+        <div class="quarto-title-meta">
+
+                      
+                <div>
+            <div class="quarto-title-meta-heading">Published</div>
+            <div class="quarto-title-meta-contents">
+              <p class="date">Thursday, February 13, 2025</p>
+            </div>
+          </div>
+          
+                
+              </div>
+      </div>
+      <div class="quarto-title-meta-column-end quarto-other-formats-target">
+      </div>
+    </div>
+
+    <div>
+      <div class="abstract">
+        <div class="block-title">Abstract</div>
+        Literature on the relationship between forest thinning and water yield was used to develop suitability criteria to map where forest treatment is most likely to enhance groundwater recharge across the Ponderosa Pine (Pinus ponderosa) forests of Arizona. Rechage ponderosa pine forests is ephemeral and focused in periods of snowmelt and locations of enhanced permeability when soil moisture exceeds threshold levels. Our approach combines thematic maps of criteria such as snow dominance, slope, aspect,landscape morphology, forest basal area, canopy cover, lineament density, lithology and hydrologic soil type into a GIS-Multi-Criteria Decision Analysis (GIS-MCDA) model. Individual criteria were grouped into indices using Weighted Linear Combinations (WLC). A total of 863,648 hectares or 46.8% of the 1.8 million hectares of Ponderosa Pine forests were found to be highly suitable for groundwater recharge enhancment from forest thinning. Similar approaches and criteria selection can be applied to other areas in the Southwestern US and othr forest types to identify areas for forest thinning for potential recharge benefits.
+      </div>
+    </div>
+
+    <div>
+      <div class="keywords">
+        <div class="block-title">Keywords</div>
+        <p>Suitability mapping - Forest thinning - Water Resources - groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC</p>
+      </div>
+    </div>
+
+    <div class="quarto-other-links-text-target">
+    </div>  </div>
+</header>
+
+  
+
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-intro" id="toc-sec-intro"><span class="header-section-number">1</span> Introduction</a>
+  <ul>
+  <li><a href="#study-area" id="toc-study-area"><span class="header-section-number">1.1</span> Study Area</a></li>
+  <li><a href="#literature-review-and-criteria" id="toc-literature-review-and-criteria"><span class="header-section-number">1.2</span> Literature Review and Criteria</a></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods"><span class="header-section-number">2</span> Methods</a>
+  <ul>
+  <li><a href="#suitability-criteria" id="toc-suitability-criteria"><span class="header-section-number">2.1</span> Suitability Criteria</a>
+  <ul>
+  <li><a href="#vegetation-density-index-vdi" id="toc-vegetation-density-index-vdi"><span class="header-section-number">2.1.1</span> Vegetation Density Index (VDI)</a></li>
+  <li><a href="#soil-moisture-and-infiltration-index-smii" id="toc-soil-moisture-and-infiltration-index-smii"><span class="header-section-number">2.1.2</span> Soil Moisture and Infiltration Index (SMII)</a></li>
+  <li><a href="#subsurface-infiltration-index-sbii" id="toc-subsurface-infiltration-index-sbii"><span class="header-section-number">2.1.3</span> Subsurface Infiltration Index (SbII)</a></li>
+  </ul></li>
+  <li><a href="#weighting" id="toc-weighting"><span class="header-section-number">2.2</span> Weighting</a></li>
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis"><span class="header-section-number">2.3</span> Sensitivity Analysis</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results"><span class="header-section-number">3</span> Results</a></li>
+  <li><a href="#conclusion-and-discussion" id="toc-conclusion-and-discussion"><span class="header-section-number">4</span> Conclusion and Discussion</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments"><span class="header-section-number">5</span> Acknowledgments</a></li>
+  <li><a href="#open-research" id="toc-open-research"><span class="header-section-number">6</span> Open research</a></li>
+  <li><a href="#references" id="toc-references">References</a></li>
+  </ul>
+</nav>
+<section id="sec-intro" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>Warming associated with anthropogenic climate change has led to a doubling in the frequency of extreme hydroclimate events in the Colorado River Basin since 2010, including droughts, heatwaves, and floods <span class="citation" data-cites="bennett_concurrent_2021">(<a href="#ref-bennett_concurrent_2021" role="doc-biblioref">Bennett et al., 2021</a>)</span>. Since 2000, the Colorado River Basin has been in the midst of a historic drought <span class="citation" data-cites="meko_treering_2022 williams_rapid_2022">(<a href="#ref-meko_treering_2022" role="doc-biblioref">Meko et al., 2022</a>; <a href="#ref-williams_rapid_2022" role="doc-biblioref">Williams et al., 2022</a>)</span>. Over this time period, streamflow in the Colorado River has declined by 19% (3.6E9 <span class="math inline">\(m^3\)</span>) relative to the 1906-1999 average (18.7E10 <span class="math inline">\(m^3\)</span>); <span class="citation" data-cites="hogan_recent_2024 udall_twentyfirst_2017">(<a href="#ref-hogan_recent_2024" role="doc-biblioref">Hogan and Lundquist, 2024</a>; <a href="#ref-udall_twentyfirst_2017" role="doc-biblioref">Udall and Overpeck, 2017</a>)</span>. Rapid population growth in the Southwest and Arizona, in particular, is increasing the demands on already strained water supplies in the State. Reductions in streamflow have increased reliance on groundwater pumping, resulting in groundwater declines across Arizona <span class="citation" data-cites="tadych_historical_2024">(<a href="#ref-tadych_historical_2024" role="doc-biblioref">Tadych et al., 2024</a>)</span>. Analyses of regional gravity data have suggested that groundwater loss rate in the Colorado River Basin may far exceed the depletion rate of Lake Powell and Lake Mead and that groundwater may account for a more significant portion of water use than previously thought <span class="citation" data-cites="castle2014">(<a href="#ref-castle2014" role="doc-biblioref">Castle et al., 2014</a>)</span>.</p>
+<p>Warming temperatures have also tripled the frequency and quadrupled the size of wildfires since 2000 <span class="citation" data-cites="iglesias2022">(<a href="#ref-iglesias2022" role="doc-biblioref">Iglesias et al., 2022</a>)</span>. The risk of catastrophic wildfires is increasing in Western forests–an emerging driver of runoff change that will increase the impact on the water supply <span class="citation" data-cites="williams_rapid_2022">(<a href="#ref-williams_rapid_2022" role="doc-biblioref">Williams et al., 2022</a>)</span>. Forest structure in Northern Arizona has changed significantly post-Euro-American settlement. Many forests are overstocked relative to pre-settlement conditions due to grazing, logging, and wildfire exclusion <span class="citation" data-cites="covington_southwestern_1994 friederici2013">(<a href="#ref-covington_southwestern_1994" role="doc-biblioref">Covington and Moore, 1994</a>; <a href="#ref-friederici2013" role="doc-biblioref">Friederici, 2013</a>)</span>. These changes have increased the risk of catastrophic wildfires <span class="citation" data-cites="allen2002">(<a href="#ref-allen2002" role="doc-biblioref">Allen et al., 2002</a>)</span>. Rising temperatures and droughts have contributed to extensive tree mortality from disease and insect infestation, making forested areas more vulnerable to wildfires <span class="citation" data-cites="berner_tree_2017">(<a href="#ref-berner_tree_2017" role="doc-biblioref">Berner et al., 2017</a>)</span>.</p>
+<p>Forest treatments such as thinning and prescribed burning can significantly impact the hydrologic cycle of forests <span class="citation" data-cites="del_campo_global_2022">(<a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al., 2022</a>)</span>. For example, forest thinning in Arizona has been associated with increased snow cover days <span class="citation" data-cites="sankey_multi-scale_2015 belmonte2021 donager_integrating_2021">(<a href="#ref-belmonte2021" role="doc-biblioref">Belmonte et al., 2021</a>; <a href="#ref-donager_integrating_2021" role="doc-biblioref">Donager et al., 2021a</a>; <a href="#ref-sankey_multi-scale_2015" role="doc-biblioref">Sankey et al., 2015</a>)</span>, greater soil moisture <span class="citation" data-cites="belmonte_soil_2022 sankey_thinning_2022">(<a href="#ref-belmonte_soil_2022" role="doc-biblioref">Belmonte et al., 2022</a>; <a href="#ref-sankey_thinning_2022" role="doc-biblioref">Sankey and Tatum, 2022</a>)</span>, and greater forest canopy moisture <span class="citation" data-cites="sankey_regionalscale_2021">(<a href="#ref-sankey_regionalscale_2021" role="doc-biblioref">Sankey et al., 2021</a>)</span>.</p>
+<p>Numerous studies have linked forest treatments to increased water yields in semi-arid forests and have emphasized the role of forest restoration in improving hydrologic services and increasing water availability <span class="citation" data-cites="bosch1982 baker_effects_1986 gottfried_moderate_1991 smerdon_overview_2009 zou_streamflow_2010 wyatt2013 moreno_modeling_2015 simonit_impact_2015 wyatt2015 odonnell_forest_2018 schenk_impacts_2020 hibbert1979">(<a href="#ref-baker_effects_1986" role="doc-biblioref">Baker, 1986</a>; <a href="#ref-bosch1982" role="doc-biblioref">Bosch and Hewlett, 1982</a>; <a href="#ref-gottfried_moderate_1991" role="doc-biblioref">Gottfried, 1991</a>; <a href="#ref-hibbert1979" role="doc-biblioref">Hibbert, 1979</a>; <a href="#ref-moreno_modeling_2015" role="doc-biblioref">Moreno et al., 2015</a>; <a href="#ref-odonnell_forest_2018" role="doc-biblioref">O’Donnell et al., 2018</a>; <a href="#ref-schenk_impacts_2020" role="doc-biblioref">Schenk et al., 2020</a>; <a href="#ref-simonit_impact_2015" role="doc-biblioref">Simonit et al., 2015</a>; <a href="#ref-smerdon_overview_2009" role="doc-biblioref">Smerdon et al., 2009</a>; <a href="#ref-wyatt2015" role="doc-biblioref">Wyatt et al., 2015</a>; <a href="#ref-wyatt2013" role="doc-biblioref">Wyatt, 2013a</a>; <a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou et al., 2010</a>)</span>. While the connection between forest treatment and water yield is well documented, the response of forests to treatments is complex and non-linear and differs across forest types, with treatment level, and along aspect and elevational gradients <span class="citation" data-cites="del_campo_global_2022 biederman2022 zou_streamflow_2010 hibbert1979 moore2005">(<a href="#ref-biederman2022" role="doc-biblioref">Biederman et al., 2022</a>; <a href="#ref-del_campo_global_2022" role="doc-biblioref">Del Campo et al., 2022</a>; <a href="#ref-hibbert1979" role="doc-biblioref">Hibbert, 1979</a>; <a href="#ref-moore2005" role="doc-biblioref">Moore and Wondzell, 2005</a>; <a href="#ref-zou_streamflow_2010" role="doc-biblioref">Zou et al., 2010</a>)</span>;.</p>
+<p>Regardless of the potential for increased water yield, the enhancement of groundwater recharge rarely, if ever, ranks among the primary motivations for forest treatment, even among projects with the stated goal of improving watershed health <span class="citation" data-cites="stanturf2014 filoso2017 allen2002 friederici2013 odonnell2016">(<a href="#ref-allen2002" role="doc-biblioref">Allen et al., 2002</a>; <a href="#ref-filoso2017" role="doc-biblioref">Filoso et al., 2017</a>; <a href="#ref-friederici2013" role="doc-biblioref">Friederici, 2013</a>; <a href="#ref-odonnell2016" role="doc-biblioref">O’Donnell, 2016</a>; <a href="#ref-stanturf2014" role="doc-biblioref">Stanturf et al., 2014</a>)</span>. Studies that surveyed public willingness to pay for forest restoration to enhance groundwater recharge were the lowest among the environmental services discussed in the survey, behind critical habitat protections, surface water quality improvements, and preservation of cultural values<span class="citation" data-cites="mueller2019 soder2022">(<a href="#ref-mueller2019" role="doc-biblioref">Mueller et al., 2019</a>; <a href="#ref-soder2022" role="doc-biblioref">Soder et al., 2022</a>)</span>. This suggests that groundwater recharge is either undervalued by the public as an ecosystem service or a low priority relative to other environmental goods.</p>
+<p>Forest health and water security are intimately linked. About 66% of the water supply in 11 western states comes from Forested Lands <span class="citation" data-cites="brown_source_2005">(<a href="#ref-brown_source_2005" role="doc-biblioref">Brown et al., 2005</a>)</span>. Despite this, the management of lands and waters is still largely compartmentalized. The Western Water Network (WWN) identified the need to promote better and faster collaboration between researchers, managers, educators, industry, and stakeholders across the West <span class="citation" data-cites="hansen2024">(<a href="#ref-hansen2024" role="doc-biblioref">Hansen et al., 2024</a>)</span>. This study examines forest restoration through the lens of groundwater recharge enhancement and aims to identify potential recharge zones. Specifically, we demonstrate a suitability mapping approach to identify areas where forest thinning may enhance recharge. Suitability maps like these may complement (or supplement) existing frameworks for jointly prioritizing landscape-scale forest management and managing lands and water.</p>
+<p>Suitability mapping, particularly GIS-based Multi-criteria decision analysis (GIS-MCDA) and Analytic Hierarchy Process (AHP), have been widely used to map potential recharge zones and areas suitable for Managed Aquifer Recharge (MAR) in areas underlain by karst lithologies <span class="citation" data-cites="fathi2021 rajashekar2023 rahman2012 dar2020 shaban2006">(<a href="#ref-dar2020" role="doc-biblioref">Dar et al., 2020</a>; <a href="#ref-fathi2021" role="doc-biblioref">Fathi et al., 2021</a>; <a href="#ref-rahman2012" role="doc-biblioref">Rahman et al., 2012</a>; <a href="#ref-rajashekar2023" role="doc-biblioref">Raja Shekar and Mathew, 2023</a>; <a href="#ref-shaban2006" role="doc-biblioref">Shaban et al., 2006</a>)</span>. However this study is the first to examine where forest restoration may be sited to enhance un-managed recharge at a landscape scale. This study finds that much of the area where thinning is planned for the purpose of restoring other ecosystem services may also improve groundwater management in a state facing serious groundwater declines.</p>
+<section id="study-area" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span> Study Area</h2>
+<p>Our study area includes all of the HUC8 watersheds of Arizona, extending into 5 other states but excluding Mexico. However within that study area we focus on the Ponderosa Pine woodland type. Ponderosa Pine woodlands cover 1.8 million hectares (1,835,530.65) of this study area or around 30% (28.38%) of the forested area within its bounds. Most of the ponderosa pine forest is found along the Mogollon Rim, around the San Francisco Peaks, and on the Kaibab Plateau–all within the Colorado Plateau physiographic region at elevations between 2000 <span class="math inline">\(m\)</span> and 2400 <span class="math inline">\(m\)</span>. Smaller isolated patches of Ponderosa Pine forest can be found on mountain ranges and plateaus throughout Arizona at similar elevations (see <a href="#fig-studyarea" class="quarto-xref">Figure 1</a> ).</p>
+<p>The Mogollon Rim is a topographic feature forming the southern edge of the Colorado Plateau. It contains the majority of the state’s ponderosa pine forests and has been identified as an essential groundwater recharge area for regional aquifers <span class="citation" data-cites="parker2005">(<a href="#ref-parker2005" role="doc-biblioref">Parker et al., 2005</a>)</span>. Of the estimated 2.1 billion <span class="math inline">\(m^3\)</span> (174,000 acre-feet) of precipitation that falls on the Mogollon Rim, about 8% is estimated to recharge the regional groundwater aquifers<span class="citation" data-cites="parker2005">(<a href="#ref-parker2005" role="doc-biblioref">Parker et al., 2005</a>)</span> Similarly, The Kaibab Plateau, an uplifted region north of the Grand Canyon with large stands of ponderosa pine, is a critically important recharge area for springs in the Grand Canyon which provide the sole source of drinking water for over 6 million annual visitors and the residents of the National Park<span class="citation" data-cites="tobin2018">(<a href="#ref-tobin2018" role="doc-biblioref">Tobin et al., 2018</a>)</span>. The Kaibab plateau lacks perennial surface streams and is drained rapidly by sinkholes, faults, and fractures or more slowly through diffuse infiltration with little streamflow leaving the plateau <span class="citation" data-cites="jones2018 huntoon1974">(<a href="#ref-huntoon1974" role="doc-biblioref">Huntoon, 1974</a>; <a href="#ref-jones2018" role="doc-biblioref">Jones et al., 2018</a>)</span>.</p>
+<p>Most of the Ponderosa Pine forest within the State is within the Kaibab, Coconino, Apache-Sitgreaves, and Tonto National forests. Precipitation in Arizona is bi-modal, with wet winters and a late-summer monsoon season. As much as 60% of precipitation at elevations above 1800 m comes in the form of snow and snow is responsible for 80 - 95% of streamflow and much of the recharge <span class="citation" data-cites="baker2013 eastoe2023 earman2006">(<a href="#ref-baker2013" role="doc-biblioref">Baker, 2013</a>; <a href="#ref-earman2006" role="doc-biblioref">Earman et al., 2006</a>; <a href="#ref-eastoe2023" role="doc-biblioref">Eastoe, 2023</a>)</span>. Therefore, this research focuses on high-elevation (&gt;1800 m) ponderosa pine forests, which receive a high proportion of annual precipitation as snow. Of the 1.8 million Ha of Ponderosa pine forests in our study area, about 43% or 786,706 hectares are underlain by lithologies that may support karst or pseudo karst features, including carbonates (24%), evaporates (6%), and fractured volcanics (13%). These areas merit extra attention due to enhanced infiltration potential through fractures, faults, lava tubes, or sinkholes.</p>
+<div id="fig-studyarea" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-studyarea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Study%20Area%20Map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1: This is a map showing the extent of our study area and the distribution of Ponderosa pine-dominant forests. The Colorado Plateau physiographic province is shown in light grey, while areas within our study area at elevations above 2000m are shown in dark grey. The HUC8 watersheds are shown in black, and the boundary of Arizona is shown in Red."><img src="images/Study%20Area%20Map.jpg" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-studyarea-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: This is a map showing the extent of our study area and the distribution of Ponderosa pine-dominant forests. The Colorado Plateau physiographic province is shown in light grey, while areas within our study area at elevations above 2000m are shown in dark grey. The HUC8 watersheds are shown in black, and the boundary of Arizona is shown in Red.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="literature-review-and-criteria" class="level2" data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span> Literature Review and Criteria</h2>
+<p>This research aims to identify areas where mechanical thinning is most likely to enhance groundwater recharge. We based our suitability criteria on literature primarily from regional studies, as they are likely the best predictors of hydrologic response to thinning in Arizona’s forests <span class="citation" data-cites="wyatt_estimating_2013">(<a href="#ref-wyatt_estimating_2013" role="doc-biblioref">Wyatt, 2013b</a>)</span>. Landscape-scale forest restoration efforts have been planned or implemented across much of Arizona. For example, the Four Forest Restoration Initiative (4FRI) includes plans for restoration across over 1 million hectares of Arizona’s forests <span class="citation" data-cites="schultz_collaborative_2012">(<a href="#ref-schultz_collaborative_2012" role="doc-biblioref">Schultz et al., 2012</a>)</span>. A synthesis of 4FRI treatments found that thinned and burned forests have significantly greater total ecosystem moisture and are thus more resilient to drought and wildfire <span class="citation" data-cites="sankey_thinning_2022 sankey_regionalscale_2021">(<a href="#ref-sankey_regionalscale_2021" role="doc-biblioref">Sankey et al., 2021</a>; <a href="#ref-sankey_thinning_2022" role="doc-biblioref">Sankey and Tatum, 2022</a>)</span>. Thinned forests also have more snow and soil moisture <span class="citation" data-cites="odonnell_vegetation_2021 belmonte_soil_2022">(<a href="#ref-belmonte_soil_2022" role="doc-biblioref">Belmonte et al., 2022</a>; <a href="#ref-odonnell_vegetation_2021" role="doc-biblioref">O’Donnell et al., 2021</a>)</span>.</p>
+<p>The snow and its persistence appear particularly important for recharge in Arizona’s semi-arid and high-elevation conifer forests. Analysis of groundwater issuing from springs along the Mogollon rim found a strong relationship between snow persistence and the duration of spring discharge <span class="citation" data-cites="donovan2022">(<a href="#ref-donovan2022" role="doc-biblioref">Donovan et al., 2022</a>)</span>. Isotopic groundwater analyses have revealed that Northern Arizona’s recharge is dominated by winter precipitation from altitudes above 1500 m<span class="citation" data-cites="eastoe2007 eastoe2023 earman2006 blasch2006">(<a href="#ref-blasch2006" role="doc-biblioref">Blasch et al., 2006</a>; <a href="#ref-earman2006" role="doc-biblioref">Earman et al., 2006</a>; <a href="#ref-eastoe2023" role="doc-biblioref">Eastoe, 2023</a>; <a href="#ref-eastoe2007" role="doc-biblioref">Eastoe, 2007</a>)</span>. Studies of plant water use have found that larger ponderosa pine trees primarily utilize deeper soil moisture from winter precipitation, while understory vegetation and smaller trees utilize shallow soil water from monsoonal storms, informing our approach to focusing on ponderosa pine trees for this analysis <span class="citation" data-cites="kerhoulas2013 kerhoulas2023">(<a href="#ref-kerhoulas2023" role="doc-biblioref">Kerhoulas et al., 2023</a>; <a href="#ref-kerhoulas2013" role="doc-biblioref">Kerhoulas et al., 2013</a>)</span>.</p>
+<p>Thinning in Ponderosa Pine forests is expected to increase available water in two primary ways. 1) reducing transpiration of deep soil water by overstory vegetation and 2) reducing canopy interception of snow and subsequent sublimation, increasing below-canopy snow depth and snow persistence. Thinning in semi-arid forested watersheds can significantly alter snowmelt timing <span class="citation" data-cites="dwivedi2024">(<a href="#ref-dwivedi2024" role="doc-biblioref">Dwivedi et al., 2024</a>)</span>. Reduced forest cover can delay snowmelt at colder sites, higher elevations, and northern aspects or advance snowmelt through increasing sub-canopy solar radiation and wind, particularly at lower elevations, southern aspects, and warmer sites <span class="citation" data-cites="biederman_recent_2015 dwivedi2024">(<a href="#ref-biederman_recent_2015" role="doc-biblioref">Biederman et al., 2015</a>; <a href="#ref-dwivedi2024" role="doc-biblioref">Dwivedi et al., 2024</a>)</span>.</p>
+<p>Total annual precipitation also appears to influence whether thinning reduces or enhances water yield at particular sites. In the Colorado River Basin, there appears to be a precipitation threshold at work. Below ~500 <span class="math inline">\(mm\)</span> of annual precipitation, precipitation and runoff may become decoupled <span class="citation" data-cites="biederman2022">(<a href="#ref-biederman2022" role="doc-biblioref">Biederman et al., 2022</a>)</span>, likely because below ~500 <span class="math inline">\(mm\)</span>, most precipitation is evaporated regardless of forest condition. Semi-arid forests with high inter-annual precipitation variability may show effects in wet years when precipitation is greater than ~500 <span class="math inline">\(mm\)</span> or in snow-dominant watersheds <span class="citation" data-cites="adams_ecohydrological_2012 carroll_evaluating_2016">(<a href="#ref-adams_ecohydrological_2012" role="doc-biblioref">Adams et al., 2012</a>; <a href="#ref-carroll_evaluating_2016" role="doc-biblioref">Carroll et al., 2016</a>)</span>.</p>
+<p>Canopy cover between 25% and 40% appears optimal for net snow accumulation at continental mid-latitude sites <span class="citation" data-cites="veatch2009">(<a href="#ref-veatch2009" role="doc-biblioref">Veatch et al., 2009</a>)</span>. UAV-based studies within the study area have shown that 24 - 35% canopy cover was optimal for snow persistence. <span class="citation" data-cites="donager2021 sankey_multi-scale_2015 belmonte2021">(<a href="#ref-belmonte2021" role="doc-biblioref">Belmonte et al., 2021</a>; <a href="#ref-donager2021" role="doc-biblioref">Donager et al., 2021b</a>; <a href="#ref-sankey_multi-scale_2015" role="doc-biblioref">Sankey et al., 2015</a>)</span>. However, water yield enhancement from thinning likely requires at least a 20% reduction in canopy cover<span class="citation" data-cites="adams_ecohydrological_2012">(<a href="#ref-adams_ecohydrological_2012" role="doc-biblioref">Adams et al., 2012</a>)</span>. Hydrologic models in northern Arizona watersheds suggest that reductions in basal area of at least 30% can increase groundwater recharge by up to 15% <span class="citation" data-cites="wyatt2015">(<a href="#ref-wyatt2015" role="doc-biblioref">Wyatt et al., 2015</a>)</span>.</p>
+<p>Research on the effect of thinning to below-ground hydrological processes in semi-arid Mediterranean forests found that sites with high antecedent soil moisture had the highest response, with drainage to deeper soil layers increasing by 50 mm/year relative to control sites<span class="citation" data-cites="del_campo_effectiveness_2019">(<a href="#ref-del_campo_effectiveness_2019" role="doc-biblioref">Del Campo et al., 2019</a>)</span>. The soil type (texture, composition, field capacity, and permeability) and topography affect the soil moisture. Slope, Aspect, landscape convexity or concavity, and geomorphons (or landform types) such as pits, flats, hills, valleys, ridges, and hollows strongly affect the accumulation and residence time of overland flow and shallow soil water<span class="citation" data-cites="parker1982 jasiewicz2013">(<a href="#ref-jasiewicz2013" role="doc-biblioref">Jasiewicz and Stepinski, 2013</a>; <a href="#ref-parker1982" role="doc-biblioref">Parker, 1982</a>)</span>. In dry soils, capillary forces generally dominate over gravitational forces, and areas with higher flow accumulation and residence time are more likely to reach field capacity, leading to more percolation<span class="citation" data-cites="woessner2020">(<a href="#ref-woessner2020" role="doc-biblioref">Woessner and Poeter, 2020</a>)</span>.</p>
+<p>Another important aspect affecting recharge enhancement potential is the underlying lithology, which controls the subsurface flow of groundwater. The state currently lacks detailed hydrogeologic mapping. However, representative ranges of primary (matrix) permeability and porosity values for rock types are available based on 1:1,000,000 and 1:500,000 geologic mapping data<span class="citation" data-cites="huscroft2018 freeze1979 woessner2020">(<a href="#ref-freeze1979" role="doc-biblioref">Freeze and Cherry, 1979</a>; <a href="#ref-huscroft2018" role="doc-biblioref">Huscroft et al., 2018</a>; <a href="#ref-woessner2020" role="doc-biblioref">Woessner and Poeter, 2020</a>)</span>. Secondary permeability and porosity, which involve flow in faults and fractures, can be estimated to some degree by measuring the density of linear surface features, or ‘lineaments,’ which often correspond to underlying geologic structures <span class="citation" data-cites="oleary1976 sander2007">(<a href="#ref-oleary1976" role="doc-biblioref">O’leary et al., 1976</a>; <a href="#ref-sander2007" role="doc-biblioref">Sander, 2007</a>)</span>. Lineaments have been used to identify potential groundwater supplies, and studies have found higher well yields along lineaments <span class="citation" data-cites="sander2007">(<a href="#ref-sander2007" role="doc-biblioref">Sander, 2007</a>)</span>. In some crystalline bedrock, groundwater flow occurs exclusively in faults and fractures <span class="citation" data-cites="meijerink2007 nyborg2007">(<a href="#ref-meijerink2007" role="doc-biblioref">Meijerink et al., 2007</a>; <a href="#ref-nyborg2007" role="doc-biblioref">Nyborg et al., 2007</a>)</span>. Orientations of lineaments can help determine the anisotropy of the fracture environment<span class="citation" data-cites="meijerink2007">(<a href="#ref-meijerink2007" role="doc-biblioref">Meijerink et al., 2007</a>)</span>. Caves and sinkholes (or dolines) often form along and at the intersection of faults and fractures in karst terrains <span class="citation" data-cites="ford2007">(<a href="#ref-ford2007" role="doc-biblioref">Ford and Williams, 2007</a>)</span>. Karst and pseudo-karst terrains can have enhanced infiltration potential far beyond the hydraulic conductivity of the rock matrix <span class="citation" data-cites="kresic2013">(<a href="#ref-kresic2013" role="doc-biblioref">Krešić, 2013</a>)</span>. For example, the Edwards Aquifer in Texas was found to have permeability values that vary by up to nine orders of magnitude <span class="citation" data-cites="halihan1998">(<a href="#ref-halihan1998" role="doc-biblioref">Halihan and Wicks, 1998</a>)</span>. The presence or absence of karst or pseudo karst in concert with lineament density are critical criterion made explicit in our suitability analysis.</p>
+<p>In summary, suitability for sites where thinning enhances recharge would most likely occur in areas with significant snowfall, maximum annual precipitation &gt;= 500mm, higher antecedent soil moisture, NE aspects, in valleys or flat areas where a 20% reduction in canopy cover and a 30% reduction in basal area would result in a thinned canopy cover of between 25 and 35%. Suitability would be lowest in sites with minimal snowfall, SW aspects, lower elevations, ridge tops, or steep slopes, where thinning might reduce canopy cover to below 24%. Soil Hydraulic Conductivity, flow accumulation, and topographic metrics can reveal the areas likely to have higher antecedent soil moisture. Lithology, primary permeability and porosity, and lineament density can provide insight into where rapid subsurface infiltration is possible.</p>
+</section>
+</section>
+<section id="methods" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Methods</h1>
+<section id="suitability-criteria" class="level2" data-number="2.1">
+<h2 data-number="2.1"><span class="header-section-number">2.1</span> Suitability Criteria</h2>
+<p>We used ArcGIS Pro 3.4.0 to create a weighted suitability model consisting of the 12 thematic data layers shown in <a href="#tbl-Thematic" class="quarto-xref">Table 1</a>. These were re-scaled, weighted, and combined into four final thematic layers: 1) Snow Dominance, 2) Vegetation Density Index, 3) Soil Moisture and Infiltration Index and surface and 4) Subsurface Infiltration Index (see <a href="#tbl-Thematic" class="quarto-xref">Table 1</a> ).</p>
+<div id="tbl-Thematic" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Thematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 1: Thematic Layers and Indices used for suitability mapping
+</figcaption>
+<div aria-describedby="tbl-Thematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>High-Level Index</th>
+<th>Intermediate Index</th>
+<th>Thematic Layers</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-</td>
+<td>-</td>
+<td>Snowfall fraction</td>
+<td>Patrick Broxton</td>
+</tr>
+<tr class="even">
+<td>Vegetation Density Index (VDI)</td>
+<td>-</td>
+<td>Basal Area</td>
+<td>TreeMap 2016</td>
+</tr>
+<tr class="odd">
+<td>Vegetation Density Index (VDI)</td>
+<td>-</td>
+<td>Canopy Cover</td>
+<td>NLCD 2021</td>
+</tr>
+<tr class="even">
+<td>Soil moisture and infiltration Index (SMII)</td>
+<td>Topographic Relative Moisture Index (TRMI)</td>
+<td>Aspect</td>
+<td>Derived from 1-Arcsecond DEM</td>
+</tr>
+<tr class="odd">
+<td>Soil moisture and infiltration Index (SMII)</td>
+<td>Topographic Relative Moisture Index (TRMI)</td>
+<td>Geomorphon</td>
+<td>Derived from 1-Arcsecond DEM</td>
+</tr>
+<tr class="even">
+<td>Soil moisture and infiltration Index (SMII)</td>
+<td>Topographic Relative Moisture Index (TRMI)</td>
+<td>Slope</td>
+<td>Derived from 1-Arcsecond DEM</td>
+</tr>
+<tr class="odd">
+<td>Soil moisture and infiltration Index (SMII)</td>
+<td>Topographic Relative Moisture Index (TRMI)</td>
+<td>Topographic Position Index</td>
+<td>Derived from 1-Arcsecond DEM</td>
+</tr>
+<tr class="even">
+<td>Soil moisture and infiltration Index (SMII)</td>
+<td>-</td>
+<td>Soil Saturated Hydraulic Conductivity</td>
+<td>ggNATSGO</td>
+</tr>
+<tr class="odd">
+<td>Subsurface Infiltration Index (SbII)</td>
+<td>-</td>
+<td>Matrix Porosity (Po)</td>
+<td>GLHYMPS v2</td>
+</tr>
+<tr class="even">
+<td>Subsurface Infiltration Index (SbII)</td>
+<td>-</td>
+<td>Matrix Permeability (Pm)</td>
+<td>GLHYMPS v2</td>
+</tr>
+<tr class="odd">
+<td>Subsurface Infiltration Index (SbII)</td>
+<td>-</td>
+<td>Lineament Density (LD)</td>
+<td>Derived from 1-Arcsecond DEM</td>
+</tr>
+<tr class="even">
+<td>Subsurface Infiltration Index (SbII)</td>
+<td>-</td>
+<td>Potential Karst or Pseudo Karst (pK)</td>
+<td>Karst in the United States (USGS)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="snowfall-fraction-sf" class="level4" data-number="2.1.0.1">
+<h4 data-number="2.1.0.1"><span class="header-section-number">2.1.0.1</span> Snowfall Fraction (SF)</h4>
+<p>Snowfall Fraction (SF) is the percent of annual precipitation that comes in the form of snow based on measures of Snow Water Equivalent SWE, PRISM, and CONUS 404 data produced by the University of Arizona. Snow has an outsized role in recharge at elevations over 1800 m in Arizona <span class="citation" data-cites="eastoe2007 eastoe2023 baker2013 earman2006">(<a href="#ref-baker2013" role="doc-biblioref">Baker, 2013</a>; <a href="#ref-earman2006" role="doc-biblioref">Earman et al., 2006</a>; <a href="#ref-eastoe2023" role="doc-biblioref">Eastoe, 2023</a>; <a href="#ref-eastoe2007" role="doc-biblioref">Eastoe, 2007</a>)</span> and snow dominance appears to be an important factor in whether thinning enhances recharge <span class="citation" data-cites="adams_ecohydrological_2012 carroll_evaluating_2016 saksa2017">(<a href="#ref-adams_ecohydrological_2012" role="doc-biblioref">Adams et al., 2012</a>; <a href="#ref-carroll_evaluating_2016" role="doc-biblioref">Carroll et al., 2016</a>; <a href="#ref-saksa2017" role="doc-biblioref">Saksa et al., 2017</a>)</span>. Therefore our suitability mapping prioritizes areas with more snowfall relative to rainfall or higher SF.</p>
+</section>
+<section id="canopy-cover-scc" class="level4" data-number="2.1.0.2">
+<h4 data-number="2.1.0.2"><span class="header-section-number">2.1.0.2</span> Canopy Cover (sCC)</h4>
+<p>Canopy Cover was obtained from the 2021 National Land Cover Database , which provides an estimate of Total Canopy Cover at a 30m resolution. Canopy cover values ranged from 0% - 86%. NLCD Total canopy cover was reclassified to a 1-10 scale based on suitability for thinning to enhance recharge. We set a value for 1 for all forests with canopy cover &lt;= 12.5% because this is the minimum required for a 20% reduction in canopy cover with a resulting canopy cover &gt;= the pre-settlement historic minimum canopy cover of 10%. Suitability then scales linearly to 10 for percent cover &gt;= 28.75%. Based on the studies that found 23% to 35% as the ideal canopy cover range for retaining snow, and a required 20% reduction in canopy cover. All cells with canopy cover above 28.75% are given a 10 for suitability resulting in the scaled canopy cover (sCC) layer.</p>
+</section>
+<section id="basal-area-sba" class="level4" data-number="2.1.0.3">
+<h4 data-number="2.1.0.3"><span class="header-section-number">2.1.0.3</span> Basal Area (sBA)</h4>
+<p>We extracted basal area estimates from the TreeMap 2016 <span class="citation" data-cites="riley2022">(<a href="#ref-riley2022" role="doc-biblioref">Riley et al., 2022</a>)</span> CONUS dataset with a resolution of 30 meters. Estimates of pre-settlement ponderosa pine forest basal area were between 9.2 and 18 <span class="math inline">\(m^2 ha^-1\)</span> Since basal area reductions of at least 30% are required to see increases in water yield. To remove 30% of the basal area and have thinned forests remain within the historical range of pre-settlement forest density all cells with basal areas of 13.14 <span class="math inline">\(m^2 ha^-1\)</span> or less were given a value of 1, suitability then increases in a linear fashion til it reaches 10 at a basal areas &gt;= 25.71 <span class="math inline">\(m^2 ha^-1\)</span> resulting in the scaled basal area thematic layer (sBA)</p>
+<div id="cell-fig-veg" class="cell">
+<div class="cell-output-display">
+<div id="fig-veg" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-veg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="index_files/figure-html/fig-veg-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2: Rescaling Canopy Cover and Basal Area for suitability"><img src="index_files/figure-html/fig-veg-1.png" class="img-fluid" width="672" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-veg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Rescaling Canopy Cover and Basal Area for suitability
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="vegetation-density-index-vdi" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1"><span class="header-section-number">2.1.1</span> Vegetation Density Index (VDI)</h3>
+<p>Scaled basal area (sBA) and scaled canopy cover (sCC) were combined with a linear weights of 0.6667 and 0.3333 respectively to create the vegetation density index (VDI) shown in <a href="#eq-vdi" class="quarto-xref">Equation 1</a>. This reflects the fact that reductions in basal area are more likely correlated with reductions in ET, while canopy cover primarily affects precipitaiton partioning and sub-canopy solar radiation.</p>
+<p><span id="eq-vdi"><span class="math display">\[
+VDI  = ( sBA* 0.6667)) + (sCC * 0.3333)
+\tag{1}\]</span></span></p>
+<section id="soil-hydraulic-conductivity-soilksat" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1"><span class="header-section-number">2.1.1.1</span> Soil Hydraulic Conductivity (SoilKsat)</h4>
+<p>Soil Hydraulic Conductivity (SoilKsat) is used to estimate the max infiltration rate of the top 2 meters of the soil profile. SoilKsat comes from the gridded National Soil Geographic Database produced by the USDA-NRCS. The gNATSGO Soil Hydraulic Conductivity layer provides estimates of the rate at which water moves through the pores of saturated soil based on point field measurements of soil texture, structure, and porosity. Data was aggregated for the AZHUC8 study area using the Weighted Average method for soil layers from 0 - 200 cm, using the Soil Data Development Toolbox in ArcMap 10.8.3. Values are reported in micrometers per second and broken into the standard 6 classes from very low (0.00 - 0.01) to Very High (100 - 705)</p>
+</section>
+<section id="topographic-relative-moisture-index-trmi" class="level4" data-number="2.1.1.2">
+<h4 data-number="2.1.1.2"><span class="header-section-number">2.1.1.2</span> Topographic Relative Moisture Index (TRMI)</h4>
+<p>Topographic Relative Moisture Index (TRMI) incorporates several topographic parameters that influence moisture dynamics, including slope gradient, aspect, relative elevation (or topographic position), and landscape convexity or concavity <span class="citation" data-cites="parker1982">(<a href="#ref-parker1982" role="doc-biblioref">Parker, 1982</a>)</span>.TRMI was calculated by ranking Slope (degrees) (1-10), Slope Configuration (Topographic Position Index) (1-10), Geomorphon (ArcGIS Pro 3.4.0 Spatial Analyst Toolbox–Geomorphon Landform Tool) (1-20), and aspect (degrees azimuth) (1-20). Values were summed to calculate a TRMI score between 4 and 60, classified into 10-classes with equal intervals.</p>
+</section>
+</section>
+<section id="soil-moisture-and-infiltration-index-smii" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2"><span class="header-section-number">2.1.2</span> Soil Moisture and Infiltration Index (SMII)</h3>
+<p>The Soil Moisture and Infiltration Index (SMII) represents where water accumulates and is retained on the landscape and where it is likely to infiltrate through the top 2 meters of the soil profile. This index is a weighted linear combination of the Topographic Relative Moisture Index and Soil Saturated Hydraulic Conductivity see <a href="#fig-soil" class="quarto-xref">Figure 3</a>. The weights were determined by ranking the variables of relative importance to each other. Using a top-down approach, we prioritized supply over infiltration, reasoning that infiltration matters less in areas where there is no accumulated water to infiltrate. Therefore we applied a weight of 0.6667 to TRMI and 0.3333 to Soil Saturated Hydraulic Conductivity (SoilKsat). The weighted linear combination is shown in <a href="#eq-smii" class="quarto-xref">Equation 2</a> .</p>
+<p><span id="eq-smii"><span class="math display">\[
+SMII = (TRMI * (0.6667)) + (SoilK) * (0.3333))
+\tag{2}\]</span></span></p>
+<div id="fig-soil" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-soil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Soilsmap.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 3: Panel (c) shows the zoomed in area for panels (a),( b), and (d). Soil Moisture and Infiltration Index (d) is composed of a weighted linear combination of Soil hydraulic Conductivity (a) and Topographic Relative Moisture Index (b)."><img src="images/Soilsmap.jpg" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-soil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 3: Panel (c) shows the zoomed in area for panels (a),( b), and (d). Soil Moisture and Infiltration Index (d) is composed of a weighted linear combination of Soil hydraulic Conductivity (a) and Topographic Relative Moisture Index (b).
+</figcaption>
+</figure>
+</div>
+<section id="matrix-permeability-spm-and-porosity-spo" class="level4" data-number="2.1.2.1">
+<h4 data-number="2.1.2.1"><span class="header-section-number">2.1.2.1</span> Matrix Permeability (sPm) and Porosity (sPo)</h4>
+<p>Permeability and Porosity values were extracted from the GLobal Hydrogeology MaPS 2.0 (GLHYMPS v2) dataset <span class="citation" data-cites="huscroft2018">(<a href="#ref-huscroft2018" role="doc-biblioref">Huscroft et al., 2018</a>)</span>. Our study area contained 11,057 polygons with values for saturated log-permeability ranging from -16 to -10, and porosity values ranging from 0.01 - 0.28 (<a href="#fig-perm" class="quarto-xref">Figure 4</a> ). The attribute values were extracted and the polygons were rasterized at a 30m resolution, then re-scaled to values (1-10) as shown in <a href="#tbl-glhymps" class="quarto-xref">Table 2</a> .</p>
+<div id="tbl-glhymps" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-glhymps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 2: Classification and rescaling of GLHYMPS v2 data for suitability mapping
+</figcaption>
+<div aria-describedby="tbl-glhymps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Log<em>k</em> x 100 (Permeability)</th>
+<th>Scaled Permeability (sPm)</th>
+<th>Porosity x 100 (%)</th>
+<th>Scaled Porosity (sPo)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-1650 to -1595</td>
+<td>1</td>
+<td>0 - 2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>-1595 to -1540</td>
+<td>2</td>
+<td>2 - 5</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>-1540 to -1485</td>
+<td>3</td>
+<td>5 - 8</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>-1485 to -1430</td>
+<td>4</td>
+<td>8 - 10</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>-1430 to -1375</td>
+<td>5</td>
+<td>10 - 13</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>-1375 to -1320</td>
+<td>6</td>
+<td>13 - 17</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>-1320 to -1265</td>
+<td>7</td>
+<td>17 - 21</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>-1265 to -1210</td>
+<td>8</td>
+<td>21 - 24</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>-1210 to -1155</td>
+<td>9</td>
+<td>24 - 26</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>-1155 to -1052</td>
+<td>10</td>
+<td>26 - 28</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="fig-perm" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Geology_2_perm_porosity.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 4: Matrix permeability and porosity values from GLHYMPS v2 rasterized and clipped to the AZH8 Study Area"><img src="images/Geology_2_perm_porosity.jpg" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-perm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 4: Matrix permeability and porosity values from GLHYMPS v2 rasterized and clipped to the AZH8 Study Area
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="lineament-density-ld" class="level4" data-number="2.1.2.2">
+<h4 data-number="2.1.2.2"><span class="header-section-number">2.1.2.2</span> Lineament Density (LD)</h4>
+<p>Lineaments were extracted semi-automatically using 1-arc-second DEM tiles available from the national map. Topographic Position Index (TPI) provides estimates of relative neighborhood convexity and concavity and was calculated using a circular neighborhood with a radius of 5m. The TPI layer was then displayed as a multi-directional hillshade and exported from ArcGIS to Catalyst where the LINE module was used to detect edges and link lines. The Default parameters were utilized, and the resulting lineaments were brought into ArcGIS and cleaned to remove any edge effects. A second lineament analysis was conducted using the standard deviation of elevation with a circular neighborhood and a radius of 5m. This raster was also displayed as a multi-directional hillshade and exported, and lineaments were again extracted using the LINE module. These two rasters provided complementary sets of combined lineaments. Due to the resolution and parameters chosen, man-made lineaments (roads, railways, and power lines) were not largely delineated by the algorithm in either analysis; however, buffers around roads were randomly sampled and spot-checked to ensure man-made lineaments were not included. The extracted lineaments are shown in <a href="#fig-linpk" class="quarto-xref">Figure 5</a> . The Line Density tool in ArcGIS Pro was used to calculate the density of lineaments using a circular neighborhood with a radius of 1km providing lineament density values between 0.001 and 5.55 km/km^2, these values were scaled to values 1 - 10 to provide the thematic layer Lineament Density (LD)</p>
+</section>
+<section id="potential-karst-or-pseudo-karst-spk" class="level4" data-number="2.1.2.3">
+<h4 data-number="2.1.2.3"><span class="header-section-number">2.1.2.3</span> Potential Karst or Pseudo-Karst (spK)</h4>
+<p>Shapefiles of potential karst or pseudo-karst lithology were sourced from the Karst in the United States digital map compilation and database <span class="citation" data-cites="weary2014">(<a href="#ref-weary2014" role="doc-biblioref">Weary and Doctor, 2014</a>)</span>. The database contains information sources from the United States based on the State Geologic Map Compilation and maps where lithologic units with potential for karst features at or near the surface. The polygons were clipped to the AZHU8 study area and converted to a 30m raster, and classified and assigned values based on their potential for enhanced recharge through faults, fractures, sinkholes, or caves. The classes were Non-karst = 2, Volcanics with potential karst or pseudo–karst (such as lava tubes) = 5, Evaporites at or near the surface = 7, and Carbonates at or near the surface = 10 resulting in a scaled potential karst layer (spK) as shown in <a href="#fig-linpk" class="quarto-xref">Figure 5</a></p>
+<div id="fig-linpk" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-linpk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Geology_karst_lineaments.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5: Lineaments (left) are indicative of fracturing, higher secondary permeability and porosity. Presence or Absence of karst or Pseudo-karst (Right)"><img src="images/Geology_karst_lineaments.jpg" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linpk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 5: Lineaments (left) are indicative of fracturing, higher secondary permeability and porosity. Presence or Absence of karst or Pseudo-karst (Right)
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="subsurface-infiltration-index-sbii" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3"><span class="header-section-number">2.1.3</span> Subsurface Infiltration Index (SbII)</h3>
+<p>This index is a weighted linear combination of sPm, sPo, LD, and sPK, with weights 0.4, 0.25, 0.15, and 0.2 respectivly, the equation is shown below <a href="#eq-Sbii" class="quarto-xref">Equation 3</a></p>
+<p><span id="eq-Sbii"><span class="math display">\[
+SbII = ((sPm * 0.4) + (sPo * 0.25) + (LD * 0.15) + (sPK * 0.2))
+\tag{3}\]</span></span></p>
+</section>
+</section>
+<section id="weighting" class="level2" data-number="2.2">
+<h2 data-number="2.2"><span class="header-section-number">2.2</span> Weighting</h2>
+<p>The four final thematic layers: SF, VDI, SMII, SBII were ranked in order of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2 respectively resulting in the final suitability values for thinning to enhance recharge shown in <strong>?@eq-suit.Paramter</strong> weights and index weights are shown in <strong>?@tbl-w1</strong> and <a href="#tbl-w2" class="quarto-xref">Table 3</a>.</p>
+<p><span id="eq-suit"><span class="math display">\[
+Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII))  \tag{4}\]</span></span></p>
+<table class="caption-top">
+<caption>Table of Parameter Weights.{#tbl-w1}</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Total Weight</th>
+<th>Index Weight</th>
+<th>Sub Index Weight</th>
+<th>Sub Sub index Weight</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20.00%</td>
+<td>0.20</td>
+<td>-</td>
+<td>1.00</td>
+<td>Snowfall Fraction</td>
+</tr>
+<tr class="even">
+<td>13.33%</td>
+<td>0.20</td>
+<td>-</td>
+<td>0.67</td>
+<td>Basal Area Parameter</td>
+</tr>
+<tr class="odd">
+<td>6.67%</td>
+<td>0.20</td>
+<td></td>
+<td>0.33</td>
+<td>Canopy Cover Parameter</td>
+</tr>
+<tr class="even">
+<td>4.44%</td>
+<td>0.40</td>
+<td>0.67</td>
+<td>0.17</td>
+<td>Topographic Position Index</td>
+</tr>
+<tr class="odd">
+<td>8.89%</td>
+<td>0.40</td>
+<td>0.67</td>
+<td>0.33</td>
+<td>Geomorphon</td>
+</tr>
+<tr class="even">
+<td>8.89%</td>
+<td>0.40</td>
+<td>0.67</td>
+<td>0.33</td>
+<td>Aspect</td>
+</tr>
+<tr class="odd">
+<td>4.44%</td>
+<td>0.40</td>
+<td>0.67</td>
+<td>0.17</td>
+<td>Slope</td>
+</tr>
+<tr class="even">
+<td>13.33%</td>
+<td>0.40</td>
+<td>0.33</td>
+<td>1.00</td>
+<td>Soil Saturated Hydraulic Conductivity</td>
+</tr>
+<tr class="odd">
+<td>5.00%</td>
+<td>0.20</td>
+<td>-</td>
+<td>0.25</td>
+<td>GLHYMPS V2 Porosity</td>
+</tr>
+<tr class="even">
+<td>8.00%</td>
+<td>0.20</td>
+<td></td>
+<td>0.40</td>
+<td>GLYMPS V2 Permeability</td>
+</tr>
+<tr class="odd">
+<td>3.00%</td>
+<td>0.20</td>
+<td></td>
+<td>0.15</td>
+<td>Lineament Density</td>
+</tr>
+<tr class="even">
+<td>4.00%</td>
+<td>0.20</td>
+<td></td>
+<td>0.20</td>
+<td>Potential Karst or Pseudo Karst</td>
+</tr>
+</tbody>
+</table>
+<div id="tbl-w2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-w2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table 3: Table of Index Weights
+</figcaption>
+<div aria-describedby="tbl-w2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Suitability Weight</th>
+<th>Weight</th>
+<th>Weight</th>
+<th>Index</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>26.67%</td>
+<td>0.40</td>
+<td>0.67</td>
+<td>Topographic Relative Mosture Index</td>
+</tr>
+<tr class="even">
+<td>20.00%</td>
+<td>0.20</td>
+<td>-</td>
+<td>Vegetation Density Index</td>
+</tr>
+<tr class="odd">
+<td>20.00%</td>
+<td>0.20</td>
+<td>-</td>
+<td>Subsurface Infiltration Index</td>
+</tr>
+<tr class="even">
+<td>40.00%</td>
+<td>0.40</td>
+<td>-</td>
+<td>Soil Moisture Infiltration Index</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="sensitivity-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3"><span class="header-section-number">2.3</span> Sensitivity Analysis</h2>
+<p>A sensitivity analysis was conducted on a subset of the data using a One-at-a-time (OAT) analysis where each paramter was systematically removed and each index along with the final suitability map was recalculated. RESULTS PENDING.</p>
+</section>
+</section>
+<section id="results" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<p>The study area contained 1.8 million hectares of Ponderosa Pine forest. Approximately 26% (473,458 hectares) of the ponderosa pine forest was deemed highly suitable for thinning to enhance recharge with suitability values between 6.48 and 8.85 (out of 10), a further 33% of the ponderosa pine forest can be considered suitable for thinning to enhance recharge (610,013 hectares) with suitability values between 5.42 and 6.48 (<a href="#fig-finsuit" class="quarto-xref">Figure 6</a> ). The remainder of the ponderosa pine forest is moderate suitability, low suitability, or not suitable for thinning to enhance recharge 41.28% (761,781 hectares). Only about 3% of the ponderosa pine forest classified as very high and high suitability fall within wilderness boundaries.</p>
+<div id="fig-finsuit" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-finsuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/Statewide_suitability_Ponderosa_Pine.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 6: Suitability Map for Thinning to Enhance Groundwater Recharge"><img src="images/Statewide_suitability_Ponderosa_Pine.jpg" class="img-fluid" /></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-finsuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 6: Suitability Map for Thinning to Enhance Groundwater Recharge
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="conclusion-and-discussion" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Conclusion and Discussion</h1>
+<p>This research demonstrates a novel application of MCDA for mapping areas where forest thinning could enhance groundwater recharge. The methodology here is adaptable and could be implemented in other semi-arid forested regions. More work is needed to validate suitability maps using Process-Based Hydrologic Models. Groundwater is and always has been difficult to monitor and measure. However springs, are convenient locations to monitor the effects of land management on groundwater recharge. Though tracer studies are needed to connect specific springs to particular recharge areas, continuous monitoring of springs and the base flow component of perennial spring-fed rivers can inform land managers of the effectiveness of thinning in enhancing recharge and help validate suitability analyses.</p>
+<p>Forest thinning is already planned in over 1 million hectares of Arizona’s Ponderosa Pine forest. Thinning is intended primarily to reduce the risk of catastrophic wildfire, protect forest resources, enhance surface water provisioning and improve habitat. However we have also demonstrated that in much of the ponderosa pine forest, thinning is likely to enhance groundwater recharge. As water managers across the state struggle to secure new water supplies to meet the demands of population growth and maintain the agricultural economy, insecurity in supplies from the Colorado River mean that more and more water users are turning to groundwater to fill the gap. Increased interest in thinning for the purpose of enhancing recharge could encourage land managers to increase the pace of restoration and find alternative funding sources for forest restoration.</p>
+<p>The Forest Service has a mandate to manage for multiple uses; however, groundwater recharge is not currently an explicitly managed use. Analyses like these can help identify areas that could be managed with aquifer recharge in mind.</p>
+<p>One of the main challenges in mapping suitability at landscape scales is the lack of high resolution data. Arizona lacks detailed hydrogeologic mapping throughout much of the state. The State Geologic map within the State Geologic Mapping Compilation contains geologic units and faults mapped to the 1:500,000 scale. However digitized lineaments, particularly faults are limited to very large faults state-wide and are almost completely absent in the North Eastern part of the state on the Navajo Nation and Colorado Plateau.</p>
+</section>
+<section id="acknowledgments" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Acknowledgments</h1>
+<p>Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt. Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem. Donec molestie ex sit amet viverra egestas. Nullam justo nulla, fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.</p>
+</section>
+<section id="open-research" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Open research</h1>
+<p>Phasellus interdum tincidunt ex, a euismod massa pulvinar at. Ut fringilla ut nisi nec volutpat. Morbi imperdiet congue tincidunt. Vivamus eget rutrum purus. Etiam et pretium justo. Donec et egestas sem. Donec molestie ex sit amet viverra egestas. Nullam justo nulla, fringilla at iaculis in, posuere non mauris. Ut eget imperdiet elit.</p>
+</section>
+<section id="references" class="level1 unnumbered">
+<h1 class="unnumbered">References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-adams_ecohydrological_2012" class="csl-entry" role="listitem">
+Adams, H.D., Luce, C.H., Breshears, D.D., Allen, C.D., Weiler, M., Hale, V.C., Smith, A.M.S., Huxman, T.E., 2012. Ecohydrological consequences of drought‐ and infestation‐ triggered tree die‐off: Insights and hypotheses. Ecohydrology 5, 145–159. <a href="https://doi.org/10.1002/eco.233">https://doi.org/10.1002/eco.233</a>
+</div>
+<div id="ref-allen2002" class="csl-entry" role="listitem">
+Allen, C.D., Savage, M., Falk, D.A., Suckling, K.F., Swetnam, T.W., Schulke, T., Stacey, P.B., Morgan, P., Hoffman, M., Klingel, J.T., 2002. Ecological restoration of southwestern ponderosa pine ecosystems: a broad perspective. Ecological Applications 12, 1418–1433. <a href="https://doi.org/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2">https://doi.org/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2</a>
+</div>
+<div id="ref-baker2013" class="csl-entry" role="listitem">
+Baker, M.B., 2013. Chapter 10: Hydrology, in: Friederici, P. (Ed.), Science Practice Ecological Restoration. Island Press, Chicago, pp. 161–174.
+</div>
+<div id="ref-baker_effects_1986" class="csl-entry" role="listitem">
+Baker, M.B., 1986. Effects of <span>Ponderosa</span> <span>Pine</span> <span>Treatments</span> on <span>Water</span> <span>Yield</span> in <span>Arizona</span>. Water Resources Research 22, 67–73. <a href="https://doi.org/10.1029/WR022i001p00067">https://doi.org/10.1029/WR022i001p00067</a>
+</div>
+<div id="ref-belmonte2021" class="csl-entry" role="listitem">
+Belmonte, A., Sankey, T., Biederman, J., Bradford, J., Goetz, S., Kolb, T., 2021. UAV-Based Estimate of Snow Cover Dynamics: Optimizing Semi-Arid Forest Structure for Snow Persistence. Remote Sensing 13, 1036. <a href="https://doi.org/10.3390/rs13051036">https://doi.org/10.3390/rs13051036</a>
+</div>
+<div id="ref-belmonte_soil_2022" class="csl-entry" role="listitem">
+Belmonte, A., Ts. Sankey, T., Biederman, J., Bradford, J.B., Kolb, T., 2022. Soil moisture response to seasonal drought conditions and post‐thinning forest structure. Ecohydrology 15, e2406. <a href="https://doi.org/10.1002/eco.2406">https://doi.org/10.1002/eco.2406</a>
+</div>
+<div id="ref-bennett_concurrent_2021" class="csl-entry" role="listitem">
+Bennett, K.E., Talsma, C., Boero, R., 2021. Concurrent <span>Changes</span> in <span>Extreme</span> <span>Hydroclimate</span> <span>Events</span> in the <span>Colorado</span> <span>River</span> <span>Basin</span>. Water 13, 978. <a href="https://doi.org/10.3390/w13070978">https://doi.org/10.3390/w13070978</a>
+</div>
+<div id="ref-berner_tree_2017" class="csl-entry" role="listitem">
+Berner, L.T., Law, B.E., Meddens, A.J.H., Hicke, J.A., 2017. Tree mortality from fires, bark beetles, and timber harvest during a hot and dry decade in the western <span>United</span> <span>States</span> (2003–2012). Environmental Research Letters 12, 065005. <a href="https://doi.org/10.1088/1748-9326/aa6f94">https://doi.org/10.1088/1748-9326/aa6f94</a>
+</div>
+<div id="ref-biederman2022" class="csl-entry" role="listitem">
+Biederman, J.A., Robles, M.D., Scott, R.L., Knowles, J.F., 2022. Streamflow Response to Wildfire Differs With Season and Elevation in Adjacent Headwaters of the Lower Colorado River Basin. Water Resources Research 58, e2021WR030687. <a href="https://doi.org/10.1029/2021WR030687">https://doi.org/10.1029/2021WR030687</a>
+</div>
+<div id="ref-biederman_recent_2015" class="csl-entry" role="listitem">
+Biederman, J.A., Somor, A.J., Harpold, A.A., Gutmann, E.D., Breshears, D.D., Troch, P.A., Gochis, D.J., Scott, R.L., Meddens, A.J.H., Brooks, P.D., 2015. Recent tree die‐off has little effect on streamflow in contrast to expected increases from historical studies. Water Resources Research 51, 9775–9789. <a href="https://doi.org/10.1002/2015WR017401">https://doi.org/10.1002/2015WR017401</a>
+</div>
+<div id="ref-blasch2006" class="csl-entry" role="listitem">
+Blasch, K.W., Hoffmann, J.P., Graser, L.F., Bryson, J.R., Flint, A.L., 2006. <a href="https://pubs.usgs.gov/sir/2005/5198/pdf/sir20055198.pdf">Hydrogeology of the Upper and Middle Verde River Watersheds, Central Arizona</a>.
+</div>
+<div id="ref-bosch1982" class="csl-entry" role="listitem">
+Bosch, J.M., Hewlett, J.D., 1982. A review of catchment experiments to determine the effect of vegetation changes on water yield and evapotranspiration. Journal of Hydrology 55, 3–23. <a href="https://doi.org/10.1016/0022-1694(82)90117-2">https://doi.org/10.1016/0022-1694(82)90117-2</a>
+</div>
+<div id="ref-brown_source_2005" class="csl-entry" role="listitem">
+Brown, T.C., Hobbins, M.T., Ramirez, J.A., 2005. <a href="https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf">The <span>Source</span> of <span>Water</span> <span>Supply</span> in the <span>United</span> <span>States</span></a> (Discussion {Paper} No. RMRS-RWU-4851). U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station, Fort Collins, CO.
+</div>
+<div id="ref-carroll_evaluating_2016" class="csl-entry" role="listitem">
+Carroll, R.W.H., Huntington, J.L., Snyder, K.A., Niswonger, R.G., Morton, C., Stringham, T.K., 2016. Evaluating mountain meadow groundwater response to <span>Pinyon</span>‐<span>Juniper</span> and temperature in a great basin watershed. Ecohydrology 10, e1792. <a href="https://doi.org/10.1002/eco.1792">https://doi.org/10.1002/eco.1792</a>
+</div>
+<div id="ref-castle2014" class="csl-entry" role="listitem">
+Castle, S.L., Thomas, B.F., Reager, J.T., Rodell, M., Swenson, S.C., Famiglietti, J.S., 2014. Groundwater depletion during drought threatens future water security of the Colorado River Basin. Geophysical Research Letters 41, 5904–5911. <a href="https://doi.org/10.1002/2014GL061055">https://doi.org/10.1002/2014GL061055</a>
+</div>
+<div id="ref-covington_southwestern_1994" class="csl-entry" role="listitem">
+Covington, W.W., Moore, M.M., 1994. Southwestern ponderosa pine forest structure: Changes since <span>Euro</span>-<span>American</span> settlement. Journal of forestry. 92, 39–47.
+</div>
+<div id="ref-dar2020" class="csl-entry" role="listitem">
+Dar, T., Rai, N., Bhat, A., 2020. Delineation of potential groundwater recharge zones using analytical hierarchy process (AHP). Geology, Ecology, and Landscapes 5, 292–307. <a href="https://doi.org/10.1080/24749508.2020.1726562">https://doi.org/10.1080/24749508.2020.1726562</a>
+</div>
+<div id="ref-del_campo_effectiveness_2019" class="csl-entry" role="listitem">
+Del Campo, A.D., González-Sanchis, M., Molina, A.J., García-Prats, A., Ceacero, C.J., Bautista, I., 2019. Effectiveness of water-oriented thinning in two semiarid forests: <span>The</span> redistribution of increased net rainfall into soil water, drainage and runoff. Forest Ecology and Management 438, 163–175. <a href="https://doi.org/10.1016/j.foreco.2019.02.020">https://doi.org/10.1016/j.foreco.2019.02.020</a>
+</div>
+<div id="ref-del_campo_global_2022" class="csl-entry" role="listitem">
+Del Campo, A.D., Otsuki, K., Serengil, Y., Blanco, J.A., Yousefpour, R., Wei, X., 2022. A global synthesis on the effects of thinning on hydrological processes: <span>Implications</span> for forest management. Forest Ecology and Management 519, 120324. <a href="https://doi.org/10.1016/j.foreco.2022.120324">https://doi.org/10.1016/j.foreco.2022.120324</a>
+</div>
+<div id="ref-donager_integrating_2021" class="csl-entry" role="listitem">
+Donager, J., Sankey, T.Ts., Sánchez Meador, A.J., Sankey, J.B., Springer, A., 2021a. Integrating airborne and mobile lidar data with <span>UAV</span> photogrammetry for rapid assessment of changing forest snow depth and cover. Science of Remote Sensing 4, 100029. <a href="https://doi.org/10.1016/j.srs.2021.100029">https://doi.org/10.1016/j.srs.2021.100029</a>
+</div>
+<div id="ref-donager2021" class="csl-entry" role="listitem">
+Donager, J., Sankey, T.Ts., Sánchez Meador, A.J., Sankey, J.B., Springer, A., 2021b. Integrating airborne and mobile lidar data with UAV photogrammetry for rapid assessment of changing forest snow depth and cover. Science of Remote Sensing 4, 100029. <a href="https://doi.org/10.1016/j.srs.2021.100029">https://doi.org/10.1016/j.srs.2021.100029</a>
+</div>
+<div id="ref-donovan2022" class="csl-entry" role="listitem">
+Donovan, K.M., Springer, A.E., Tobin, B.W., Parnell, R.A., 2022. Karst Spring Processes and Storage Implications in High Elevation, Semiarid Southwestern United States, in: Currell, M.J., Katz, B.G. (Eds.),. Wiley, pp. 35–50. <a href="https://doi.org/10.1002/9781119818625.ch4">https://doi.org/10.1002/9781119818625.ch4</a>
+</div>
+<div id="ref-dwivedi2024" class="csl-entry" role="listitem">
+Dwivedi, R., Biederman, J.A., Broxton, P.D., Pearl, J.K., Lee, K., Svoma, B.M., Van Leeuwen, W.J.D., Robles, M.D., 2024. How three-dimensional forest structure regulates the amount and timing of snowmelt across a climatic gradient of snow persistence. Frontiers in Water 6, 1374961. <a href="https://doi.org/10.3389/frwa.2024.1374961">https://doi.org/10.3389/frwa.2024.1374961</a>
+</div>
+<div id="ref-earman2006" class="csl-entry" role="listitem">
+Earman, S., Campbell, A.R., Phillips, F.M., Newman, B.D., 2006. Isotopic exchange between snow and atmospheric water vapor: Estimation of the snowmelt component of groundwater recharge in the southwestern United States. Journal of Geophysical Research: Atmospheres 111, 2005JD006470. <a href="https://doi.org/10.1029/2005JD006470">https://doi.org/10.1029/2005JD006470</a>
+</div>
+<div id="ref-eastoe2023" class="csl-entry" role="listitem">
+Eastoe, C.J., 2023. Isotope record of groundwater recharge mechanisms and climate change in southwestern North America. Applied Geochemistry 151, 105604. <a href="https://doi.org/10.1016/j.apgeochem.2023.105604">https://doi.org/10.1016/j.apgeochem.2023.105604</a>
+</div>
+<div id="ref-eastoe2007" class="csl-entry" role="listitem">
+Eastoe, C.J., 2007. <a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/Eastoe_2007_MRWRMS.pdf">Report on an Isotope Study of Groundwater from the Mogollon Highlands Area and Adjacent Mogollon Rim, Gila County, Arizona</a>. University of Arizona.
+</div>
+<div id="ref-fathi2021" class="csl-entry" role="listitem">
+Fathi, S., Hagen, J.S., Matanó, A., Nogueira, G.E.H., 2021. Review of GIS Multi-Criteria Decision Analysis for Managed Aquifer Recharge in Semi-Arid Regions, in: Pande, C.B., Moharir, K.N. (Eds.),. Springer International Publishing, Cham, pp. 19–52. <a href="https://doi.org/10.1007/978-3-030-68124-1_2">https://doi.org/10.1007/978-3-030-68124-1_2</a>
+</div>
+<div id="ref-filoso2017" class="csl-entry" role="listitem">
+Filoso, S., Bezerra, M.O., Weiss, K.C.B., Palmer, M.A., 2017. Impacts of forest restoration on water yield: A systematic review. PLOS ONE 12, e0183210. <a href="https://doi.org/10.1371/journal.pone.0183210">https://doi.org/10.1371/journal.pone.0183210</a>
+</div>
+<div id="ref-ford2007" class="csl-entry" role="listitem">
+Ford, D., Williams, P., 2007. <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9781118684986">Karst Hydrogeology and Geomorphology</a>. John Wiley &amp; Sons, Ltd.
+</div>
+<div id="ref-freeze1979" class="csl-entry" role="listitem">
+Freeze, R.A., Cherry, J.A., 1979. Groundwater. Prentice-Hall, Englewood Cliffs, N.J.
+</div>
+<div id="ref-friederici2013" class="csl-entry" role="listitem">
+Friederici, P., 2013. Ecological Restoration of Southwestern Ponderosa Pine Forests, Science Practice Ecological Restoration. Island Press, Chicago.
+</div>
+<div id="ref-gottfried_moderate_1991" class="csl-entry" role="listitem">
+Gottfried, G.J., 1991. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x">Moderate timber harvesting increases water yields from an <span>Arizona</span> <span>Mixed</span> <span>Conifer</span> <span>Watershed</span></a>. JAWRA Journal of the American Water Resources Association 27, 537–546.
+</div>
+<div id="ref-halihan1998" class="csl-entry" role="listitem">
+Halihan, T., Wicks, C.M., 1998. Modeling of storm responses in conduit flow aquifers with reservoirs. Journal of Hydrology 208, 82–91. <a href="https://doi.org/10.1016/s0022-1694(98)00149-8">https://doi.org/10.1016/s0022-1694(98)00149-8</a>
+</div>
+<div id="ref-hansen2024" class="csl-entry" role="listitem">
+Hansen, K., Gaolach, B., Buck, S., Heinse, R., Godwin, D., Paige, G., Braithwaite, H., Warziniack, T., Fernald, S., 2024. The western water network: A vision for the future of water management in the west.
+</div>
+<div id="ref-hibbert1979" class="csl-entry" role="listitem">
+Hibbert, A.R., 1979. Managing vegetation to increase flow in the colorado river basin.
+</div>
+<div id="ref-hogan_recent_2024" class="csl-entry" role="listitem">
+Hogan, D., Lundquist, J.D., 2024. Recent <span>Upper</span> <span>Colorado</span> <span>River</span> <span>Streamflow</span> <span>Declines</span> <span>Driven</span> by <span>Loss</span> of <span>Spring</span> <span>Precipitation</span>. Geophysical Research Letters 51, e2024GL109826. <a href="https://doi.org/10.1029/2024GL109826">https://doi.org/10.1029/2024GL109826</a>
+</div>
+<div id="ref-huntoon1974" class="csl-entry" role="listitem">
+Huntoon, P.W., 1974. The karstic groundwater basins of the Kaibab Plateau, Arizona. Water Resources Research 10, 579–590. <a href="https://doi.org/10.1029/WR010i003p00579">https://doi.org/10.1029/WR010i003p00579</a>
+</div>
+<div id="ref-huscroft2018" class="csl-entry" role="listitem">
+Huscroft, J., Gleeson, T., Hartmann, J., Börker, J., 2018. Compiling and Mapping Global Permeability of the Unconsolidated and Consolidated Earth: GLobal HYdrogeology MaPS 2.0 (GLHYMPS 2.0). Geophysical Research Letters 45, 1897–1904. <a href="https://doi.org/10.1002/2017GL075860">https://doi.org/10.1002/2017GL075860</a>
+</div>
+<div id="ref-iglesias2022" class="csl-entry" role="listitem">
+Iglesias, V., Balch, J.K., Travis, W.R., 2022. U.S. fires became larger, more frequent, and more widespread in the 2000s. Science Advances 8. <a href="https://doi.org/10.1126/sciadv.abc0020">https://doi.org/10.1126/sciadv.abc0020</a>
+</div>
+<div id="ref-jasiewicz2013" class="csl-entry" role="listitem">
+Jasiewicz, J., Stepinski, T.F., 2013. Geomorphons <span></span> a pattern recognition approach to classification and mapping of landforms. Geomorphology 182, 147–156. <a href="https://doi.org/10.1016/j.geomorph.2012.11.005">https://doi.org/10.1016/j.geomorph.2012.11.005</a>
+</div>
+<div id="ref-jones2018" class="csl-entry" role="listitem">
+Jones, C.J.R., Springer, A.E., Tobin, B.W., Zappitello, S.J., Jones, N.A., 2018. Characterization and hydraulic behaviour of the complex karst of the Kaibab Plateau and Grand Canyon National Park, USA. Geological Society, London, Special Publications 466, 237–260. <a href="https://doi.org/10.1144/SP466.5">https://doi.org/10.1144/SP466.5</a>
+</div>
+<div id="ref-kerhoulas2013" class="csl-entry" role="listitem">
+Kerhoulas, L.P., Kolb, T.E., Koch, G.W., 2013. Tree size, stand density, and the source of water used across seasons by ponderosa pine in northern Arizona. Forest Ecology and Management 289, 425–433. <a href="https://doi.org/10.1016/j.foreco.2012.10.036">https://doi.org/10.1016/j.foreco.2012.10.036</a>
+</div>
+<div id="ref-kerhoulas2023" class="csl-entry" role="listitem">
+Kerhoulas, L.P., Umstattd, N., Koch, G.W., 2023. Seasonal water source patterns in a northern arizona pine forest. Frontiers in Forests and Global Change 6, 1150413. <a href="https://doi.org/10.3389/ffgc.2023.1150413">https://doi.org/10.3389/ffgc.2023.1150413</a>
+</div>
+<div id="ref-kresic2013" class="csl-entry" role="listitem">
+Krešić, N., 2013. Water in karst: management, vulnerability, and restoration. McGraw-Hill, New York, NY.
+</div>
+<div id="ref-meijerink2007" class="csl-entry" role="listitem">
+Meijerink, A., Bannert, D., Batelaan, O., 2007. Remote sensing applications to groundwater. UNESCO, Paris, France.
+</div>
+<div id="ref-meko_treering_2022" class="csl-entry" role="listitem">
+Meko, D.M., Woodhouse, C.A., Winitsky, A.G., 2022. Tree‐<span>Ring</span> <span>Perspectives</span> on the <span>Colorado</span> <span>River</span>: <span>Looking</span> <span>Back</span> and <span>Moving</span> <span>Forward</span>. JAWRA Journal of the American Water Resources Association 58, 604–621. <a href="https://doi.org/10.1111/1752-1688.12989">https://doi.org/10.1111/1752-1688.12989</a>
+</div>
+<div id="ref-moore2005" class="csl-entry" role="listitem">
+Moore, R., Wondzell, S.M., 2005. Physical hydrology and the effects of forest harvesting in the pacific northwest: A review. Journal of the American Water Resources Association 41, 763–784. <a href="https://doi.org/10.1111/j.1752-1688.2005.tb04463.x">https://doi.org/10.1111/j.1752-1688.2005.tb04463.x</a>
+</div>
+<div id="ref-moreno_modeling_2015" class="csl-entry" role="listitem">
+Moreno, H.A., Gupta, H.V., White, D.D., Sampson, D.A., 2015. Modeling the distributed effects of forest thinning on the long-term water balance and stream flow extremes for a semi-arid basin in the southwestern <span>US</span>. <a href="https://doi.org/10.5194/hessd-12-10827-2015">https://doi.org/10.5194/hessd-12-10827-2015</a>
+</div>
+<div id="ref-mueller2019" class="csl-entry" role="listitem">
+Mueller, J.M., Soder, A.B., Springer, A.E., 2019. Valuing attributes of forest restoration in a semi-arid watershed. Landscape and Urban Planning 184, 78–87. <a href="https://doi.org/10.1016/j.landurbplan.2018.12.012">https://doi.org/10.1016/j.landurbplan.2018.12.012</a>
+</div>
+<div id="ref-nyborg2007" class="csl-entry" role="listitem">
+Nyborg, M., Berglund, J., Triumf, C.-A., 2007. Detection of lineaments using airborne laser scanning technology: Laxemar-Simpevarp, Sweden. Hydrogeology Journal 15, 29–32. <a href="https://doi.org/10.1007/s10040-006-0134-0">https://doi.org/10.1007/s10040-006-0134-0</a>
+</div>
+<div id="ref-odonnell2016" class="csl-entry" role="listitem">
+O’Donnell, F.C., 2016. <a href="https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/662/rec/1">The influence of restoration treatments on hydrologic output in fire-adapted forests of the southwest</a>. Flagstaff, AZ.
+</div>
+<div id="ref-odonnell_vegetation_2021" class="csl-entry" role="listitem">
+O’Donnell, F.C., Donager, J., Sankey, T., Masek Lopez, S., Springer, A.E., 2021. Vegetation structure controls on snow and soil moisture in restored ponderosa pine forests. Hydrological Processes 35, e14432. <a href="https://doi.org/10.1002/hyp.14432">https://doi.org/10.1002/hyp.14432</a>
+</div>
+<div id="ref-odonnell_forest_2018" class="csl-entry" role="listitem">
+O’Donnell, F.C., Flatley, W.T., Springer, A.E., Fulé, P.Z., 2018. Forest restoration as a strategy to mitigate climate impacts on wildfire, vegetation, and water in semiarid forests. Ecological Applications 28, 1459–1472. <a href="https://doi.org/10.1002/eap.1746">https://doi.org/10.1002/eap.1746</a>
+</div>
+<div id="ref-oleary1976" class="csl-entry" role="listitem">
+O’leary, D.W., Friedman, J.D., Pohn, H.A., 1976. Lineament, linear, lineation: Some proposed new standards for old terms. Geological Society of America Bulletin 87. https://doi.org/<a href="https://doi.org/10.1130/0016-7606(1976)87%3C1463:LLLSPN%3E2.0.CO;2">https://doi.org/10.1130/0016-7606(1976)87%3C1463:LLLSPN%3E2.0.CO;2</a>
+</div>
+<div id="ref-parker1982" class="csl-entry" role="listitem">
+Parker, A.J., 1982. THE TOPOGRAPHIC RELATIVE MOISTURE INDEX: AN APPROACH TO SOIL-MOISTURE ASSESSMENT IN MOUNTAIN TERRAIN. Physical Geography 3, 160–168. <a href="https://doi.org/10.1080/02723646.1982.10642224">https://doi.org/10.1080/02723646.1982.10642224</a>
+</div>
+<div id="ref-parker2005" class="csl-entry" role="listitem">
+Parker, J.T.C., Steinkampf, W.C., Flynn, M.E., 2005. <a href="https://pubs.usgs.gov/sir/2004/5294/pdf/Parker%20SIR%202004-5294%20WEB.pdf">Hydrogeology of the Mogollon Highlands, Central Arizona</a>. Reston, VA.
+</div>
+<div id="ref-rahman2012" class="csl-entry" role="listitem">
+Rahman, M.A., Rusteberg, B., Gogu, R.C., Lobo Ferreira, J.P., Sauter, M., 2012. A new spatial multi-criteria decision support tool for site selection for implementation of managed aquifer recharge. Journal of Environmental Management 99, 61–75. <a href="https://doi.org/10.1016/j.jenvman.2012.01.003">https://doi.org/10.1016/j.jenvman.2012.01.003</a>
+</div>
+<div id="ref-rajashekar2023" class="csl-entry" role="listitem">
+Raja Shekar, P., Mathew, A., 2023. Assessing groundwater potential zones and artificial recharge sites in the monsoon-fed Murredu river basin, India: An integrated approach using GIS, AHP, and Fuzzy-AHP. Groundwater for Sustainable Development 23, 100994. <a href="https://doi.org/10.1016/j.gsd.2023.100994">https://doi.org/10.1016/j.gsd.2023.100994</a>
+</div>
+<div id="ref-riley2022" class="csl-entry" role="listitem">
+Riley, K.L., Grenfell, I.C., Shaw, J.D., Finney, M.A., 2022. TreeMap 2016 Dataset Generates CONUS-Wide Maps of Forest Characteristics Including Live Basal Area, Aboveground Carbon, and Number of Trees per Acre. Journal of Forestry 120, 607–632. <a href="https://doi.org/10.1093/jofore/fvac022">https://doi.org/10.1093/jofore/fvac022</a>
+</div>
+<div id="ref-saksa2017" class="csl-entry" role="listitem">
+Saksa, P.C., Conklin, M.H., Battles, J.J., Tague, C.L., Bales, R.C., 2017. Forest thinning impacts on the water balance of Sierra Nevada mixed<span>-</span>conifer headwater basins. Water Resources Research 53, 5364–5381. <a href="https://doi.org/10.1002/2016wr019240">https://doi.org/10.1002/2016wr019240</a>
+</div>
+<div id="ref-sander2007" class="csl-entry" role="listitem">
+Sander, P., 2007. Lineaments in groundwater exploration: a review of applications and limitations. Hydrogeology Journal 15, 71–74. <a href="https://doi.org/10.1007/s10040-006-0138-9">https://doi.org/10.1007/s10040-006-0138-9</a>
+</div>
+<div id="ref-sankey_regionalscale_2021" class="csl-entry" role="listitem">
+Sankey, T., Belmonte, A., Massey, R., Leonard, J., 2021. Regional‐scale forest restoration effects on ecosystem resiliency to drought: A synthesis of vegetation and moisture trends on <span>Google</span> <span>Earth</span> <span>Engine</span>. Remote Sensing in Ecology and Conservation 7, 259–274. <a href="https://doi.org/10.1002/rse2.186">https://doi.org/10.1002/rse2.186</a>
+</div>
+<div id="ref-sankey_multi-scale_2015" class="csl-entry" role="listitem">
+Sankey, T., Donald, J., McVay, J., Ashley, M., O’Donnell, F., Lopez, S.M., Springer, A., 2015. Multi-scale analysis of snow dynamics at the southern margin of the <span>North</span> <span>American</span> continental snow distribution. Remote Sensing of Environment 169, 307–319. <a href="https://doi.org/10.1016/j.rse.2015.08.028">https://doi.org/10.1016/j.rse.2015.08.028</a>
+</div>
+<div id="ref-sankey_thinning_2022" class="csl-entry" role="listitem">
+Sankey, T., Tatum, J., 2022. Thinning increases forest resiliency during unprecedented drought. Scientific Reports 12, 9041. <a href="https://doi.org/10.1038/s41598-022-12982-z">https://doi.org/10.1038/s41598-022-12982-z</a>
+</div>
+<div id="ref-schenk_impacts_2020" class="csl-entry" role="listitem">
+Schenk, E.R., O’Donnell, F., Springer, A.E., Stevens, L.E., 2020. The impacts of tree stand thinning on groundwater recharge in aridland forests. Ecological Engineering 145, 105701. <a href="https://doi.org/10.1016/j.ecoleng.2019.105701">https://doi.org/10.1016/j.ecoleng.2019.105701</a>
+</div>
+<div id="ref-schultz_collaborative_2012" class="csl-entry" role="listitem">
+Schultz, C.A., Jedd, T., Beam, R.D., 2012. The <span>Collaborative</span> <span>Forest</span> <span>Landscape</span> <span>Restoration</span> <span>Program</span>: <span>A</span> <span>History</span> and <span>Overview</span> of the <span>First</span> <span>Projects</span>. Journal of Forestry 110, 381–391. <a href="https://doi.org/10.5849/jof.11-082">https://doi.org/10.5849/jof.11-082</a>
+</div>
+<div id="ref-shaban2006" class="csl-entry" role="listitem">
+Shaban, A., Khawlie, M., Abdallah, C., 2006. Use of remote sensing and GIS to determine recharge potential zones: the case of Occidental Lebanon. Hydrogeology Journal 14, 433–443. <a href="https://doi.org/10.1007/s10040-005-0437-6">https://doi.org/10.1007/s10040-005-0437-6</a>
+</div>
+<div id="ref-simonit_impact_2015" class="csl-entry" role="listitem">
+Simonit, S., Connors, J.P., Yoo, J., Kinzig, A., Perrings, C., 2015. The <span>Impact</span> of <span>Forest</span> <span>Thinning</span> on the <span>Reliability</span> of <span>Water</span> <span>Supply</span> in <span>Central</span> <span>Arizona</span>. PLOS ONE 10, e0121596. <a href="https://doi.org/10.1371/journal.pone.0121596">https://doi.org/10.1371/journal.pone.0121596</a>
+</div>
+<div id="ref-smerdon_overview_2009" class="csl-entry" role="listitem">
+Smerdon, B.D., Redding, T., Beckers, J., 2009. An overview of the effects of forest management on groundwater hydrology. Journal of Ecosystems and Management. <a href="https://doi.org/10.22230/jem.2009v10n1a409">https://doi.org/10.22230/jem.2009v10n1a409</a>
+</div>
+<div id="ref-soder2022" class="csl-entry" role="listitem">
+Soder, A.B., Mueller, J.M., Springer, A.E., LaPine, K.E., 2022. Geospatial Analysis of Nonmarket Values to Prioritize Forest Restoration. Land 11, 1387. <a href="https://doi.org/10.3390/land11091387">https://doi.org/10.3390/land11091387</a>
+</div>
+<div id="ref-stanturf2014" class="csl-entry" role="listitem">
+Stanturf, J.A., Palik, B.J., Dumroese, R.K., 2014. Contemporary forest restoration: A review emphasizing function. Forest Ecology and Management 331, 292–323. <a href="https://doi.org/10.1016/j.foreco.2014.07.029">https://doi.org/10.1016/j.foreco.2014.07.029</a>
+</div>
+<div id="ref-tadych_historical_2024" class="csl-entry" role="listitem">
+Tadych, D.E., Ford, M., Colby, B.G., Condon, L.E., 2024. Historical patterns of well drilling and groundwater depth in <span>Arizona</span> considering groundwater regulation and surface water access. JAWRA Journal of the American Water Resources Association 1752–1688.13234. <a href="https://doi.org/10.1111/1752-1688.13234">https://doi.org/10.1111/1752-1688.13234</a>
+</div>
+<div id="ref-tobin2018" class="csl-entry" role="listitem">
+Tobin, B.W., Springer, A.E., Kreamer, D.K., Schenk, E., 2018. Review: The distribution, flow, and quality of Grand Canyon Springs, Arizona (USA). Hydrogeology Journal 26, 721–732. <a href="https://doi.org/10.1007/s10040-017-1688-8">https://doi.org/10.1007/s10040-017-1688-8</a>
+</div>
+<div id="ref-udall_twentyfirst_2017" class="csl-entry" role="listitem">
+Udall, B., Overpeck, J., 2017. The twenty‐first century <span>Colorado</span> <span>River</span> hot drought and implications for the future. Water Resources Research 53, 2404–2418. <a href="https://doi.org/10.1002/2016WR019638">https://doi.org/10.1002/2016WR019638</a>
+</div>
+<div id="ref-veatch2009" class="csl-entry" role="listitem">
+Veatch, W., Brooks, P.D., Gustafson, J.R., Molotch, N.P., 2009. <span>‘</span>Quantifying the effects of forest canopy cover on net snow accumulation at a continental, mid<span>-</span>latitude site<span>’</span>. Ecohydrology 2, 115–128. <a href="https://doi.org/10.1002/eco.45">https://doi.org/10.1002/eco.45</a>
+</div>
+<div id="ref-weary2014" class="csl-entry" role="listitem">
+Weary, D.J., Doctor, D.H., 2014. <a href="https://pubs.usgs.gov/of/2014/1156/pdf/of2014-1156.pdf">Karst in the United States: A Digital Map Compilation and Database</a>. Reston, VA.
+</div>
+<div id="ref-williams_rapid_2022" class="csl-entry" role="listitem">
+Williams, A.P., Cook, B.I., Smerdon, J.E., 2022. Rapid intensification of the emerging southwestern <span>North</span> <span>American</span> megadrought in 2020–2021. Nature Climate Change 12, 232–234. <a href="https://doi.org/10.1038/s41558-022-01290-z">https://doi.org/10.1038/s41558-022-01290-z</a>
+</div>
+<div id="ref-woessner2020" class="csl-entry" role="listitem">
+Woessner, W., Poeter, E., 2020. Hydrogeologic Properties of Earth Materials and Principles of Groundwater Flow. <a href="https://doi.org/10.21083/978-1-7770541-2-0">https://doi.org/10.21083/978-1-7770541-2-0</a>
+</div>
+<div id="ref-wyatt_estimating_2013" class="csl-entry" role="listitem">
+Wyatt, C.J.W., 2013b. <a href="https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3">Estimating groundwater yield following forest restoration along the <span>Mogollon</span> <span>Rim</span></a> (Master’s thesis). Northern Arizona University, Flagstaff, AZ.
+</div>
+<div id="ref-wyatt2013" class="csl-entry" role="listitem">
+Wyatt, C.J.W., 2013a. <a href="https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3">Estimating groundwater yield following forest restoration along the Mogollon Rim</a> (PhD thesis). Flagstaff, AZ.
+</div>
+<div id="ref-wyatt2015" class="csl-entry" role="listitem">
+Wyatt, C., O’Donnell, F.C., Abraham E. Springer, 2015. Semi<span>-</span>arid aquifer responses to forest restoration treatments and climate change. Ground Water. <a href="https://doi.org/10.1111/gwat.12184">https://doi.org/10.1111/gwat.12184</a>
+</div>
+<div id="ref-zou_streamflow_2010" class="csl-entry" role="listitem">
+Zou, C.B., Ffolliott, P.F., Wine, M., 2010. Streamflow responses to vegetation manipulations along a gradient of precipitation in the <span>Colorado</span> <span>River</span> <span>Basin</span>. Forest Ecology and Management 259, 1268–1276. <a href="https://doi.org/10.1016/j.foreco.2009.08.005">https://doi.org/10.1016/j.foreco.2009.08.005</a>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+</body>
+
+</html>

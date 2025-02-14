@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: index.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+The style file: elsarticle-num.bst
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+Database file #1: bibliography.bib
+Warning--empty school in wyatt2013
+Name 3 in "Wyatt, Clint and {O'Donnell}, Francis C. and Abraham E. Springer," has a comma at the end for entry wyatt2015
+while executing---line 1497 of file elsarticle-num.bst
+Name 3 in "Wyatt, Clint and {O'Donnell}, Francis C. and Abraham E. Springer," has a comma at the end for entry wyatt2015
+while executing---line 1497 of file elsarticle-num.bst
+Warning--empty institution in hibbert1979
+Warning--empty institution in odonnell2016
+Warning--empty institution in hansen2024
+Warning--can't use both author and editor fields in fathi2021
+Warning--empty chapter and pages in fathi2021
+Warning--empty institution in parker2005
+Warning--can't use both author and editor fields in baker2013
+Warning--empty chapter and pages in baker2013
+Warning--can't use both author and editor fields in donovan2022
+Warning--empty chapter and pages in donovan2022
+Warning--empty institution in eastoe2007
+Warning--empty institution in blasch2006
+Warning--empty journal in woessner2020
+Warning--empty institution in weary2014
+You've used 82 entries,
+            2952 wiz_defined-function locations,
+            1258 strings with 28089 characters,
+and the built_in function-call counts, 28545 in all, are:
+= -- 2883
+> -- 947
+< -- 7
++ -- 370
+- -- 288
+* -- 2641
+:= -- 3988
+add.period$ -- 145
+call.type$ -- 82
+change.case$ -- 90
+chr.to.int$ -- 3
+cite$ -- 97
+duplicate$ -- 827
+empty$ -- 3057
+format.name$ -- 356
+if$ -- 7210
+int.to.chr$ -- 0
+int.to.str$ -- 82
+missing$ -- 79
+newline$ -- 390
+num.names$ -- 82
+pop$ -- 482
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1497
+stack$ -- 0
+substring$ -- 1465
+swap$ -- 308
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 15
+while$ -- 187
+width$ -- 84
+write$ -- 876
+(There were 2 error messages)

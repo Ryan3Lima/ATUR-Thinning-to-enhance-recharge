@@ -1,0 +1,719 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{bennett_concurrent_2021}
+K.~E. Bennett, C.~Talsma, R.~Boero,
+  \href{https://www.mdpi.com/2073-4441/13/7/978}{Concurrent {Changes} in
+  {Extreme} {Hydroclimate} {Events} in the {Colorado} {River} {Basin}}, Water
+  13~(7) (2021) 978.
+\newblock \href {https://doi.org/10.3390/w13070978}
+  {\path{doi:10.3390/w13070978}}.
+\newline\urlprefix\url{https://www.mdpi.com/2073-4441/13/7/978}
+
+\bibitem{meko_treering_2022}
+D.~M. Meko, C.~A. Woodhouse, A.~G. Winitsky,
+  \href{https://onlinelibrary.wiley.com/doi/10.1111/1752-1688.12989}{Tree‐{Ring}
+  {Perspectives} on the {Colorado} {River}: {Looking} {Back} and {Moving}
+  {Forward}}, JAWRA Journal of the American Water Resources Association 58~(5)
+  (2022) 604--621.
+\newblock \href {https://doi.org/10.1111/1752-1688.12989}
+  {\path{doi:10.1111/1752-1688.12989}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1111/1752-1688.12989}
+
+\bibitem{williams_rapid_2022}
+A.~P. Williams, B.~I. Cook, J.~E. Smerdon,
+  \href{https://www.nature.com/articles/s41558-022-01290-z}{Rapid
+  intensification of the emerging southwestern {North} {American} megadrought
+  in 2020–2021}, Nature Climate Change 12~(3) (2022) 232--234.
+\newblock \href {https://doi.org/10.1038/s41558-022-01290-z}
+  {\path{doi:10.1038/s41558-022-01290-z}}.
+\newline\urlprefix\url{https://www.nature.com/articles/s41558-022-01290-z}
+
+\bibitem{hogan_recent_2024}
+D.~Hogan, J.~D. Lundquist,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024GL109826}{Recent
+  {Upper} {Colorado} {River} {Streamflow} {Declines} {Driven} by {Loss} of
+  {Spring} {Precipitation}}, Geophysical Research Letters 51~(16) (2024)
+  e2024GL109826.
+\newblock \href {https://doi.org/10.1029/2024GL109826}
+  {\path{doi:10.1029/2024GL109826}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024GL109826}
+
+\bibitem{udall_twentyfirst_2017}
+B.~Udall, J.~Overpeck,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2016WR019638}{The
+  twenty‐first century {Colorado} {River} hot drought and implications for
+  the future}, Water Resources Research 53~(3) (2017) 2404--2418.
+\newblock \href {https://doi.org/10.1002/2016WR019638}
+  {\path{doi:10.1002/2016WR019638}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2016WR019638}
+
+\bibitem{tadych_historical_2024}
+D.~E. Tadych, M.~Ford, B.~G. Colby, L.~E. Condon,
+  \href{https://onlinelibrary.wiley.com/doi/10.1111/1752-1688.13234}{Historical
+  patterns of well drilling and groundwater depth in {Arizona} considering
+  groundwater regulation and surface water access}, JAWRA Journal of the
+  American Water Resources Association (2024) 1752--1688.13234\href
+  {https://doi.org/10.1111/1752-1688.13234}
+  {\path{doi:10.1111/1752-1688.13234}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1111/1752-1688.13234}
+
+\bibitem{castle2014}
+S.~L. Castle, B.~F. Thomas, J.~T. Reager, M.~Rodell, S.~C. Swenson, J.~S.
+  Famiglietti,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2014GL061055}{Groundwater
+  depletion during drought threatens future water security of the colorado
+  river basin}, Geophysical Research Letters 41~(16) (2014) 5904--5911.
+\newblock \href {https://doi.org/10.1002/2014GL061055}
+  {\path{doi:10.1002/2014GL061055}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2014GL061055}
+
+\bibitem{iglesias2022}
+V.~Iglesias, J.~K. Balch, W.~R. Travis,
+  \href{http://dx.doi.org/10.1126/sciadv.abc0020}{U.s. fires became larger,
+  more frequent, and more widespread in the 2000s}, Science Advances 8~(11) (03
+  2022).
+\newblock \href {https://doi.org/10.1126/sciadv.abc0020}
+  {\path{doi:10.1126/sciadv.abc0020}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1126/sciadv.abc0020}
+
+\bibitem{covington_southwestern_1994}
+W.~Covington, M.~M. Moore, Southwestern ponderosa pine forest structure:
+  changes since {Euro}-{American} settlement, Journal of forestry. 92 (1994)
+  39--47, place: Bethesda, MD : Publisher: Society of American Foresters,.
+
+\bibitem{friederici2013}
+P.~Friederici, Ecological Restoration of Southwestern Ponderosa Pine Forests,
+  no. v.2 in Science Practice Ecological Restoration, Island Press, Chicago,
+  2013.
+
+\bibitem{allen2002}
+C.~D. Allen, M.~Savage, D.~A. Falk, K.~F. Suckling, T.~W. Swetnam, T.~Schulke,
+  P.~B. Stacey, P.~Morgan, M.~Hoffman, J.~T. Klingel,
+  \href{http://doi.wiley.com/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2}{Ecological
+  restoration of southwestern ponderosa pine ecosystems: a broad perspective},
+  Ecological Applications 12~(5) (2002) 1418--1433.
+\newblock \href
+  {https://doi.org/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2}
+  {\path{doi:10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2}}.
+\newline\urlprefix\url{http://doi.wiley.com/10.1890/1051-0761(2002)012[1418:EROSPP]2.0.CO;2}
+
+\bibitem{berner_tree_2017}
+L.~T. Berner, B.~E. Law, A.~J.~H. Meddens, J.~A. Hicke,
+  \href{https://iopscience.iop.org/article/10.1088/1748-9326/aa6f94}{Tree
+  mortality from fires, bark beetles, and timber harvest during a hot and dry
+  decade in the western {United} {States} (2003–2012)}, Environmental
+  Research Letters 12~(6) (2017) 065005.
+\newblock \href {https://doi.org/10.1088/1748-9326/aa6f94}
+  {\path{doi:10.1088/1748-9326/aa6f94}}.
+\newline\urlprefix\url{https://iopscience.iop.org/article/10.1088/1748-9326/aa6f94}
+
+\bibitem{del_campo_global_2022}
+A.~D. Del~Campo, K.~Otsuki, Y.~Serengil, J.~A. Blanco, R.~Yousefpour, X.~Wei,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0378112722003188}{A
+  global synthesis on the effects of thinning on hydrological processes:
+  {Implications} for forest management}, Forest Ecology and Management 519
+  (2022) 120324.
+\newblock \href {https://doi.org/10.1016/j.foreco.2022.120324}
+  {\path{doi:10.1016/j.foreco.2022.120324}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0378112722003188}
+
+\bibitem{sankey_multi-scale_2015}
+T.~Sankey, J.~Donald, J.~McVay, M.~Ashley, F.~O'Donnell, S.~M. Lopez,
+  A.~Springer,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0034425715301140}{Multi-scale
+  analysis of snow dynamics at the southern margin of the {North} {American}
+  continental snow distribution}, Remote Sensing of Environment 169 (2015)
+  307--319.
+\newblock \href {https://doi.org/10.1016/j.rse.2015.08.028}
+  {\path{doi:10.1016/j.rse.2015.08.028}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0034425715301140}
+
+\bibitem{belmonte2021}
+A.~Belmonte, T.~Sankey, J.~Biederman, J.~Bradford, S.~Goetz, T.~Kolb,
+  \href{https://www.mdpi.com/2072-4292/13/5/1036}{Uav-based estimate of snow
+  cover dynamics: Optimizing semi-arid forest structure for snow persistence},
+  Remote Sensing 13~(5) (2021) 1036.
+\newblock \href {https://doi.org/10.3390/rs13051036}
+  {\path{doi:10.3390/rs13051036}}.
+\newline\urlprefix\url{https://www.mdpi.com/2072-4292/13/5/1036}
+
+\bibitem{donager_integrating_2021}
+J.~Donager, T.~T. Sankey, A.~J. Sánchez~Meador, J.~B. Sankey, A.~Springer,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S266601722100016X}{Integrating
+  airborne and mobile lidar data with {UAV} photogrammetry for rapid assessment
+  of changing forest snow depth and cover}, Science of Remote Sensing 4 (2021)
+  100029.
+\newblock \href {https://doi.org/10.1016/j.srs.2021.100029}
+  {\path{doi:10.1016/j.srs.2021.100029}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S266601722100016X}
+
+\bibitem{belmonte_soil_2022}
+A.~Belmonte, T.~Ts.~Sankey, J.~Biederman, J.~B. Bradford, T.~Kolb,
+  \href{https://onlinelibrary.wiley.com/doi/10.1002/eco.2406}{Soil moisture
+  response to seasonal drought conditions and post‐thinning forest
+  structure}, Ecohydrology 15~(5) (2022) e2406.
+\newblock \href {https://doi.org/10.1002/eco.2406}
+  {\path{doi:10.1002/eco.2406}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1002/eco.2406}
+
+\bibitem{sankey_thinning_2022}
+T.~Sankey, J.~Tatum,
+  \href{https://www.nature.com/articles/s41598-022-12982-z}{Thinning increases
+  forest resiliency during unprecedented drought}, Scientific Reports 12~(1)
+  (2022) 9041.
+\newblock \href {https://doi.org/10.1038/s41598-022-12982-z}
+  {\path{doi:10.1038/s41598-022-12982-z}}.
+\newline\urlprefix\url{https://www.nature.com/articles/s41598-022-12982-z}
+
+\bibitem{sankey_regionalscale_2021}
+T.~Sankey, A.~Belmonte, R.~Massey, J.~Leonard,
+  \href{https://zslpublications.onlinelibrary.wiley.com/doi/10.1002/rse2.186}{Regional‐scale
+  forest restoration effects on ecosystem resiliency to drought: a synthesis of
+  vegetation and moisture trends on {Google} {Earth} {Engine}}, Remote Sensing
+  in Ecology and Conservation 7~(2) (2021) 259--274.
+\newblock \href {https://doi.org/10.1002/rse2.186}
+  {\path{doi:10.1002/rse2.186}}.
+\newline\urlprefix\url{https://zslpublications.onlinelibrary.wiley.com/doi/10.1002/rse2.186}
+
+\bibitem{bosch1982}
+J.~Bosch, J.~Hewlett,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/0022169482901172}{A review
+  of catchment experiments to determine the effect of vegetation changes on
+  water yield and evapotranspiration}, Journal of Hydrology 55~(1-4) (1982)
+  3--23.
+\newblock \href {https://doi.org/10.1016/0022-1694(82)90117-2}
+  {\path{doi:10.1016/0022-1694(82)90117-2}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/0022169482901172}
+
+\bibitem{baker_effects_1986}
+M.~B. Baker,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/WR022i001p00067}{Effects
+  of {Ponderosa} {Pine} {Treatments} on {Water} {Yield} in {Arizona}}, Water
+  Resources Research 22~(1) (1986) 67--73.
+\newblock \href {https://doi.org/10.1029/WR022i001p00067}
+  {\path{doi:10.1029/WR022i001p00067}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/WR022i001p00067}
+
+\bibitem{gottfried_moderate_1991}
+G.~J. Gottfried,
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x}{Moderate
+  timber harvesting increases water yields from an {Arizona} {Mixed} {Conifer}
+  {Watershed}}, JAWRA Journal of the American Water Resources Association
+  27~(3) (1991) 537--546, publisher: John Wiley \& Sons, Ltd.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1752-1688.1991.tb01454.x}
+
+\bibitem{smerdon_overview_2009}
+B.~D. Smerdon, T.~Redding, J.~Beckers,
+  \href{https://jem-online.org/index.php/jem/article/view/409}{An overview of
+  the effects of forest management on groundwater hydrology}, Journal of
+  Ecosystems and Management (Mar. 2009).
+\newblock \href {https://doi.org/10.22230/jem.2009v10n1a409}
+  {\path{doi:10.22230/jem.2009v10n1a409}}.
+\newline\urlprefix\url{https://jem-online.org/index.php/jem/article/view/409}
+
+\bibitem{zou_streamflow_2010}
+C.~B. Zou, P.~F. Ffolliott, M.~Wine,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0378112709005350}{Streamflow
+  responses to vegetation manipulations along a gradient of precipitation in
+  the {Colorado} {River} {Basin}}, Forest Ecology and Management 259~(7) (2010)
+  1268--1276.
+\newblock \href {https://doi.org/10.1016/j.foreco.2009.08.005}
+  {\path{doi:10.1016/j.foreco.2009.08.005}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0378112709005350}
+
+\bibitem{wyatt2013}
+C.~J.~W. Wyatt,
+  \href{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3}{Estimating
+  groundwater yield following forest restoration along the mogollon rim}, Ph.D.
+  thesis, Flagstaff, AZ (2013).
+\newline\urlprefix\url{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3}
+
+\bibitem{moreno_modeling_2015}
+H.~A. Moreno, H.~V. Gupta, D.~D. White, D.~A. Sampson,
+  \href{https://hess.copernicus.org/preprints/12/10827/2015/hessd-12-10827-2015.pdf}{Modeling
+  the distributed effects of forest thinning on the long-term water balance and
+  stream flow extremes for a semi-arid basin in the southwestern {US}} (Oct.
+  2015).
+\newblock \href {https://doi.org/10.5194/hessd-12-10827-2015}
+  {\path{doi:10.5194/hessd-12-10827-2015}}.
+\newline\urlprefix\url{https://hess.copernicus.org/preprints/12/10827/2015/hessd-12-10827-2015.pdf}
+
+\bibitem{simonit_impact_2015}
+S.~Simonit, J.~P. Connors, J.~Yoo, A.~Kinzig, C.~Perrings,
+  \href{https://dx.plos.org/10.1371/journal.pone.0121596}{The {Impact} of
+  {Forest} {Thinning} on the {Reliability} of {Water} {Supply} in {Central}
+  {Arizona}}, PLOS ONE 10~(4) (2015) e0121596.
+\newblock \href {https://doi.org/10.1371/journal.pone.0121596}
+  {\path{doi:10.1371/journal.pone.0121596}}.
+\newline\urlprefix\url{https://dx.plos.org/10.1371/journal.pone.0121596}
+
+\bibitem{wyatt2015}
+C.~Wyatt, F.~C. {O'Donnell}, A.~E. Springer, Semi{-}arid aquifer responses to
+  forest restoration treatments and climate change, Ground Water (2015).
+\newblock \href {https://doi.org/10.1111/gwat.12184}
+  {\path{doi:10.1111/gwat.12184}}.
+
+\bibitem{odonnell_forest_2018}
+F.~C. O'Donnell, W.~T. Flatley, A.~E. Springer, P.~Z. Fulé,
+  \href{https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.1746}{Forest
+  restoration as a strategy to mitigate climate impacts on wildfire,
+  vegetation, and water in semiarid forests}, Ecological Applications 28~(6)
+  (2018) 1459--1472.
+\newblock \href {https://doi.org/10.1002/eap.1746}
+  {\path{doi:10.1002/eap.1746}}.
+\newline\urlprefix\url{https://esajournals.onlinelibrary.wiley.com/doi/10.1002/eap.1746}
+
+\bibitem{schenk_impacts_2020}
+E.~R. Schenk, F.~O'Donnell, A.~E. Springer, L.~E. Stevens,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0925857419304252}{The
+  impacts of tree stand thinning on groundwater recharge in aridland forests},
+  Ecological Engineering 145 (2020) 105701.
+\newblock \href {https://doi.org/10.1016/j.ecoleng.2019.105701}
+  {\path{doi:10.1016/j.ecoleng.2019.105701}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0925857419304252}
+
+\bibitem{hibbert1979}
+A.~R. Hibbert, Managing vegetation to increase flow in the colorado river
+  basin, Tech. rep. (1979).
+
+\bibitem{biederman2022}
+J.~A. Biederman, M.~D. Robles, R.~L. Scott, J.~F. Knowles,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021WR030687}{Streamflow
+  response to wildfire differs with season and elevation in adjacent headwaters
+  of the lower colorado river basin}, Water Resources Research 58~(3) (2022)
+  e2021WR030687.
+\newblock \href {https://doi.org/10.1029/2021WR030687}
+  {\path{doi:10.1029/2021WR030687}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021WR030687}
+
+\bibitem{moore2005}
+R.~Moore, S.~Wondzell,
+  \href{http://doi.wiley.com/10.1111/j.1752-1688.2005.tb04463.x}{Physical
+  hydrology and the effects of forest harvesting in the pacific northwest: A
+  review}, Journal of the American Water Resources Association 41~(4) (2005)
+  763--784.
+\newblock \href {https://doi.org/10.1111/j.1752-1688.2005.tb04463.x}
+  {\path{doi:10.1111/j.1752-1688.2005.tb04463.x}}.
+\newline\urlprefix\url{http://doi.wiley.com/10.1111/j.1752-1688.2005.tb04463.x}
+
+\bibitem{stanturf2014}
+J.~A. Stanturf, B.~J. Palik, R.~K. Dumroese,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0378112714004654}{Contemporary
+  forest restoration: A review emphasizing function}, Forest Ecology and
+  Management 331 (2014) 292--323.
+\newblock \href {https://doi.org/10.1016/j.foreco.2014.07.029}
+  {\path{doi:10.1016/j.foreco.2014.07.029}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0378112714004654}
+
+\bibitem{filoso2017}
+S.~Filoso, M.~Bezerra, K.~C.~B. Weiss, M.~A. Palmer,
+  \href{https://dx.plos.org/10.1371/journal.pone.0183210}{Impacts of forest
+  restoration on water yield: A systematic review}, PLOS ONE 12~(8) (2017)
+  e0183210.
+\newblock \href {https://doi.org/10.1371/journal.pone.0183210}
+  {\path{doi:10.1371/journal.pone.0183210}}.
+\newline\urlprefix\url{https://dx.plos.org/10.1371/journal.pone.0183210}
+
+\bibitem{odonnell2016}
+F.~C. {O'Donnell},
+  \href{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/662/rec/1}{The
+  influence of restoration treatments on hydrologic output in fire-adapted
+  forests of the southwest}, Tech. rep., Flagstaff, AZ (11 2016).
+\newline\urlprefix\url{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/662/rec/1}
+
+\bibitem{mueller2019}
+J.~M. Mueller, A.~B. Soder, A.~E. Springer,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0169204618304535}{Valuing
+  attributes of forest restoration in a semi-arid watershed}, Landscape and
+  Urban Planning 184 (2019) 78--87.
+\newblock \href {https://doi.org/10.1016/j.landurbplan.2018.12.012}
+  {\path{doi:10.1016/j.landurbplan.2018.12.012}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0169204618304535}
+
+\bibitem{soder2022}
+A.~B. Soder, J.~M. Mueller, A.~E. Springer, K.~E. LaPine,
+  \href{https://www.mdpi.com/2073-445X/11/9/1387}{Geospatial analysis of
+  nonmarket values to prioritize forest restoration}, Land 11~(9) (2022) 1387.
+\newblock \href {https://doi.org/10.3390/land11091387}
+  {\path{doi:10.3390/land11091387}}.
+\newline\urlprefix\url{https://www.mdpi.com/2073-445X/11/9/1387}
+
+\bibitem{brown_source_2005}
+T.~C. Brown, M.~T. Hobbins, J.~A. Ramirez,
+  \href{https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf}{The
+  {Source} of {Water} {Supply} in the {United} {States}}, Discussion {Paper}
+  RMRS-RWU-4851, U.S. Department of Agriculture, Forest Service, Rocky Mountain
+  Research Station, Fort Collins, CO (2005).
+\newline\urlprefix\url{https://www.researchgate.net/profile/Jorge-Ramirez-14/publication/266272409_The_source_of_water_supply_in_the_United_States/links/54b5fcb50cf26833efd34687/The-source-of-water-supply-in-the-United-States.pdf}
+
+\bibitem{hansen2024}
+K.~Hansen, B.~Gaolach, S.~Buck, R.~Heinse, D.~Godwin, G.~Paige, H.~Braithwaite,
+  T.~Warziniack, S.~Fernald, The western water network: A vision for the future
+  of water management in the west, Tech. rep. (01 2024).
+
+\bibitem{fathi2021}
+S.~Fathi, J.~Hagen, A.~{Matanó}, G.~E.~H. Nogueira,
+  \href{https://link.springer.com/10.1007/978-3-030-68124-1_2}{Review of GIS
+  Multi-Criteria Decision Analysis for Managed Aquifer Recharge in Semi-Arid
+  Regions}, Springer International Publishing, Cham, 2021, pp. 19--52, dOI:
+  10.1007/978-3-030-68124-1{\_}2.
+\newblock \href {https://doi.org/10.1007/978-3-030-68124-1_2}
+  {\path{doi:10.1007/978-3-030-68124-1_2}}.
+\newline\urlprefix\url{https://link.springer.com/10.1007/978-3-030-68124-1_2}
+
+\bibitem{rajashekar2023}
+P.~Raja~Shekar, A.~Mathew,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S2352801X23000942}{Assessing
+  groundwater potential zones and artificial recharge sites in the monsoon-fed
+  murredu river basin, india: An integrated approach using gis, ahp, and
+  fuzzy-ahp}, Groundwater for Sustainable Development 23 (2023) 100994.
+\newblock \href {https://doi.org/10.1016/j.gsd.2023.100994}
+  {\path{doi:10.1016/j.gsd.2023.100994}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S2352801X23000942}
+
+\bibitem{rahman2012}
+M.~A. Rahman, B.~Rusteberg, R.~Gogu, J.~Lobo~Ferreira, M.~Sauter,
+  \href{http://dx.doi.org/10.1016/j.jenvman.2012.01.003}{A new spatial
+  multi-criteria decision support tool for site selection for implementation of
+  managed aquifer recharge}, Journal of Environmental Management 99 (2012)
+  61--75.
+\newblock \href {https://doi.org/10.1016/j.jenvman.2012.01.003}
+  {\path{doi:10.1016/j.jenvman.2012.01.003}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1016/j.jenvman.2012.01.003}
+
+\bibitem{dar2020}
+T.~Dar, N.~Rai, A.~Bhat,
+  \href{http://dx.doi.org/10.1080/24749508.2020.1726562}{Delineation of
+  potential groundwater recharge zones using analytical hierarchy process
+  (ahp)}, Geology, Ecology, and Landscapes 5~(4) (2020) 292--307.
+\newblock \href {https://doi.org/10.1080/24749508.2020.1726562}
+  {\path{doi:10.1080/24749508.2020.1726562}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1080/24749508.2020.1726562}
+
+\bibitem{shaban2006}
+A.~Shaban, M.~Khawlie, C.~Abdallah,
+  \href{http://link.springer.com/10.1007/s10040-005-0437-6}{Use of remote
+  sensing and gis to determine recharge potential zones: the case of occidental
+  lebanon}, Hydrogeology Journal 14~(4) (2006) 433--443.
+\newblock \href {https://doi.org/10.1007/s10040-005-0437-6}
+  {\path{doi:10.1007/s10040-005-0437-6}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/s10040-005-0437-6}
+
+\bibitem{parker2005}
+J.~T. Parker, W.~C. Steinkampf, M.~E. Flynn,
+  \href{https://pubs.usgs.gov/sir/2004/5294/pdf/Parker%20SIR%202004-5294%20WEB.pdf}{Hydrogeology
+  of the mogollon highlands, central arizona}, Tech. rep., Reston, VA, series:
+  Scientific Investigations Report (2005).
+\newline\urlprefix\url{https://pubs.usgs.gov/sir/2004/5294/pdf/Parker%20SIR%202004-5294%20WEB.pdf}
+
+\bibitem{tobin2018}
+B.~W. Tobin, A.~E. Springer, D.~K. Kreamer, E.~Schenk,
+  \href{http://link.springer.com/10.1007/s10040-017-1688-8}{Review: The
+  distribution, flow, and quality of grand canyon springs, arizona (usa)},
+  Hydrogeology Journal 26~(3) (2018) 721--732.
+\newblock \href {https://doi.org/10.1007/s10040-017-1688-8}
+  {\path{doi:10.1007/s10040-017-1688-8}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/s10040-017-1688-8}
+
+\bibitem{jones2018}
+C.~J.~R. Jones, A.~E. Springer, B.~W. Tobin, S.~J. Zappitello, N.~A. Jones,
+  \href{https://www.lyellcollection.org/doi/10.1144/SP466.5}{Characterization
+  and hydraulic behaviour of the complex karst of the kaibab plateau and grand
+  canyon national park, usa}, Geological Society, London, Special Publications
+  466~(1) (2018) 237--260.
+\newblock \href {https://doi.org/10.1144/SP466.5} {\path{doi:10.1144/SP466.5}}.
+\newline\urlprefix\url{https://www.lyellcollection.org/doi/10.1144/SP466.5}
+
+\bibitem{huntoon1974}
+P.~W. Huntoon,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/WR010i003p00579}{The
+  karstic groundwater basins of the kaibab plateau, arizona}, Water Resources
+  Research 10~(3) (1974) 579--590.
+\newblock \href {https://doi.org/10.1029/WR010i003p00579}
+  {\path{doi:10.1029/WR010i003p00579}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/WR010i003p00579}
+
+\bibitem{baker2013}
+M.~B. Baker, Chapter 10: Hydrology, no. v.2 in Science Practice Ecological
+  Restoration, Island Press, Chicago, 2013, pp. 161--174.
+
+\bibitem{eastoe2023}
+C.~Eastoe,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0883292723000495}{Isotope
+  record of groundwater recharge mechanisms and climate change in southwestern
+  north america}, Applied Geochemistry 151 (2023) 105604.
+\newblock \href {https://doi.org/10.1016/j.apgeochem.2023.105604}
+  {\path{doi:10.1016/j.apgeochem.2023.105604}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0883292723000495}
+
+\bibitem{earman2006}
+S.~Earman, A.~R. Campbell, F.~M. Phillips, B.~D. Newman,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2005JD006470}{Isotopic
+  exchange between snow and atmospheric water vapor: Estimation of the snowmelt
+  component of groundwater recharge in the southwestern united states}, Journal
+  of Geophysical Research: Atmospheres 111~(D9) (2006) 2005JD006470.
+\newblock \href {https://doi.org/10.1029/2005JD006470}
+  {\path{doi:10.1029/2005JD006470}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2005JD006470}
+
+\bibitem{wyatt_estimating_2013}
+C.~J.~W. Wyatt,
+  \href{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3}{Estimating
+  groundwater yield following forest restoration along the {Mogollon} {Rim}},
+  Master's thesis, Northern Arizona University, Flagstaff, AZ (2013).
+\newline\urlprefix\url{https://cdm17192.contentdm.oclc.org/digital/collection/p17192coll1/id/476/rec/3}
+
+\bibitem{schultz_collaborative_2012}
+C.~A. Schultz, T.~Jedd, R.~D. Beam,
+  \href{https://academic.oup.com/jof/article/110/7/381-391/4599006}{The
+  {Collaborative} {Forest} {Landscape} {Restoration} {Program}: {A} {History}
+  and {Overview} of the {First} {Projects}}, Journal of Forestry 110~(7) (2012)
+  381--391.
+\newblock \href {https://doi.org/10.5849/jof.11-082}
+  {\path{doi:10.5849/jof.11-082}}.
+\newline\urlprefix\url{https://academic.oup.com/jof/article/110/7/381-391/4599006}
+
+\bibitem{odonnell_vegetation_2021}
+F.~C. O'Donnell, J.~Donager, T.~Sankey, S.~Masek~Lopez, A.~E. Springer,
+  \href{https://onlinelibrary.wiley.com/doi/10.1002/hyp.14432}{Vegetation
+  structure controls on snow and soil moisture in restored ponderosa pine
+  forests}, Hydrological Processes 35~(11) (2021) e14432.
+\newblock \href {https://doi.org/10.1002/hyp.14432}
+  {\path{doi:10.1002/hyp.14432}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1002/hyp.14432}
+
+\bibitem{donovan2022}
+K.~M. Donovan, A.~E. Springer, B.~W. Tobin, R.~A. Parnell,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/9781119818625.ch4}{Karst
+  Spring Processes and Storage Implications in High Elevation, Semiarid
+  Southwestern United States}, 1st Edition, Wiley, 2022, pp. 35--50, dOI:
+  10.1002/9781119818625.ch4.
+\newblock \href {https://doi.org/10.1002/9781119818625.ch4}
+  {\path{doi:10.1002/9781119818625.ch4}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/9781119818625.ch4}
+
+\bibitem{eastoe2007}
+C.~J. Eastoe,
+  \href{chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/Eastoe_2007_MRWRMS.pdf}{Report
+  on an isotope study of groundwater from the mogollon highlands area and
+  adjacent mogollon rim, gila county, arizona}, Tech. rep., University of
+  Arizona (2007).
+\newline\urlprefix\url{chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.geo.arizona.edu/sites/www.geo.arizona.edu/files/Eastoe_2007_MRWRMS.pdf}
+
+\bibitem{blasch2006}
+K.~W. Blasch, J.~P. Hoffmann, L.~F. Graser, J.~R. Bryson, A.~L. Flint,
+  \href{https://pubs.usgs.gov/sir/2005/5198/pdf/sir20055198.pdf}{Hydrogeology
+  of the upper and middle verde river watersheds, central arizona}, Tech. rep.,
+  series: Scientific Investigations Report (2006).
+\newline\urlprefix\url{https://pubs.usgs.gov/sir/2005/5198/pdf/sir20055198.pdf}
+
+\bibitem{kerhoulas2013}
+L.~P. Kerhoulas, T.~E. Kolb, G.~W. Koch,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0378112712006330}{Tree
+  size, stand density, and the source of water used across seasons by ponderosa
+  pine in northern arizona}, Forest Ecology and Management 289 (2013) 425--433.
+\newblock \href {https://doi.org/10.1016/j.foreco.2012.10.036}
+  {\path{doi:10.1016/j.foreco.2012.10.036}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0378112712006330}
+
+\bibitem{kerhoulas2023}
+L.~P. Kerhoulas, N.~Umstattd, G.~W. Koch,
+  \href{https://www.frontiersin.org/articles/10.3389/ffgc.2023.1150413/full}{Seasonal
+  water source patterns in a northern arizona pine forest}, Frontiers in
+  Forests and Global Change 6 (2023) 1150413.
+\newblock \href {https://doi.org/10.3389/ffgc.2023.1150413}
+  {\path{doi:10.3389/ffgc.2023.1150413}}.
+\newline\urlprefix\url{https://www.frontiersin.org/articles/10.3389/ffgc.2023.1150413/full}
+
+\bibitem{dwivedi2024}
+R.~Dwivedi, J.~A. Biederman, P.~D. Broxton, J.~K. Pearl, K.~Lee, B.~M. Svoma,
+  W.~J.~D. Van~Leeuwen, M.~D. Robles,
+  \href{https://www.frontiersin.org/articles/10.3389/frwa.2024.1374961/full}{How
+  three-dimensional forest structure regulates the amount and timing of
+  snowmelt across a climatic gradient of snow persistence}, Frontiers in Water
+  6 (2024) 1374961.
+\newblock \href {https://doi.org/10.3389/frwa.2024.1374961}
+  {\path{doi:10.3389/frwa.2024.1374961}}.
+\newline\urlprefix\url{https://www.frontiersin.org/articles/10.3389/frwa.2024.1374961/full}
+
+\bibitem{biederman_recent_2015}
+J.~A. Biederman, A.~J. Somor, A.~A. Harpold, E.~D. Gutmann, D.~D. Breshears,
+  P.~A. Troch, D.~J. Gochis, R.~L. Scott, A.~J.~H. Meddens, P.~D. Brooks,
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2015WR017401}{Recent
+  tree die‐off has little effect on streamflow in contrast to expected
+  increases from historical studies}, Water Resources Research 51~(12) (2015)
+  9775--9789.
+\newblock \href {https://doi.org/10.1002/2015WR017401}
+  {\path{doi:10.1002/2015WR017401}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2015WR017401}
+
+\bibitem{adams_ecohydrological_2012}
+H.~D. Adams, C.~H. Luce, D.~D. Breshears, C.~D. Allen, M.~Weiler, V.~C. Hale,
+  A.~M.~S. Smith, T.~E. Huxman,
+  \href{https://onlinelibrary.wiley.com/doi/10.1002/eco.233}{Ecohydrological
+  consequences of drought‐ and infestation‐ triggered tree die‐off:
+  insights and hypotheses}, Ecohydrology 5~(2) (2012) 145--159.
+\newblock \href {https://doi.org/10.1002/eco.233} {\path{doi:10.1002/eco.233}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1002/eco.233}
+
+\bibitem{carroll_evaluating_2016}
+R.~W. Carroll, J.~L. Huntington, K.~A. Snyder, R.~G. Niswonger, C.~Morton,
+  T.~K. Stringham,
+  \href{https://onlinelibrary.wiley.com/doi/10.1002/eco.1792}{Evaluating
+  mountain meadow groundwater response to {Pinyon}‐{Juniper} and temperature
+  in a great basin watershed}, Ecohydrology 10~(1) (2016) e1792.
+\newblock \href {https://doi.org/10.1002/eco.1792}
+  {\path{doi:10.1002/eco.1792}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/10.1002/eco.1792}
+
+\bibitem{veatch2009}
+W.~Veatch, P.~D. Brooks, J.~R. Gustafson, N.~P. Molotch,
+  \href{http://dx.doi.org/10.1002/eco.45}{{\textquoteleft}quantifying the
+  effects of forest canopy cover on net snow accumulation at a continental,
+  mid{-}latitude site{\textquoteright}}, Ecohydrology 2~(2) (2009) 115--128.
+\newblock \href {https://doi.org/10.1002/eco.45} {\path{doi:10.1002/eco.45}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1002/eco.45}
+
+\bibitem{donager2021}
+J.~Donager, T.~T. Sankey, A.~J. {Sánchez Meador}, J.~B. Sankey, A.~Springer,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S266601722100016X}{Integrating
+  airborne and mobile lidar data with uav photogrammetry for rapid assessment
+  of changing forest snow depth and cover}, Science of Remote Sensing 4 (2021)
+  100029.
+\newblock \href {https://doi.org/10.1016/j.srs.2021.100029}
+  {\path{doi:10.1016/j.srs.2021.100029}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S266601722100016X}
+
+\bibitem{del_campo_effectiveness_2019}
+A.~D. Del~Campo, M.~González-Sanchis, A.~J. Molina, A.~García-Prats, C.~J.
+  Ceacero, I.~Bautista,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0378112718323533}{Effectiveness
+  of water-oriented thinning in two semiarid forests: {The} redistribution of
+  increased net rainfall into soil water, drainage and runoff}, Forest Ecology
+  and Management 438 (2019) 163--175.
+\newblock \href {https://doi.org/10.1016/j.foreco.2019.02.020}
+  {\path{doi:10.1016/j.foreco.2019.02.020}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0378112718323533}
+
+\bibitem{parker1982}
+A.~J. Parker,
+  \href{https://www.tandfonline.com/doi/full/10.1080/02723646.1982.10642224}{The
+  topographic relative moisture index: An approach to soil-moisture assessment
+  in mountain terrain}, Physical Geography 3~(2) (1982) 160--168.
+\newblock \href {https://doi.org/10.1080/02723646.1982.10642224}
+  {\path{doi:10.1080/02723646.1982.10642224}}.
+\newline\urlprefix\url{https://www.tandfonline.com/doi/full/10.1080/02723646.1982.10642224}
+
+\bibitem{jasiewicz2013}
+J.~Jasiewicz, T.~F. Stepinski,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S0169555X12005028}{Geomorphons
+  {\textemdash} a pattern recognition approach to classification and mapping of
+  landforms}, Geomorphology 182 (2013) 147--156.
+\newblock \href {https://doi.org/10.1016/j.geomorph.2012.11.005}
+  {\path{doi:10.1016/j.geomorph.2012.11.005}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S0169555X12005028}
+
+\bibitem{woessner2020}
+W.~Woessner, E.~Poeter,
+  \href{http://dx.doi.org/10.21083/978-1-7770541-2-0}{Hydrogeologic properties
+  of earth materials and principles of groundwater flow} (2020).
+\newblock \href {https://doi.org/10.21083/978-1-7770541-2-0}
+  {\path{doi:10.21083/978-1-7770541-2-0}}.
+\newline\urlprefix\url{http://dx.doi.org/10.21083/978-1-7770541-2-0}
+
+\bibitem{huscroft2018}
+J.~Huscroft, T.~Gleeson, J.~Hartmann, J.~{Börker},
+  \href{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2017GL075860}{Compiling
+  and mapping global permeability of the unconsolidated and consolidated earth:
+  Global hydrogeology maps 2.0 (glhymps 2.0)}, Geophysical Research Letters
+  45~(4) (2018) 1897--1904.
+\newblock \href {https://doi.org/10.1002/2017GL075860}
+  {\path{doi:10.1002/2017GL075860}}.
+\newline\urlprefix\url{https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2017GL075860}
+
+\bibitem{freeze1979}
+R.~A. Freeze, J.~A. Cherry, Groundwater, Prentice-Hall, Englewood Cliffs, N.J,
+  1979.
+
+\bibitem{oleary1976}
+D.~{O'leary}, J.~Friedman, H.~Pohn,
+  \href{https://pubs.geoscienceworld.org/gsa/gsabulletin/article-abstract/87/10/1463/201929/Lineament-linear-lineation-Some-proposed-new}{Lineament,
+  linear, lineation: Some proposed new standards for old terms}, Geological
+  Society of America Bulletin 87~(10) (1976).
+\newblock \href
+  {https://doi.org/https://doi.org/10.1130/0016-7606(1976)87%3C1463:LLLSPN%3E2.0.CO;2}
+  {\path{doi:https://doi.org/10.1130/0016-7606(1976)87%3C1463:LLLSPN%3E2.0.CO;2}}.
+\newline\urlprefix\url{https://pubs.geoscienceworld.org/gsa/gsabulletin/article-abstract/87/10/1463/201929/Lineament-linear-lineation-Some-proposed-new}
+
+\bibitem{sander2007}
+P.~Sander, \href{http://link.springer.com/10.1007/s10040-006-0138-9}{Lineaments
+  in groundwater exploration: a review of applications and limitations},
+  Hydrogeology Journal 15~(1) (2007) 71--74.
+\newblock \href {https://doi.org/10.1007/s10040-006-0138-9}
+  {\path{doi:10.1007/s10040-006-0138-9}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/s10040-006-0138-9}
+
+\bibitem{meijerink2007}
+A.~Meijerink, D.~Bannert, O.~Batelaan, Remote sensing applications to
+  groundwater, UNESCO, Paris, France, 2007.
+
+\bibitem{nyborg2007}
+M.~Nyborg, J.~Berglund, C.-A. Triumf,
+  \href{http://link.springer.com/10.1007/s10040-006-0134-0}{Detection of
+  lineaments using airborne laser scanning technology: Laxemar-simpevarp,
+  sweden}, Hydrogeology Journal 15~(1) (2007) 29--32.
+\newblock \href {https://doi.org/10.1007/s10040-006-0134-0}
+  {\path{doi:10.1007/s10040-006-0134-0}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/s10040-006-0134-0}
+
+\bibitem{ford2007}
+D.~Ford, P.~Williams,
+  \href{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118684986}{Karst
+  Hydrogeology and Geomorphology}, John Wiley & Sons, Ltd, 2007.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118684986}
+
+\bibitem{kresic2013}
+N.~{Kre{\v{s}}i{\'{c}}}, Water in karst: management, vulnerability, and
+  restoration, McGraw-Hill, New York, NY, 2013.
+
+\bibitem{halihan1998}
+T.~Halihan, C.~M. Wicks,
+  \href{http://dx.doi.org/10.1016/S0022-1694(98)00149-8}{Modeling of storm
+  responses in conduit flow aquifers with reservoirs}, Journal of Hydrology
+  208~(1-2) (1998) 82--91.
+\newblock \href {https://doi.org/10.1016/s0022-1694(98)00149-8}
+  {\path{doi:10.1016/s0022-1694(98)00149-8}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1016/S0022-1694(98)00149-8}
+
+\bibitem{saksa2017}
+P.~C. Saksa, M.~H. Conklin, J.~J. Battles, C.~L. Tague, R.~C. Bales,
+  \href{http://dx.doi.org/10.1002/2016WR019240}{Forest thinning impacts on the
+  water balance of sierra nevada mixed{-}conifer headwater basins}, Water
+  Resources Research 53~(7) (2017) 5364--5381.
+\newblock \href {https://doi.org/10.1002/2016wr019240}
+  {\path{doi:10.1002/2016wr019240}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1002/2016WR019240}
+
+\bibitem{riley2022}
+K.~L. Riley, I.~C. Grenfell, J.~D. Shaw, M.~A. Finney,
+  \href{https://academic.oup.com/jof/article/120/6/607/6701541}{Treemap 2016
+  dataset generates conus-wide maps of forest characteristics including live
+  basal area, aboveground carbon, and number of trees per acre}, Journal of
+  Forestry 120~(6) (2022) 607--632.
+\newblock \href {https://doi.org/10.1093/jofore/fvac022}
+  {\path{doi:10.1093/jofore/fvac022}}.
+\newline\urlprefix\url{https://academic.oup.com/jof/article/120/6/607/6701541}
+
+\bibitem{weary2014}
+D.~J. Weary, D.~H. Doctor,
+  \href{https://pubs.usgs.gov/of/2014/1156/pdf/of2014-1156.pdf}{Karst in the
+  united states: A digital map compilation and database}, Tech. rep., Reston,
+  VA, series: Open-File Report (2014).
+\newline\urlprefix\url{https://pubs.usgs.gov/of/2014/1156/pdf/of2014-1156.pdf}
+
+\end{thebibliography}

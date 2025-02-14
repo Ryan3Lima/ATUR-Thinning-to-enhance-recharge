@@ -1,3 +1,4 @@
+
 calculate_start_canopy <- function(end_canopy_cover) {
   # Ensure input is numeric and within valid range
   if (!is.numeric(end_canopy_cover) || any(end_canopy_cover < 0)) {
@@ -10,12 +11,12 @@ calculate_start_canopy <- function(end_canopy_cover) {
   return(start_canopy_cover)
 }
 
+## Example usage
+# Historic Min 10%
+calculate_start_canopy(10)
 
-
-
-# Example usage
-calculate_start_canopy(35)# If end canopy cover is 40%, this returns the starting cover
-
+# ideal min = 23 %
+calculate_start_canopy(23)
 
 calculate_start_basal_area <- function(end_basal_area) {
   # Ensure input is numeric and non-negative
@@ -29,13 +30,61 @@ calculate_start_basal_area <- function(end_basal_area) {
   return(start_basal_area)
 }
 
-# Example usage
-calculate_start_basal_area(18)  # If end basal area is 20 m²/ha, this returns the starting basal area
+## Example usage
+
+# Historic Min = 9.2 m2/ha
+calculate_start_basal_area(9.2)
+
+# historic max = 18 m2/ha
+calculate_start_basal_area(18)
 
 
 
-even_sequence_BA = seq(from = 13.14, to = 25.71, length.out = 10)
-even_sequence_BA
+# Define suitability function for canopy cover
+suitability_canopy <- function(x) {
+  ifelse(x < 1, NA,  
+         ifelse(x <= 12.5, 1,  
+                ifelse(x <= 28.75, (9/16.25) * (x - 12.5) + 1,  
+                       ifelse(x <= 100, 10, NA)  
+                )
+         )
+  )
+}
 
-even_sequence_CC = seq(from = 12.5, to = 28.75, length.out = 10)
-even_sequence_CC
+# Define suitability function for basal area (m²/ha)
+suitability_basal_area <- function(x) {
+  ifelse(x < 1, NA,  
+         ifelse(x <= 13.14, 1,  
+                ifelse(x <= 25.71, (9/12.57) * (x - 13.14) + 1,  
+                       ifelse(x <= 100, 10, NA)  
+                )
+         )
+  )
+}
+
+# Generate values for both plots
+x_canopy <- seq(0, 105, by = 1)
+y_canopy <- sapply(x_canopy, suitability_canopy)
+
+x_basal <- seq(0, 105, by = 1)
+y_basal <- sapply(x_basal, suitability_basal_area)
+
+# Plot both graphs side by side
+par(mfrow=c(1,2))  # Arrange plots side by side
+
+# First plot: Suitability vs. Canopy Cover
+plot(x_canopy, y_canopy, type="l", col="blue", lwd=2, 
+     xlab="Canopy Cover", ylab="Suitability", 
+     main="Suitability vs. Canopy Cover", 
+     ylim=c(0, 11))
+grid()
+
+# Second plot: Suitability vs. Basal Area (m²/ha)
+plot(x_basal, y_basal, type="l", col="red", lwd=2, 
+     xlab="Basal Area (m²/ha)", ylab="Suitability", 
+     main="Suitability vs. Basal Area", 
+     ylim=c(0, 11))
+grid()
+
+# Reset plotting parameters
+par(mfrow=c(1,1))
