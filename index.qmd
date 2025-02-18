@@ -11,9 +11,7 @@ format:
       cite-style: "number"
   elsevier-html:
     toc: true
-  docx:
-    prefer-html: true  # Allows interactive plots in DOCX (not needed for static ggalluvial)
-
+  docx: default
 author:
   - name: "Ryan E Lima"
     orcid: "0000-0002-5352-7215"
@@ -140,62 +138,22 @@ In summary, suitability for sites where thinning enhances recharge would most li
 
 We used ArcGIS Pro 3.4.0 to create a weighted suitability model consisting of the 12 thematic data layers shown in @tbl-thematic . These were re-scaled, weighted, and combined into four final thematic layers: (1) Snow Dominance, (2) Vegetation Density Index, (3) Soil Moisture and Infiltration Index, and (4) Subsurface Infiltration Index (see @tbl-thematic ).
 
-```{r}
-#| echo: false
-#| label: tbl-thematic
-#| fig-format: png
-#| fig-width: 8
-#| fig-height: 5
+| High-Level Index                      | Intermediate Index                          | Thematic Layers                        | Source                                     |
+|----------------------------------------|---------------------------------------------|-----------------------------------------|--------------------------------------------|
+| \-                                      | \-                                           | Snowfall Fraction                      | Patrick Broxton                           |
+| Vegetation Density Index (VDI)         | \-                                           | Basal Area                             | TreeMap 2016                              |
+| Vegetation Density Index (VDI)         | \-                                           | Canopy Cover                           | NLCD 2021                                 |
+| Soil Moisture and Infiltration Index (SMII) | Topographic Relative Moisture Index (TRMI) | Aspect                                 | Derived from 1-Arcsecond DEM              |
+| Soil Moisture and Infiltration Index (SMII) | Topographic Relative Moisture Index (TRMI) | Geomorphon                             | Derived from 1-Arcsecond DEM              |
+| Soil Moisture and Infiltration Index (SMII) | Topographic Relative Moisture Index (TRMI) | Slope                                  | Derived from 1-Arcsecond DEM              |
+| Soil Moisture and Infiltration Index (SMII) | Topographic Relative Moisture Index (TRMI) | Topographic Position Index             | Derived from 1-Arcsecond DEM              |
+| Soil Moisture and Infiltration Index (SMII) | \-                                           | Soil Saturated Hydraulic Conductivity  | ggNATSGO                                  |
+| Subsurface Infiltration Index (SbII)   | \-                                           | Matrix Porosity (Po)                   | GLHYMPS v2                                |
+| Subsurface Infiltration Index (SbII)   | \-                                           | Matrix Permeability (Pm)               | GLHYMPS v2                                |
+| Subsurface Infiltration Index (SbII)   | \-                                           | Lineament Density (LD)                 | Derived from 1-Arcsecond DEM              |
+| Subsurface Infiltration Index (SbII)   | -                                           | Potential Karst or Pseudo Karst (pK)   | Karst in the United States (USGS)         |
 
-# Load required packages
-library(knitr)
-library(kableExtra)
-library(webshot2)  # Required for taking screenshots of HTML tables
-
-# Ensure PhantomJS is installed (only needed once)
-#webshot::install_phantomjs()
-
-# Create dataset
-data <- data.frame(
-  "High-Level Index" = c("-", "Vegetation Density Index (VDI)", "Vegetation Density Index (VDI)", 
-                         "Soil Moisture and Infiltration Index (SMII)", "Soil Moisture and Infiltration Index (SMII)", 
-                         "Soil Moisture and Infiltration Index (SMII)", "Soil Moisture and Infiltration Index (SMII)", 
-                         "Soil Moisture and Infiltration Index (SMII)", "Subsurface Infiltration Index (SbII)", 
-                         "Subsurface Infiltration Index (SbII)", "Subsurface Infiltration Index (SbII)", 
-                         "Subsurface Infiltration Index (SbII)"),
-  "Intermediate Index" = c("-", "-", "-", 
-                           "Topographic Relative Moisture Index (TRMI)", "Topographic Relative Moisture Index (TRMI)", 
-                           "Topographic Relative Moisture Index (TRMI)", "Topographic Relative Moisture Index (TRMI)", 
-                           "-", "-", "-", "-", "-"),
-  "Thematic Layers" = c("Snowfall Fraction", "Basal Area", "Canopy Cover", 
-                        "Aspect", "Geomorphon", "Slope", "Topographic Position Index", 
-                        "Soil Saturated Hydraulic Conductivity", "Matrix Porosity (Po)", 
-                        "Matrix Permeability (Pm)", "Lineament Density (LD)", 
-                        "Potential Karst or Pseudo Karst (pK)"),
-  "Source" = c("Patrick Broxton", "TreeMap 2016", "NLCD 2021", 
-               "Derived from 1-Arcsecond DEM", "Derived from 1-Arcsecond DEM", 
-               "Derived from 1-Arcsecond DEM", "Derived from 1-Arcsecond DEM", 
-               "ggNATSGO", "GLHYMPS v2", "GLHYMPS v2", 
-               "Derived from 1-Arcsecond DEM", "Karst in the United States (USGS)")
-)
-
-# Create the HTML table
-table_html <- kable(data, format = "html", caption = "Thematic Layers and Indices used for suitability mapping") %>%
-  kable_styling(full_width = FALSE)
-
-# Save as an HTML file
-html_file <- tempfile(fileext = ".html")
-save_kable(table_html, file = html_file)
-
-# Convert the HTML table to a PNG image
-image_file <- "table_screenshot.png"
-webshot2::webshot(html_file, file = image_file, zoom = 2)
-
-# Embed the image in Quarto
-knitr::include_graphics(image_file)
-
-
-```
+: Thematic Layers and Indices used for suitability mapping {#tbl-thematic}
 
 #### Snowfall Fraction (SF)
 
@@ -333,7 +291,7 @@ $$ {#eq-Sbii}
 
 ## Weighting
 
-The four final thematic layers: SF, VDI, SMII, SBII were ranked in order of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2 respectively resulting in the final suitability values for thinning to enhance recharge shown in @eq-suit . Parameter weights and index weights are shown in @tbl-w1 , @tbl-w2 and @fig-sankey.
+The four final thematic layers: SF, VDI, SMII, SBII were ranked in order of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2 respectively resulting in the final suitability values for thinning to enhance recharge shown in @eq-suit . Parameter weights and index weights are shown in @tbl-w1 and @tbl-w2 . 
 
 $$
 Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII))$$ {#eq-suit}

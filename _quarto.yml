@@ -11,8 +11,7 @@ format:
     toc: true
     comments:
       hypothesis: true
-  docx:
-    perfer-html: true
+  docx: default
   jats: default
 
 bibliography: bibliography.bib
