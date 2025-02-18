@@ -1,7 +1,9 @@
 project:
   type: manuscript
+
 execute:
   freeze: auto
+
 format:
   elsevier-pdf:
     keep-tex: true
@@ -9,9 +11,8 @@ format:
     toc: true
     comments:
       hypothesis: true
-  docx: default
+  docx:
+    perfer-html: true
   jats: default
 
-
-
-
+bibliography: bibliography.bib

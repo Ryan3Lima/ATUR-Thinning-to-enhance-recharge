@@ -95,6 +95,20 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -147,8 +161,9 @@
 \hypersetup{
   pdftitle={Mapping landscape suitability for forest thinning to reduce evapotranspiration and enhance groundwater recharge in Arizona},
   pdfauthor={Ryan E Lima; Neha Gupta; Travis Zalesky; Temuulen Tsagaan Sankey; Abraham E Springer; Katherine Jacobs},
-  pdfkeywords={Suitability mapping - Forest thinning - Water Resources -
-groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC},
+  pdfkeywords={Suitability mapping, Forest thinning, Water
+Resources, Groundwater recharge, Potential Recharge
+Zones, GIS-MCDA, WLC},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -204,20 +219,20 @@ University},,postcodesep={}}
 Literature on the relationship between forest thinning and water yield
 was used to develop suitability criteria to map where forest treatment
 is most likely to enhance groundwater recharge across the Ponderosa Pine
-(Pinus ponderosa) forests of Arizona. Rechage ponderosa pine forests is
-ephemeral and focused in periods of snowmelt and locations of enhanced
-permeability when soil moisture exceeds threshold levels. Our approach
-combines thematic maps of criteria such as snow dominance, slope,
-aspect,landscape morphology, forest basal area, canopy cover, lineament
-density, lithology and hydrologic soil type into a GIS-Multi-Criteria
-Decision Analysis (GIS-MCDA) model. Individual criteria were grouped
-into indices using Weighted Linear Combinations (WLC). A total of
-863,648 hectares or 46.8\% of the 1.8 million hectares of Ponderosa Pine
-forests were found to be highly suitable for groundwater recharge
-enhancment from forest thinning. Similar approaches and criteria
-selection can be applied to other areas in the Southwestern US and othr
-forest types to identify areas for forest thinning for potential
-recharge benefits.
+(\emph{Pinus ponderosa}) forests of Arizona. Recharge in Ponderosa Pine
+forests is ephemeral and focused in periods of snowmelt and locations of
+enhanced permeability when soil moisture exceeds threshold levels. Our
+approach combines thematic maps of criteria such as snow dominance,
+slope, aspect, landscape morphology, forest basal area, canopy cover,
+lineament density, lithology, and hydrologic soil type into a
+GIS-Multi-Criteria Decision Analysis (GIS-MCDA) model. Individual
+criteria were grouped into indices using Weighted Linear Combinations
+(WLC). A total of 863,648 hectares or 46.8\% of the 1.8 million hectares
+of Ponderosa Pine forests were found to be highly suitable for
+groundwater recharge enhancement from forest thinning. Similar
+approaches and criteria selection can be applied to other areas in the
+Southwestern US and other forest types to identify areas for forest
+thinning for potential recharge benefits.
 \end{abstract}
 
 
@@ -225,10 +240,10 @@ recharge benefits.
 
 
 \begin{keyword}
-    Suitability mapping - Forest thinning - Water Resources -
-groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC \sep 
-    Suitability mapping - Forest thinning - Water Resources -
-groundwater recharge - Potential Recharge Zones - GIS-MCDA - WLC
+    Suitability mapping \sep Forest thinning \sep Water
+Resources \sep Groundwater recharge \sep Potential Recharge
+Zones \sep GIS-MCDA \sep 
+    WLC
 \end{keyword}
 \end{frontmatter}
     
@@ -239,7 +254,7 @@ Warming associated with anthropogenic climate change has led to a
 doubling in the frequency of extreme hydroclimate events in the Colorado
 River Basin since 2010, including droughts, heatwaves, and floods
 \citep{bennett_concurrent_2021}. Since 2000, the Colorado River Basin
-has been in the midst of a historic drought
+has experienced a historic drought
 \citep{meko_treering_2022, williams_rapid_2022}. Over this time period,
 streamflow in the Colorado River has declined by 19\% (3.6E9 \(m^3\))
 relative to the 1906-1999 average (18.7E10 \(m^3\));
@@ -355,10 +370,10 @@ more slowly through diffuse infiltration with little streamflow leaving
 the plateau \citep{jones2018, huntoon1974}.
 
 Most of the Ponderosa Pine forest within the State is within the Kaibab,
-Coconino, Apache-Sitgreaves, and Tonto National forests. Precipitation
+Coconino, Apache-Sitgreaves, and Tonto National Forests. Precipitation
 in Arizona is bi-modal, with wet winters and a late-summer monsoon
 season. As much as 60\% of precipitation at elevations above 1800 m
-comes in the form of snow and snow is responsible for 80 - 95\% of
+comes in the form of snow, and snow is responsible for 80 - 95\% of
 streamflow and much of the recharge
 \citep{baker2013, eastoe2023, earman2006}. Therefore, this research
 focuses on high-elevation (\textgreater1800 m) ponderosa pine forests,
@@ -374,7 +389,7 @@ or sinkholes.
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{images/Study Area Map.jpg}}
+\pandocbounded{\includegraphics[keepaspectratio]{images/Study_area_map.jpg}}
 
 }
 
@@ -433,7 +448,7 @@ sites \citep{biederman_recent_2015, dwivedi2024}.
 Total annual precipitation also appears to influence whether thinning
 reduces or enhances water yield at particular sites. In the Colorado
 River Basin, there appears to be a precipitation threshold at work.
-Below \textasciitilde500 \(mm\) of annual precipitation, precipitation
+Below \textasciitilde500 \(mm\) of annual precipitation, precipitation,
 and runoff may become decoupled \citep{biederman2022}, likely because
 below \textasciitilde500 \(mm\), most precipitation is evaporated
 regardless of forest condition. Semi-arid forests with high inter-annual
@@ -491,19 +506,19 @@ hydraulic conductivity of the rock matrix \citep{kresic2013}. For
 example, the Edwards Aquifer in Texas was found to have permeability
 values that vary by up to nine orders of magnitude \citep{halihan1998}.
 The presence or absence of karst or pseudo karst in concert with
-lineament density are critical criterion made explicit in our
+lineament density is a critical criterion made explicit in our
 suitability analysis.
 
 In summary, suitability for sites where thinning enhances recharge would
 most likely occur in areas with significant snowfall, maximum annual
-precipitation \textgreater= 500mm, higher antecedent soil moisture, NE
-aspects, in valleys or flat areas where a 20\% reduction in canopy cover
-and a 30\% reduction in basal area would result in a thinned canopy
-cover of between 25 and 35\%. Suitability would be lowest in sites with
-minimal snowfall, SW aspects, lower elevations, ridge tops, or steep
-slopes, where thinning might reduce canopy cover to below 24\%. Soil
-Hydraulic Conductivity, flow accumulation, and topographic metrics can
-reveal the areas likely to have higher antecedent soil moisture.
+precipitation \textgreater= 500 \(mm\), higher antecedent soil moisture,
+NE aspects, in valleys or flat areas where a 20\% reduction in canopy
+cover and a 30\% reduction in basal area would result in a thinned
+canopy cover of between 25 and 35\%. Suitability would be lowest in
+sites with minimal snowfall, SW aspects, lower elevations, ridge tops,
+or steep slopes, where thinning might reduce canopy cover to below 24\%.
+Soil Hydraulic Conductivity, flow accumulation, and topographic metrics
+can reveal the areas likely to have higher antecedent soil moisture.
 Lithology, primary permeability and porosity, and lineament density can
 provide insight into where rapid subsurface infiltration is possible.
 
@@ -513,74 +528,35 @@ provide insight into where rapid subsurface infiltration is possible.
 
 We used ArcGIS Pro 3.4.0 to create a weighted suitability model
 consisting of the 12 thematic data layers shown in
-\textbf{?@tbl-Thematic}. These were re-scaled, weighted, and combined
-into four final thematic layers: 1) Snow Dominance, 2) Vegetation
-Density Index, 3) Soil Moisture and Infiltration Index and surface and
-4) Subsurface Infiltration Index (see \textbf{?@tbl-Thematic} ).
+Table~\ref{tbl-thematic} . These were re-scaled, weighted, and combined
+into four final thematic layers: (1) Snow Dominance, (2) Vegetation
+Density Index, (3) Soil Moisture and Infiltration Index, and (4)
+Subsurface Infiltration Index (see Table~\ref{tbl-thematic} ).
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}@{}}
-\caption{Thematic Layers and Indices used for suitability
-mapping\{\#tbl-Thematic\}}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-High-Level Index
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Intermediate Index
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Thematic Layers
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Source
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-High-Level Index
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Intermediate Index
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Thematic Layers
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Source
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-- & - & Snowfall fraction & Patrick Broxton \\
-Vegetation Density Index (VDI) & - & Basal Area & TreeMap 2016 \\
-Vegetation Density Index (VDI) & - & Canopy Cover & NLCD 2021 \\
-Soil moisture and infiltration Index (SMII) & Topographic Relative
-Moisture Index (TRMI) & Aspect & Derived from 1-Arcsecond DEM \\
-Soil moisture and infiltration Index (SMII) & Topographic Relative
-Moisture Index (TRMI) & Geomorphon & Derived from 1-Arcsecond DEM \\
-Soil moisture and infiltration Index (SMII) & Topographic Relative
-Moisture Index (TRMI) & Slope & Derived from 1-Arcsecond DEM \\
-Soil moisture and infiltration Index (SMII) & Topographic Relative
-Moisture Index (TRMI) & Topographic Position Index & Derived from
-1-Arcsecond DEM \\
-Soil moisture and infiltration Index (SMII) & - & Soil Saturated
-Hydraulic Conductivity & ggNATSGO \\
-Subsurface Infiltration Index (SbII) & - & Matrix Porosity (Po) &
-GLHYMPS v2 \\
-Subsurface Infiltration Index (SbII) & - & Matrix Permeability (Pm) &
-GLHYMPS v2 \\
-Subsurface Infiltration Index (SbII) & - & Lineament Density (LD) &
-Derived from 1-Arcsecond DEM \\
-Subsurface Infiltration Index (SbII) & - & Potential Karst or Pseudo
-Karst (pK) & Karst in the United States (USGS) \\
-\end{longtable}
+\begin{table}
+
+\caption{\label{tbl-thematic}}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/tbl-thematic-1.png}}
+
+\includegraphics[width=6.19in,height=\textheight,keepaspectratio]{table_screenshot.png}
+
+}
+
+\end{table}%
+
+\textsubscript{Source:
+\href{https://Ryan3Lima.github.io/ATUR-Thinning-to-enhance-recharge/index.qmd.html}{Article
+Notebook}}
 
 \paragraph{Snowfall Fraction (SF)}\label{snowfall-fraction-sf}
 
 Snowfall Fraction (SF) is the percent of annual precipitation that comes
 in the form of snow based on measures of Snow Water Equivalent SWE,
 PRISM, and CONUS 404 data produced by the University of Arizona. Snow
-has an outsized role in recharge at elevations over 1800 m in Arizona
+has an out-sized role in recharge at elevations over 1800 m in Arizona
 \citep{eastoe2007, eastoe2023, baker2013, earman2006} and snow dominance
 appears to be an important factor in whether thinning enhances recharge
 \citep{adams_ecohydrological_2012, carroll_evaluating_2016, saksa2017}.
@@ -589,19 +565,19 @@ relative to rainfall or higher SF.
 
 \paragraph{Canopy Cover (sCC)}\label{canopy-cover-scc}
 
-Canopy Cover was obtained from the 2021 National Land Cover Database ,
-which provides an estimate of Total Canopy Cover at a 30m resolution.
-Canopy cover values ranged from 0\% - 86\%. NLCD Total canopy cover was
-reclassified to a 1-10 scale based on suitability for thinning to
-enhance recharge. We set a value for 1 for all forests with canopy cover
-\textless= 12.5\% because this is the minimum required for a 20\%
-reduction in canopy cover with a resulting canopy cover \textgreater=
-the pre-settlement historic minimum canopy cover of 10\%. Suitability
-then scales linearly to 10 for percent cover \textgreater= 28.75\%.
-Based on the studies that found 23\% to 35\% as the ideal canopy cover
-range for retaining snow, and a required 20\% reduction in canopy cover.
-All cells with canopy cover above 28.75\% are given a 10 for suitability
-resulting in the scaled canopy cover (sCC) layer.
+Canopy Cover was obtained from the 2021 National Land Cover Database,
+which estimates Total Canopy Cover at a 30m resolution. Canopy cover
+values ranged from 0\% - 86\%. NLCD Total canopy cover was reclassified
+to a 1-10 scale based on suitability for thinning to enhance recharge.
+We set a value for 1 for all forests with canopy cover \textless=
+12.5\%. This is the minimum required for a 20\% reduction in canopy
+cover with a resulting canopy cover \textgreater= the pre-settlement
+historic minimum canopy cover of 10\%. Suitability then scales linearly
+to 10 for percent cover \textgreater= 28.75\%. Based on the studies
+found 23\% to 35\% as the ideal canopy cover range for retaining snow
+and a required 20\% reduction in canopy cover. All cells with canopy
+cover above 28.75\% are given a 10 for suitability resulting in the
+scaled canopy cover (sCC) layer.
 
 \paragraph{Basal Area (sBA)}\label{basal-area-sba}
 
@@ -609,13 +585,12 @@ We extracted basal area estimates from the TreeMap 2016
 \citep{riley2022} CONUS dataset with a resolution of 30 meters.
 Estimates of pre-settlement ponderosa pine forest basal area were
 between 9.2 and 18 \(m^2 ha^-1\) Since basal area reductions of at least
-30\% are required to see increases in water yield. To remove 30\% of the
-basal area and have thinned forests remain within the historical range
-of pre-settlement forest density all cells with basal areas of 13.14
+30\% are required to increase water yield. To remove 30\% of the basal
+area and have thinned forests remain within the historical range of
+pre-settlement forest density all cells with basal areas of 13.14
 \(m^2 ha^-1\) or less were given a value of 1, suitability then
-increases in a linear fashion til it reaches 10 at a basal areas
-\textgreater= 25.71 \(m^2 ha^-1\) resulting in the scaled basal area
-thematic layer (sBA)
+increased linearly til it reached 10 at basal areas \textgreater= 25.71
+\(m^2 ha^-1\) resulting in the scaled basal area thematic layer (sBA)
 
 \phantomsection\label{cell-fig-veg}
 \begin{figure}[H]
@@ -639,11 +614,11 @@ Notebook}}
 (VDI)}\label{vegetation-density-index-vdi}
 
 Scaled basal area (sBA) and scaled canopy cover (sCC) were combined with
-a linear weights of 0.6667 and 0.3333 respectively to create the
-vegetation density index (VDI) shown in Equation~\ref{eq-vdi}. This
-reflects the fact that reductions in basal area are more likely
-correlated with reductions in ET, while canopy cover primarily affects
-precipitaiton partioning and sub-canopy solar radiation.
+linear weights of 0.6667 and 0.3333, respectively, to create the
+vegetation density index (VDI) shown in @eq-vdi. This reflects the fact
+that reductions in basal area are more likely correlated with reductions
+in ET, while canopy cover primarily affects precipitation partitioning
+and sub-canopy solar radiation.
 
 \begin{equation}\phantomsection\label{eq-vdi}{
 VDI  = ( sBA* 0.6667)) + (sCC * 0.3333)
@@ -718,10 +693,10 @@ Topographic Relative Moisture Index (b).}
 Permeability and Porosity values were extracted from the GLobal
 Hydrogeology MaPS 2.0 (GLHYMPS v2) dataset \citep{huscroft2018}. Our
 study area contained 11,057 polygons with values for saturated
-log-permeability ranging from -16 to -10, and porosity values ranging
+log-permeability ranging from -16 to -10 and porosity values ranging
 from 0.01 - 0.28 (Figure~\ref{fig-perm} ). The attribute values were
-extracted and the polygons were rasterized at a 30m resolution, then
-re-scaled to values (1-10) as shown in \textbf{?@tbl-glhymps} .
+extracted, the polygons were rasterized at a 30m resolution, and then
+re-scaled to values (1-10) as shown in Table~\ref{tbl-glhymps} .
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2603}}
@@ -729,7 +704,7 @@ re-scaled to values (1-10) as shown in \textbf{?@tbl-glhymps} .
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2466}}@{}}
 \caption{Classification and rescaling of GLHYMPS v2 data for suitability
-mapping\{\#tbl-glhymps\}}\tabularnewline
+mapping}\label{tbl-glhymps}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Log\emph{k} x 100 (Permeability)
@@ -788,7 +763,7 @@ tiles available from the national map. Topographic Position Index (TPI)
 provides estimates of relative neighborhood convexity and concavity and
 was calculated using a circular neighborhood with a radius of 5m. The
 TPI layer was then displayed as a multi-directional hillshade and
-exported from ArcGIS to Catalyst where the LINE module was used to
+exported from ArcGIS to Catalyst, where the LINE module was used to
 detect edges and link lines. The Default parameters were utilized, and
 the resulting lineaments were brought into ArcGIS and cleaned to remove
 any edge effects. A second lineament analysis was conducted using the
@@ -797,14 +772,14 @@ radius of 5m. This raster was also displayed as a multi-directional
 hillshade and exported, and lineaments were again extracted using the
 LINE module. These two rasters provided complementary sets of combined
 lineaments. Due to the resolution and parameters chosen, man-made
-lineaments (roads, railways, and power lines) were not largely
+lineaments (roads, railways, and power lines) were not primarily
 delineated by the algorithm in either analysis; however, buffers around
 roads were randomly sampled and spot-checked to ensure man-made
 lineaments were not included. The extracted lineaments are shown in
 Figure~\ref{fig-linpk} . The Line Density tool in ArcGIS Pro was used to
 calculate the density of lineaments using a circular neighborhood with a
-radius of 1km providing lineament density values between 0.001 and 5.55
-km/km\^{}2, these values were scaled to values 1 - 10 to provide the
+radius of 1km, providing lineament density values between 0.001 and 5.55
+km/km\^{}2; these values were scaled to values 1 - 10 to provide the
 thematic layer Lineament Density (LD)
 
 \paragraph{Potential Karst or Pseudo-Karst
@@ -820,7 +795,7 @@ to a 30m raster, and classified and assigned values based on their
 potential for enhanced recharge through faults, fractures, sinkholes, or
 caves. The classes were Non-karst = 2, Volcanics with potential karst or
 pseudo--karst (such as lava tubes) = 5, Evaporites at or near the
-surface = 7, and Carbonates at or near the surface = 10 resulting in a
+surface = 7, and Carbonates at or near the surface = 10, resulting in a
 scaled potential karst layer (spK) as shown in Figure~\ref{fig-linpk}
 
 \begin{figure}
@@ -831,9 +806,9 @@ scaled potential karst layer (spK) as shown in Figure~\ref{fig-linpk}
 
 }
 
-\caption{\label{fig-linpk}Lineaments (left) are indicative of
-fracturing, higher secondary permeability and porosity. Presence or
-Absence of karst or Pseudo-karst (Right)}
+\caption{\label{fig-linpk}Lineaments (left) indicate fracturing, higher
+secondary permeability, and porosity. Presence or Absence of karst or
+Pseudo-karst (Right)}
 
 \end{figure}%
 
@@ -841,8 +816,8 @@ Absence of karst or Pseudo-karst (Right)}
 (SbII)}\label{subsurface-infiltration-index-sbii}
 
 This index is a weighted linear combination of sPm, sPo, LD, and sPK,
-with weights 0.4, 0.25, 0.15, and 0.2 respectivly, the equation is shown
-below Equation~\ref{eq-Sbii}
+with weights 0.4, 0.25, 0.15, and 0.2 respectively, the equation is
+shown below Equation~\ref{eq-Sbii}
 
 \begin{equation}\phantomsection\label{eq-Sbii}{
 SbII = ((sPm * 0.4) + (sPo * 0.25) + (LD * 0.15) + (sPK * 0.2))
@@ -853,19 +828,20 @@ SbII = ((sPm * 0.4) + (sPo * 0.25) + (LD * 0.15) + (sPK * 0.2))
 The four final thematic layers: SF, VDI, SMII, SBII were ranked in order
 of importance and assigned weights of 0.2, 0.2, 0.4, and 0.2
 respectively resulting in the final suitability values for thinning to
-enhance recharge shown in \textbf{?@eq-suit.Paramter} weights and index
-weights are shown in \textbf{?@tbl-w1} and \textbf{?@tbl-w2}.
+enhance recharge shown in Equation~\ref{eq-suit} . Parameter weights and
+index weights are shown in Table~\ref{tbl-w1} , Table~\ref{tbl-w2} and
+\textbf{?@fig-sankey}.
 
 \begin{equation}\phantomsection\label{eq-suit}{
 Final Suitability = ((0.2 * SF) + (0.2 * VDI) + (0.4 * SMII) + (0.2 * SbII))}\end{equation}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1918}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2329}}@{}}
-\caption{Table of Parameter Weights\{\#tbl-w1\}}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\caption{Table of Parameter Weights}\label{tbl-w1}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Total Weight
@@ -911,11 +887,11 @@ Parameter
 \end{longtable}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2778}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1111}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1111}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5000}}@{}}
-\caption{Table of Index Weights\{\#tbl-w2\}}\tabularnewline
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2740}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1096}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1096}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.5068}}@{}}
+\caption{Table of Index Weights}\label{tbl-w2}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Suitability Weight
@@ -942,7 +918,7 @@ Index
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-26.67\% & 0.40 & 0.67 & Topographic Relative Mosture Index \\
+26.67\% & 0.40 & 0.67 & Topographic Relative Moisture Index \\
 20.00\% & 0.20 & - & Vegetation Density Index \\
 20.00\% & 0.20 & - & Subsurface Infiltration Index \\
 40.00\% & 0.40 & - & Soil Moisture Infiltration Index \\
@@ -951,23 +927,23 @@ Index
 \subsection{Sensitivity Analysis}\label{sensitivity-analysis}
 
 A sensitivity analysis was conducted on a subset of the data using a
-One-at-a-time (OAT) analysis where each paramter was systematically
-removed and each index along with the final suitability map was
-recalculated. RESULTS PENDING.
+One-at-a-time (OAT) analysis, where each parameter was systematically
+removed and each index, along with the final suitability map, was
+recalculated. RESULTS ARE PENDING.
 
 \section{Results}\label{results}
 
 The study area contained 1.8 million hectares of Ponderosa Pine forest.
 Approximately 26\% (473,458 hectares) of the ponderosa pine forest was
 deemed highly suitable for thinning to enhance recharge with suitability
-values between 6.48 and 8.85 (out of 10), a further 33\% of the
+values between 6.48 and 8.85 (out of 10); a further 33\% of the
 ponderosa pine forest can be considered suitable for thinning to enhance
 recharge (610,013 hectares) with suitability values between 5.42 and
 6.48 (Figure~\ref{fig-finsuit} ). The remainder of the ponderosa pine
 forest is moderate suitability, low suitability, or not suitable for
 thinning to enhance recharge 41.28\% (761,781 hectares). Only about 3\%
-of the ponderosa pine forest classified as very high and high
-suitability fall within wilderness boundaries.
+of the ponderosa pine forest is classified as very high, highly
+suitable, and within wilderness boundaries.
 
 \begin{figure}
 
@@ -989,7 +965,7 @@ where forest thinning could enhance groundwater recharge. The
 methodology here is adaptable and could be implemented in other
 semi-arid forested regions. More work is needed to validate suitability
 maps using Process-Based Hydrologic Models. Groundwater is and always
-has been difficult to monitor and measure. However springs, are
+has been difficult to monitor and measure. However, springs are
 convenient locations to monitor the effects of land management on
 groundwater recharge. Though tracer studies are needed to connect
 specific springs to particular recharge areas, continuous monitoring of
@@ -1000,28 +976,35 @@ recharge and help validate suitability analyses.
 Forest thinning is already planned in over 1 million hectares of
 Arizona's Ponderosa Pine forest. Thinning is intended primarily to
 reduce the risk of catastrophic wildfire, protect forest resources,
-enhance surface water provisioning and improve habitat. However we have
-also demonstrated that in much of the ponderosa pine forest, thinning is
-likely to enhance groundwater recharge. As water managers across the
-state struggle to secure new water supplies to meet the demands of
+enhance surface water provisioning and improve habitat. However, we have
+also demonstrated that thinning is likely to enhance groundwater
+recharge in much of the ponderosa pine forest. As water managers across
+the state struggle to secure new water supplies to meet the demands of
 population growth and maintain the agricultural economy, insecurity in
-supplies from the Colorado River mean that more and more water users are
-turning to groundwater to fill the gap. Increased interest in thinning
-for the purpose of enhancing recharge could encourage land managers to
-increase the pace of restoration and find alternative funding sources
-for forest restoration.
+supplies from the Colorado River means that more and more water users
+are turning to groundwater to fill the gap. Increased interest in
+thinning to enhance recharge could encourage land managers to increase
+the pace of restoration and find alternative funding sources for forest
+restoration.
 
-The Forest Service has a mandate to manage for multiple uses; however,
-groundwater recharge is not currently an explicitly managed use.
-Analyses like these can help identify areas that could be managed with
-aquifer recharge in mind.
+The Forest Service is mandated to manage for multiple uses; however,
+groundwater recharge is not currently an explicitly managed use. In
+2014, the US Forest Service introduced a proposed directive that would
+mandate the consideration of groundwater resources within its
+activities. However, push-back from stakeholders and state water
+management agencies led to the withdrawal of this directive, with the
+Forest Service vowing to start over and develop ways to include
+groundwater resources within their
+planning\citep{house_agriculture_committee_2014, lexology_groundwater_directive_2014, us_forest_service_2014}.
+This analyses offers an avenue for considering groundwater recharge
+among a host of other benefits to forests.
 
 One of the main challenges in mapping suitability at landscape scales is
-the lack of high resolution data. Arizona lacks detailed hydrogeologic
+the lack of high-resolution data. Arizona lacks detailed hydrogeologic
 mapping throughout much of the state. The State Geologic map within the
 State Geologic Mapping Compilation contains geologic units and faults
-mapped to the 1:500,000 scale. However digitized lineaments,
-particularly faults are limited to very large faults state-wide and are
+mapped to the 1:500,000 scale. However, digitized lineaments,
+particularly faults, are limited to very large faults state-wide and are
 almost completely absent in the North Eastern part of the state on the
 Navajo Nation and Colorado Plateau.
 
